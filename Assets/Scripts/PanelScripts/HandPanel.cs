@@ -40,6 +40,30 @@ public class HandPanel : Panel
         numOfSelection = 0;
         playHandButton.interactable = false;
     }
+    
+    public void SortByRank()
+    {
+        // Debug.Log("Prev Sort by Rank: " + cardsInPanel);
+        cardsInPanel.Sort((card1, card2) => card1.GetComponent<CardData>().SortByRank(card2.GetComponent<CardData>()));
+        // Debug.Log("After Sort by Rank: " + cardsInPanel);
+        for (int i = 0; i < cardsInPanel.Count; i++)
+        {
+            cardsInPanel[i].transform.parent.SetSiblingIndex(i);
+            cardsInPanel[i].cardVisuals.UpdateIndex(cardsInPanel.Count);
+        }
+    }
+
+    public void SortBySuit()
+    {
+        // Debug.Log("Prev Sort by Suit: " + cardsInPanel);
+        cardsInPanel.Sort((card1, card2) => card1.GetComponent<CardData>().SortBySuit(card2.GetComponent<CardData>()));
+        // Debug.Log("After Sort by Suit: " + cardsInPanel);
+        for (int i = 0; i < cardsInPanel.Count; i++)
+        {
+            cardsInPanel[i].transform.parent.SetSiblingIndex(i);
+            cardsInPanel[i].cardVisuals.UpdateIndex(cardsInPanel.Count);
+        }
+    }
 
     protected override void SelectCard(Card card, bool isSelected, Panel panel)
     {

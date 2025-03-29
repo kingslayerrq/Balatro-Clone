@@ -106,6 +106,8 @@ public class CardVisuals : MonoBehaviour
         isInitialized = true;
     }
 
+    #region CardVFX
+
     /// <summary>
     /// Curve Hand Panel Cards
     /// </summary>
@@ -158,6 +160,8 @@ public class CardVisuals : MonoBehaviour
 
         tiltParent.eulerAngles = new Vector3(lerpX, lerpY, lerpZ);
     }
+    
+    #endregion
 
     #region Parent Card Event Handlers
 

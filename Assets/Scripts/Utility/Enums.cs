@@ -37,4 +37,10 @@ public class Enums
         Deck,
         Basic
     }
+
+    public enum CardCompareType
+    {
+        Rank,
+        Suit
+    }
 }
