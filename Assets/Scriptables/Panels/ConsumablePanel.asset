@@ -17,5 +17,6 @@ MonoBehaviour:
   maxSize: 2
   maxSelectionSize: 1
   allowCurve: 0
-  allowSwap: 0
+  allowSwap: 1
+  allowDrag: 1
   cardReturnTransition: 0.15

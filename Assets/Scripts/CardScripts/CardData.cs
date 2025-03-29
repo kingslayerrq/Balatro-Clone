@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 
@@ -8,7 +9,13 @@ public class CardData : MonoBehaviour, IComparable
     public BaseCardParameters baseCardParameters;
 
     [Header("References")] 
-    private Card _card;
+    public Card card;
+
+    [Header("Score Parameters")] 
+    [Tooltip("Can this card be scored at all")]
+    public bool canScore = false;
+    public bool wasScored = false;
+    public UnityEvent<Card, bool> onScoreCheckEvent = new UnityEvent<Card, bool>();
     
     [Header("Card Data Parameters")]
     public string id;
@@ -29,7 +36,7 @@ public class CardData : MonoBehaviour, IComparable
 
     private void Start()
     {
-        _card = GetComponent<Card>();
+        card = GetComponent<Card>();
     }
 
     private void InjectData(BaseCardParameters cardParam)
@@ -44,6 +51,10 @@ public class CardData : MonoBehaviour, IComparable
         triggerCounts = cardParam.triggerCounts;
         sprite = cardParam.sprite;
     }
+
+
+
+    #region Sort Methods
 
     
 
@@ -67,7 +78,7 @@ public class CardData : MonoBehaviour, IComparable
         }
 
         return this.suit.CompareTo(other.suit) != 0 ? this.suit.CompareTo(other.suit) : 
-               this._card.GetParentIndex().CompareTo(other._card.GetParentIndex());
+               this.card.GetParentIndex().CompareTo(other.card.GetParentIndex());
     }
     public int SortBySuit(CardData other)
     {
@@ -78,6 +89,7 @@ public class CardData : MonoBehaviour, IComparable
         }
         
         return this.rank.CompareTo(other.rank) != 0 ? this.rank.CompareTo(other.rank) : 
-            this._card.GetParentIndex().CompareTo(other._card.GetParentIndex());
+            this.card.GetParentIndex().CompareTo(other.card.GetParentIndex());
     }
+    #endregion
 }

@@ -19,6 +19,8 @@ public abstract class Panel: MonoBehaviour
     public bool allowSwap = true;
     [Tooltip("Should the cards be curved in this panel")]
     public bool allowCurve = true;
+    public bool allowDrag = true;
+    public bool allowSelect = true;
     [SerializeField] private float cardReturnTransition = 0.15f;
     
     [Header("Panel Info")]
@@ -71,6 +73,7 @@ public abstract class Panel: MonoBehaviour
         maxSelectionSize = panelParameters.maxSelectionSize;
         cardReturnTransition = panelParameters.cardReturnTransition;
         allowCurve = panelParameters.allowCurve;
+        allowDrag = panelParameters.allowDrag;
     }
 
     protected virtual void Update()
@@ -125,7 +128,6 @@ public abstract class Panel: MonoBehaviour
 
     protected virtual void PointerEnter(Card card, Panel panel)
     {
-        Debug.LogWarning("this is: " + this + " panel is: " + panel);
         if (panel != this) return;
         hoverCard = card;
     }
@@ -167,6 +169,7 @@ public abstract class Panel: MonoBehaviour
     /// </summary>
     /// <param name="card"></param>
     /// <param name="isSelected"></param>
+    /// <param name="panel"></param>
     protected virtual void SelectCard(Card card, bool isSelected, Panel panel)
     {
         if (panel != this) return;
@@ -188,11 +191,16 @@ public abstract class Panel: MonoBehaviour
         if (panel != this) return;
         if (!cardsInPanel.Contains(card))
         {
+            // Debug.LogWarning("PrecurveY: " + card.cardVisuals.curveYOffset + "curverot: " + card.cardVisuals.curveRotationOffset);
             cardsInPanel.Add(card);
             card.transform.parent.SetParent(this.transform);
-            card.transform.localPosition = Vector3.zero;
-            card.transform.localRotation = Quaternion.identity;
+            // !!! IMPORTANT
+            card.cardVisuals.curveRotationOffset = 0;
+            
             card.cardVisuals.UpdateIndex(this.transform.childCount);
+            // Debug.LogWarning("After curveY: " + card.cardVisuals.curveYOffset + "curverot: " + card.cardVisuals.curveRotationOffset);
+            //card.cardVisuals.stopFollow = false;
+            
         }
         
     }

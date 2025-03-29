@@ -917,8 +917,14 @@ MonoBehaviour:
   numOfSelection: 0
   hoverCard: {fileID: 0}
   highlightedCard: {fileID: 0}
+  playCardGap: 0.2
   playHandButton: {fileID: 817195355}
-  playHandEvent:
+  sortRankButton: {fileID: 0}
+  sortSuitButton: {fileID: 0}
+  playCardEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  handPlayedEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &619394800
@@ -1450,7 +1456,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 988975580}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1517,6 +1523,8 @@ GameObject:
   - component: {fileID: 1071499411}
   - component: {fileID: 1071499410}
   - component: {fileID: 1071499413}
+  - component: {fileID: 1071499414}
+  - component: {fileID: 1071499415}
   m_Layer: 5
   m_Name: PlayedCardPanel
   m_TagString: Untagged
@@ -1631,6 +1639,32 @@ MonoBehaviour:
   numOfSelection: 0
   hoverCard: {fileID: 0}
   highlightedCard: {fileID: 0}
+--- !u!114 &1071499414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071499408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1160b0bc94e334c359249b3c8c2635a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curChips: 0
+  curMults: 0
+--- !u!114 &1071499415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071499408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0158768d9f07e4fc388b700d0a608f70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1147682861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2277,7 +2311,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1695552052}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -2901,6 +2935,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 34156224}
     m_Modifications:
+    - target: {fileID: 4897144149035123450, guid: 3dec01d9aa3884c9c96f4a06b5cba31b, type: 3}
+      propertyPath: playCardGap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4897144149035123450, guid: 3dec01d9aa3884c9c96f4a06b5cba31b, type: 3}
       propertyPath: playHandButton
       value: 

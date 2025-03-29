@@ -20,7 +20,8 @@ public class CardVisuals : MonoBehaviour
     [Tooltip("Separate parent obj from actual card")]
     [SerializeField] private Transform tiltParent;
     [SerializeField] private Transform shakeParent;
-    [SerializeField] private Image cardImage;
+    public Image cardImage;
+    public Color originalColor;
     public Transform cardShadow;
     private Canvas _shadowCanvas;
     private Vector2 _shadowDistance;
@@ -28,7 +29,6 @@ public class CardVisuals : MonoBehaviour
     [SerializeField] private Vector3 originalScale;
 
     [Header("Movement and Rotation Settings")]
-    public bool stopFollow = false;
     [SerializeField] private float followSpeed = 50f;
     [SerializeField] private float rotationAmount = 20f;
     [SerializeField] private float rotationSpeed = 50f;
@@ -61,9 +61,9 @@ public class CardVisuals : MonoBehaviour
     [Header("Curve")]
     [SerializeField] private CurveParameters curve;
 
-    private float curveYOffset;
-    private float curveRotationOffset;
-    private Coroutine pressCoroutine;
+    public  float curveYOffset;
+    public float curveRotationOffset;
+    //private Coroutine pressCoroutine;
     #endregion
 
     private void Start()
@@ -90,6 +90,7 @@ public class CardVisuals : MonoBehaviour
         indexInHand = parentCard.GetParentIndex();
         originalScale = GetComponent<RectTransform>().localScale;
         cardImage.sprite = target.cardData.sprite;
+        originalColor = cardImage.color;
         
         //Event Listening
         Card.pointerEnterEvent.AddListener(PointerEnter);
@@ -114,7 +115,6 @@ public class CardVisuals : MonoBehaviour
     private void HandCurvePositioning()
     {
         if (!parentCard.curPanel.allowCurve) return;
-        
         curveYOffset = (curve.positioning.Evaluate(parentCard.NormalizedPosition()) * curve.positioningInfluence) *
                        (parentCard.curPanel.cardsInPanel.Count - 1);
         curveYOffset = (parentCard.curPanel.cardsInPanel.Count - 1) < 5 ? 0 : curveYOffset;
@@ -123,7 +123,7 @@ public class CardVisuals : MonoBehaviour
     private void SmoothFollow()
     {
         // Omit Offset when dragging / stop followed / the panel disables curve
-        bool omit = (parentCard.isDragging || stopFollow || !parentCard.curPanel.allowCurve);
+        bool omit = (parentCard.isDragging  || !parentCard.curPanel.allowCurve);
         Vector3 verticalOffset = Vector3.up * (omit ? 0 : curveYOffset);
         this.transform.position = Vector3.Lerp(this.transform.position, parentCard.transform.position + verticalOffset,
             followSpeed * Time.deltaTime);
@@ -131,7 +131,7 @@ public class CardVisuals : MonoBehaviour
 
     private void FollowRotation()
     {
-        if (stopFollow) return;
+
         Vector3 movement = (transform.position - parentCard.transform.position);
         movementDelta = Vector3.Lerp(movementDelta, movement, 25 * Time.deltaTime);
         Vector3 movementRotation = (parentCard.isDragging ? movementDelta : movement) * rotationAmount;
@@ -149,7 +149,7 @@ public class CardVisuals : MonoBehaviour
         Vector3 offset = this.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float tiltX = parentCard.isHovering ? (offset.y * -1) * manualTiltAmount : 0;
         float tiltY = parentCard.isHovering ? (offset.x) * manualTiltAmount : 0;
-        float tiltZ = parentCard.isDragging
+        float tiltZ = (parentCard.isDragging )
             ? tiltParent.eulerAngles.z
             : (curveRotationOffset * (curve.rotationInfluence * (parentCard.curPanel.cardsInPanel.Count - 1)));
         float lerpX = Mathf.LerpAngle(tiltParent.eulerAngles.x, tiltX + (sine * autoTiltAmount),

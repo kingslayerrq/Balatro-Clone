@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
+using WaitForSecondsRealtime = UnityEngine.WaitForSecondsRealtime;
 
 [RequireComponent(typeof(CardData))]
 public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler,
@@ -40,6 +41,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeedLimit = 50f;
+    
 
     [Header("Card Visuals")]
     public GameObject cvPrefab;
@@ -78,12 +80,13 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         jokerPanel = JokerPanel.Instance;
         playedCardPanel = PlayedCardPanel.Instance;
         
-        // Events
+        // Add Event handlers
         if (handPanel != null)
         {
-            Debug.Log("Added" + handPanel);
-            handPanel.playHandEvent.AddListener(Played);
+            handPanel.playCardEvent.AddListener(Played);
         }
+        cardData.onScoreCheckEvent.AddListener(ScoreCheckHandler);
+        
     }
 
     private void Update()
@@ -134,6 +137,8 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (!curPanel.allowDrag) return;
+        
         beginDragEvent.Invoke(this, curPanel);
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _pointerOffset = mousePosition - (Vector2)transform.position;
@@ -146,6 +151,8 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (!curPanel.allowDrag) return;
+        
         endDragEvent.Invoke(this, curPanel);
         isDragging = false;
         _canvas.GetComponent<GraphicRaycaster>().enabled = true;
@@ -219,20 +226,30 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         if (card == this)
         {
             isSelected = false;
+            
+            // update panel
             this.curPanel = targetPanel;
+            
             reparentPanelEvent.Invoke(this, targetPanel);
-            
-            // stop calculation of curve positioning when parenting to different panel
-            this.cardVisuals.stopFollow = true;
-
-            StartCoroutine(StopFollow());
-            
         }
+        
+        
+    }
 
-        IEnumerator StopFollow()
+    
+    private void ScoreCheckHandler(Card card, bool canScore)
+    {
+        if (card != this) return;
+
+        if (canScore)
         {
-            yield return new WaitForEndOfFrame();
-            this.cardVisuals.stopFollow = false;
+            selectEvent.Invoke(this, true, curPanel);
+            this.transform.localPosition += cardVisuals.transform.up * selectedOffset;
+        }
+        else
+        {
+            // set to gray
+            cardVisuals.cardImage.color = Color.Lerp(cardVisuals.originalColor, Color.gray, 1f);
         }
     }
     

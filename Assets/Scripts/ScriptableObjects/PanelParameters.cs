@@ -16,6 +16,8 @@ public class PanelParameters : ScriptableObject
     
     [Tooltip("Can player adjust cards indexes")]
     public bool allowSwap = true;
+
+    public bool allowDrag = true;
     
     public float cardReturnTransition = 0.15f;
 }

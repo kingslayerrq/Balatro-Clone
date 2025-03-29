@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ScoreCalculator))]
 public class PlayedCardPanel : Panel
 {
     public static PlayedCardPanel Instance;
+    private ScoreCalculator _scoreCalculator;
 
     protected override void Awake()
     {
@@ -18,16 +20,22 @@ public class PlayedCardPanel : Panel
     {
         base.Start();
         
+        _scoreCalculator = GetComponent<ScoreCalculator>();
         
-        
-
+        HandPanel.Instance.handPlayedEvent.AddListener(PlayedHandHandler);
     }
 
-    protected override void EndDrag(Card card, Panel panel)
+
+    private void PlayedHandHandler(Panel panel)
     {
-        base.EndDrag(card, panel);
-    }
+        if (panel != this) return;
 
-    
-    
+        foreach (Card card in cardsInPanel)
+        {
+            card.cardVisuals.UpdateIndex(cardsInPanel.Count);
+        }
+        
+        // Calculate Score
+        StartCoroutine(_scoreCalculator.CalculateScore(cardsInPanel));
+    }
 }

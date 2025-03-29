@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
@@ -9,8 +10,14 @@ using UnityEngine.UI;
 public class HandPanel : Panel
 {
     public static HandPanel Instance;
+    
+    [SerializeField] private float playCardGap = 0.5f;
+    
     [SerializeField] private Button playHandButton;
-    [HideInInspector] public UnityEvent<Card, Panel> playHandEvent = new UnityEvent<Card, Panel>();
+    [SerializeField] private Button sortRankButton;
+    [SerializeField] private Button sortSuitButton;
+    [HideInInspector] public UnityEvent<Card, Panel> playCardEvent = new UnityEvent<Card, Panel>();
+    [HideInInspector] public UnityEvent<Panel> handPlayedEvent = new UnityEvent<Panel>(); 
 
     protected override void Awake()
     {
@@ -22,23 +29,37 @@ public class HandPanel : Panel
         
     }
 
+    #region Hand Panel Button Func
+    
     /// <summary>
     /// Invoke PlayHand event
     /// Clear the selection list
     /// </summary>
     public void PlayHand()
     {
-        foreach (var card in cardsInSelection)
+        StartCoroutine(PlayCardCoroutine());
+
+        IEnumerator PlayCardCoroutine()
         {
-            Debug.LogWarning("Invoked" + card.name);
-            playHandEvent.Invoke(card, PlayedCardPanel.Instance);
-            cardsInPanel.Remove(card);
+            // Sort the card based on their x position
+            cardsInSelection.Sort(((card1, card2) => card1.transform.position.x.CompareTo(card2.transform.position.x)));
+            
+            foreach (var card in cardsInSelection)
+            {
+                playCardEvent.Invoke(card, PlayedCardPanel.Instance);
+                cardsInPanel.Remove(card);
+            
+                yield return new WaitForSecondsRealtime(playCardGap);
+            }
+            // clear hand
+            cardsInSelection.Clear();
+            numOfSelection = 0;
+            
+            playHandButton.interactable = false;
+            
+            // trigger event after all cards has been played
+            handPlayedEvent.Invoke(PlayedCardPanel.Instance);
         }
-        
-        // clear hand
-        cardsInSelection.Clear();
-        numOfSelection = 0;
-        playHandButton.interactable = false;
     }
     
     public void SortByRank()
@@ -64,6 +85,9 @@ public class HandPanel : Panel
             cardsInPanel[i].cardVisuals.UpdateIndex(cardsInPanel.Count);
         }
     }
+
+    #endregion
+
 
     protected override void SelectCard(Card card, bool isSelected, Panel panel)
     {
