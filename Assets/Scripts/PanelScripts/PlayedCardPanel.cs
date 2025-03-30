@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayedCardPanel : Panel
 {
     public static PlayedCardPanel Instance;
+
+    private HandPanel _handPanel;
     private ScoreCalculator _scoreCalculator;
 
     protected override void Awake()
@@ -22,7 +24,12 @@ public class PlayedCardPanel : Panel
         
         _scoreCalculator = GetComponent<ScoreCalculator>();
         
-        HandPanel.Instance.handPlayedEvent.AddListener(PlayedHandHandler);
+        _handPanel = HandPanel.Instance;
+
+        if (_handPanel != null)
+        {
+            _handPanel.handPlayedEvent.AddListener(PlayedHandHandler);
+        }
     }
 
 

@@ -38,9 +38,21 @@ public class Enums
         Basic
     }
 
-    public enum CardCompareType
+    public enum BasePokerHandType
     {
-        Rank,
-        Suit
+        None = 0,
+        HighCard = 1,
+        Pair = 2,
+        TwoPair = 3,
+        ThreeOfAKind = 4,
+        Straight = 5,
+        Flush = 6,
+        FullHouse = 7,
+        FourOfAKind = 8,
+        StraightFlush = 9,
+        RoyalFlush = 10,
+        FiveOfAKind = 11,
+        FlushHouse = 12,
+        FlushFive = 13
     }
 }

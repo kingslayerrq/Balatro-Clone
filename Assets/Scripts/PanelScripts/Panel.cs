@@ -191,15 +191,13 @@ public abstract class Panel: MonoBehaviour
         if (panel != this) return;
         if (!cardsInPanel.Contains(card))
         {
-            // Debug.LogWarning("PrecurveY: " + card.cardVisuals.curveYOffset + "curverot: " + card.cardVisuals.curveRotationOffset);
             cardsInPanel.Add(card);
             card.transform.parent.SetParent(this.transform);
             // !!! IMPORTANT
             card.cardVisuals.curveRotationOffset = 0;
             
             card.cardVisuals.UpdateIndex(this.transform.childCount);
-            // Debug.LogWarning("After curveY: " + card.cardVisuals.curveYOffset + "curverot: " + card.cardVisuals.curveRotationOffset);
-            //card.cardVisuals.stopFollow = false;
+
             
         }
         

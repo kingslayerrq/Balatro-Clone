@@ -221,6 +221,8 @@ RectTransform:
   - {fileID: 81227944}
   - {fileID: 602976987}
   - {fileID: 1668071528}
+  - {fileID: 1128387493}
+  - {fileID: 278348703}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -311,6 +313,8 @@ MonoBehaviour:
   maxSelectionSize: 0
   allowSwap: 1
   allowCurve: 1
+  allowDrag: 1
+  allowSelect: 1
   cardReturnTransition: 0.15
   cardsInPanel: []
   cardsInSelection: []
@@ -457,6 +461,68 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99e134624602c4049a0dbf9516969790, type: 3}
+--- !u!1 &278348702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 278348703}
+  - component: {fileID: 278348704}
+  m_Layer: 5
+  m_Name: RunManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &278348703
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278348702}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 34156224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &278348704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278348702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66fe035d82fb6425fa5146c5c7c0243b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highCardConfig: {fileID: 11400000, guid: 5d031d94bf7174507bbc3581ebd460de, type: 2}
+  pairConfig: {fileID: 11400000, guid: 094f85ca9d23b4f49883b5f364abcd21, type: 2}
+  twoPairConfig: {fileID: 11400000, guid: f9ac5a37c8db34a809e0ef98e3d2ea39, type: 2}
+  threeOfAKindConfig: {fileID: 11400000, guid: 19be72931908640b2b0e946892a55a51, type: 2}
+  straightConfig: {fileID: 11400000, guid: 528699a5c355a459b9c418974c5da518, type: 2}
+  flushConfig: {fileID: 11400000, guid: 37391d4da8039447899cc7dec60d6ad7, type: 2}
+  fullHouseConfig: {fileID: 11400000, guid: 730967f0ee7bc4521838734ccc908b2a, type: 2}
+  fourOfAKindConfig: {fileID: 11400000, guid: 2b86dabd48b6c4904b7f9e2ed57d1ecf, type: 2}
+  straightFlushConfig: {fileID: 11400000, guid: ff482f8789ab24ef4be861acbac1b739, type: 2}
+  royalFlushConfig: {fileID: 11400000, guid: 9eb09a9f418c54744b4f7cbfee0d2d29, type: 2}
+  fiveOfAKindConfig: {fileID: 11400000, guid: f91aa9c4945ba4bdb824ce043627af48, type: 2}
+  flushHouseConfig: {fileID: 11400000, guid: 542515270381749108ae35d4f1efb40f, type: 2}
+  flushFiveConfig: {fileID: 11400000, guid: d6df2e41a29ac43eba2c7c748d3991f3, type: 2}
+  noneConfig: {fileID: 11400000, guid: a091314cc5f314102a55db6e84cfc9e8, type: 2}
 --- !u!1001 &509875732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -911,6 +977,8 @@ MonoBehaviour:
   maxSelectionSize: 0
   allowSwap: 1
   allowCurve: 1
+  allowDrag: 1
+  allowSelect: 1
   cardReturnTransition: 0.15
   cardsInPanel: []
   cardsInSelection: []
@@ -921,6 +989,9 @@ MonoBehaviour:
   playHandButton: {fileID: 817195355}
   sortRankButton: {fileID: 0}
   sortSuitButton: {fileID: 0}
+  onCardSelectionChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
   playCardEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1633,6 +1704,8 @@ MonoBehaviour:
   maxSelectionSize: 0
   allowSwap: 1
   allowCurve: 1
+  allowDrag: 1
+  allowSelect: 1
   cardReturnTransition: 0.15
   cardsInPanel: []
   cardsInSelection: []
@@ -1651,6 +1724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1160b0bc94e334c359249b3c8c2635a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkCardGap: 0.1
   curChips: 0
   curMults: 0
 --- !u!114 &1071499415
@@ -1665,6 +1739,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0158768d9f07e4fc388b700d0a608f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1128387492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1128387493}
+  - component: {fileID: 1128387494}
+  m_Layer: 5
+  m_Name: HandAnalyzer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1128387493
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128387492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 34156224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1128387494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128387492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388e9ea1c92e54f1982afc56a2df809e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curHandType: 0
+  handTypesContained: 
 --- !u!1001 &1147682861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2519,6 +2643,8 @@ MonoBehaviour:
   maxSelectionSize: 0
   allowSwap: 1
   allowCurve: 0
+  allowDrag: 1
+  allowSelect: 1
   cardReturnTransition: 0.15
   cardsInPanel: []
   cardsInSelection: []

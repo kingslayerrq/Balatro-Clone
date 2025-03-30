@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,17 @@ using UnityEngine.Events;
 public class ScoreCalculator : MonoBehaviour
 {
     [SerializeField] private float checkCardGap = 0.2f;
+    
+    private JokerPanel _jokerPanel;
+    
     public float curChips = 0;
     public float curMults = 0;
 
-    //public UnityEvent<>
-    
+    private void Start()
+    {
+        _jokerPanel = JokerPanel.Instance;
+    }
+
     public IEnumerator CalculateScore(List<Card> cards)
     {
         // get data reference from cards
@@ -20,21 +27,13 @@ public class ScoreCalculator : MonoBehaviour
         
         // check whether the cards can be scored (first round of screening)
         CheckForScoreAvailability(cardDataList);
+
+        yield return new WaitForSecondsRealtime(checkCardGap);
         
         // display the can score result
-        foreach (CardData cd in cardDataList)
-        {
-            if (!cd.canScore) continue;
-            
-            cd.onScoreCheckEvent.Invoke(cd.card, cd.canScore);
-            yield return new WaitForSecondsRealtime(checkCardGap);
-            
-        }
+        yield return StartCoroutine(DisplayCheckScoreResult(cardDataList));
         
-        // just sum up
         
-
-        yield return null;
 
     }
 
@@ -49,6 +48,18 @@ public class ScoreCalculator : MonoBehaviour
         {
             // test
             cards[i].canScore = i < 3 ;
+        }
+    }
+
+    private IEnumerator DisplayCheckScoreResult(List<CardData> cards)
+    {
+        foreach (CardData cd in cards)
+        {
+            if (!cd.canScore) continue;
+            
+            yield return new WaitForSecondsRealtime(checkCardGap);
+            
+            cd.onScoreCheckEvent.Invoke(cd.card, cd.canScore);
         }
     }
 }

@@ -16,6 +16,9 @@ public class HandPanel : Panel
     [SerializeField] private Button playHandButton;
     [SerializeField] private Button sortRankButton;
     [SerializeField] private Button sortSuitButton;
+    
+    [Header("Hand Panel Specific Events")]
+    [HideInInspector] public UnityEvent<List<Card>> onCardSelectionChangedEvent = new UnityEvent<List<Card>>();
     [HideInInspector] public UnityEvent<Card, Panel> playCardEvent = new UnityEvent<Card, Panel>();
     [HideInInspector] public UnityEvent<Panel> handPlayedEvent = new UnityEvent<Panel>(); 
 
@@ -93,5 +96,8 @@ public class HandPanel : Panel
     {
         base.SelectCard(card, isSelected, panel);
         playHandButton.interactable = numOfSelection > 0 ? true : false;
+        
+        // Trigger Card Analyzer
+        onCardSelectionChangedEvent.Invoke(cardsInSelection);
     }
 }

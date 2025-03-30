@@ -252,5 +252,11 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             cardVisuals.cardImage.color = Color.Lerp(cardVisuals.originalColor, Color.gray, 1f);
         }
     }
-    
+
+    public override string ToString()
+    {
+        string str = $"Card: {this.name} ";
+
+        return str;
+    }
 }
