@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63224d9362b1e4018909744f65f4ecc8, type: 3}
-  m_Name: HighCard
+  m_Script: {fileID: 11500000, guid: 956224f7f420e4a7994f62da249e4deb, type: 3}
+  m_Name: BasicCardAction
   m_EditorClassIdentifier: 
-  handTypeName: High Card
-  type: 1
-  baseChips: 5
-  baseMults: 1
-  lvl: 1
-  chipsOnLvlUp: 10
-  multsOnLvlUp: 1
+  actionName: Add Chips
+  description: Adding chips to current chips
+  executionOrder: 0

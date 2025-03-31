@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -12,13 +13,18 @@ public class CardData : MonoBehaviour, IComparable
     public Card card;
 
     [Header("Score Parameters")] 
-    [Tooltip("Can this card be scored at all")]
+    [Tooltip("Can this card be scored")]
     public bool canScore = false;
+    [Tooltip("Has the card been scored")]
     public bool wasScored = false;
-    public UnityEvent<Card, bool> onScoreCheckEvent = new UnityEvent<Card, bool>();
+    [Tooltip("Whether the card is being highlighted and ready to be scored")]
+    public bool isScoring = false;
+    
+    [HideInInspector] public UnityEvent<Card, bool> onScoreCheckEvent = new UnityEvent<Card, bool>();
     
     [Header("Card Data Parameters")]
     public string id;
+    public string description;
     public Enums.CardSuit suit;
     public int rank;
     public Enums.Edition edition;
@@ -27,6 +33,8 @@ public class CardData : MonoBehaviour, IComparable
     public float mults;
     public int triggerCounts;
     public Sprite sprite;
+    public List<CardActionConfig> cardActionConfigs;
+    public List<BaseActionConfig.BaseAction> cardActions = new List<BaseActionConfig.BaseAction>();
     
     
     private void Awake()
@@ -50,6 +58,14 @@ public class CardData : MonoBehaviour, IComparable
         mults = cardParam.baseMult;
         triggerCounts = cardParam.triggerCounts;
         sprite = cardParam.sprite;
+        cardActionConfigs = cardParam.cardActionConfigs;
+        
+        description = $"+ {rank} chips";
+        foreach (var config in cardActionConfigs)
+        {
+            // Instantiate Actions
+            cardActions.Add(config.Create());
+        }
     }
 
 
@@ -92,4 +108,5 @@ public class CardData : MonoBehaviour, IComparable
             this.card.GetParentIndex().CompareTo(other.card.GetParentIndex());
     }
     #endregion
+    
 }

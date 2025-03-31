@@ -2,48 +2,102 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(ScoreVisualizer))]
 public class ScoreCalculator : MonoBehaviour
 {
-    [SerializeField] private float checkCardGap = 0.2f;
+    public static ScoreCalculator Instance;
     
     private JokerPanel _jokerPanel;
+    private PlayedCardPanel _playedCardPanel;
+    private HandPanel _handPanel;
+    private RunManager _runManager;
+    private HandAnalyzer _handAnalyzer;
+
+    [SerializeField] private float cardScoringGap = 0.2f;
+
     
     public float curChips = 0;
     public float curMults = 0;
+    public float curScore = 0;
+    private float _lastChips = 0;
+    private float _lastMults = 0;
+    private float _lastScore = 0;
+
+    [HideInInspector]
+    public UnityEvent<HandTypeConfig.HandType> UpdateHandTypeVisualEvent = new UnityEvent<HandTypeConfig.HandType>();
+
+    [HideInInspector] public UnityEvent<float> UpdateChipsVisualEvent = new UnityEvent<float>();
+    [HideInInspector] public UnityEvent<float> UpdateMultsVisualEvent = new UnityEvent<float>();
+    [HideInInspector] public UnityEvent<float> UpdateScoreVisualEvent = new UnityEvent<float>();
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+    }
 
     private void Start()
     {
         _jokerPanel = JokerPanel.Instance;
-    }
-
-    public IEnumerator CalculateScore(List<Card> cards)
-    {
-        // get data reference from cards
-        List<CardData> cardDataList = cards.Select(card => card.cardData).ToList();
-
-        yield return new WaitForSecondsRealtime(checkCardGap);
-        
-        // display the can score result
-        yield return StartCoroutine(DisplayCheckScoreResult(cardDataList));
-        
-        
-
-    }
-    
-
-    private IEnumerator DisplayCheckScoreResult(List<CardData> cards)
-    {
-        foreach (CardData cd in cards)
+        _playedCardPanel = PlayedCardPanel.Instance;
+        _runManager = RunManager.Instance;
+        _handAnalyzer = HandAnalyzer.Instance;
+        if (_handAnalyzer && _runManager)
         {
-            if (!cd.canScore) continue;
-            
-            yield return new WaitForSecondsRealtime(checkCardGap);
-            
-            cd.onScoreCheckEvent.Invoke(cd.card, cd.canScore);
+            _handAnalyzer.UpdateHandTypeEvent.AddListener(UpdateCalculatorByHandType);
         }
+        if (_playedCardPanel)
+        {
+            _playedCardPanel.calculateScoringCardsEvent.AddListener(CalculateScore);
+        }
+    }
+
+    private void Update()
+    {
+        if (_lastChips != curChips)
+        {
+            _lastChips = curChips;
+            UpdateChipsVisualEvent.Invoke(curChips);
+        }
+
+        if (_lastMults != curMults)
+        {
+            _lastMults = curMults;
+            UpdateMultsVisualEvent.Invoke(curMults);
+        }
+
+        if (_lastScore != curScore)
+        {
+            _lastScore = curScore;
+            UpdateScoreVisualEvent.Invoke(curScore);
+        } 
+    }
+
+    private void CalculateScore(List<Card> cards)
+    {
+        // TODO: Apply Jokers
+        StartCoroutine(ScoreCards(cards));
+    }
+
+    private IEnumerator ScoreCards(List<Card> cards)
+    {
+        foreach (var card in cards)
+        {
+            yield return StartCoroutine(card.cardScore.ScoreCoroutine());
+            yield return new WaitForSecondsRealtime(cardScoringGap);
+        }
+
+        curScore = curChips * curMults;
+    }
+
+    private void UpdateCalculatorByHandType(Enums.BasePokerHandType handType)
+    {
+        var runHandType = _runManager.GetRunHandTypeInfo(handType);
+        curChips = runHandType.baseChips;
+        curMults = runHandType.baseMults;
+        UpdateHandTypeVisualEvent.Invoke(runHandType);
     }
 }

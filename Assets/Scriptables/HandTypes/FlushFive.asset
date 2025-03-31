@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63224d9362b1e4018909744f65f4ecc8, type: 3}
   m_Name: FlushFive
   m_EditorClassIdentifier: 
-  name: Flush Five
+  handTypeName: Flush Five
   type: 13
   baseChips: 160
   baseMults: 16

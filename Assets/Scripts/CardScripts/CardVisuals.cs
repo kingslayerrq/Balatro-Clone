@@ -26,8 +26,10 @@ public class CardVisuals : MonoBehaviour
     private Canvas _shadowCanvas;
     private Vector2 _shadowDistance;
     [SerializeField] private float shadowOffset = 20f;
-    [SerializeField] private Vector3 originalScale;
+    public Vector3 originalScale;
 
+    [Header("CardInfo Visuals")] public CardInfoVisual cardInfoVisual = null;
+    
     [Header("Movement and Rotation Settings")]
     [SerializeField] private float followSpeed = 50f;
     [SerializeField] private float rotationAmount = 20f;
@@ -42,6 +44,8 @@ public class CardVisuals : MonoBehaviour
     [SerializeField] private bool scaleAnimations = true;
     [SerializeField] private float scaleOnHover = 1.1f;
     [SerializeField] private float scaleOnSelect = 1.2f;
+    [SerializeField] private float scaleOnPunch = 0.5f;
+    [SerializeField] private int scalePunchAmount = 0;
     [SerializeField] private float scaleTransition = 0.15f;
     [SerializeField] private Ease scaleEase = Ease.OutBack;
 
@@ -63,7 +67,7 @@ public class CardVisuals : MonoBehaviour
 
     public  float curveYOffset;
     public float curveRotationOffset;
-    //private Coroutine pressCoroutine;
+
     #endregion
 
     private void Start()
@@ -91,6 +95,9 @@ public class CardVisuals : MonoBehaviour
         originalScale = GetComponent<RectTransform>().localScale;
         cardImage.sprite = target.cardData.sprite;
         originalColor = cardImage.color;
+        cardInfoVisual = GetComponentInChildren<CardInfoVisual>();
+        if (cardInfoVisual == null) Debug.LogWarning("???");
+        cardInfoVisual.Init(parentCard.cardData.id, parentCard.cardData.description);
         
         //Event Listening
         Card.pointerEnterEvent.AddListener(PointerEnter);
@@ -100,6 +107,7 @@ public class CardVisuals : MonoBehaviour
         Card.pointerDownEvent.AddListener(PointerDown);
         Card.pointerUpEvent.AddListener(PointerUp);
         Card.selectEvent.AddListener(Select);
+        Card.scoreEvent.AddListener(Score);
         
         
         
@@ -168,6 +176,8 @@ public class CardVisuals : MonoBehaviour
     private void PointerEnter(Card card, Panel panel)
     {
         if (card != parentCard || panel != parentCard.curPanel) return;
+        
+        cardInfoVisual.ShowInfo();
         if (scaleAnimations)
         {
             this.transform.DOScale(scaleOnHover * originalScale, scaleTransition).SetEase(scaleEase);
@@ -180,6 +190,8 @@ public class CardVisuals : MonoBehaviour
     private void PointerExit(Card card, Panel panel)
     {
         if (card != parentCard || panel != parentCard.curPanel) return;
+        
+        cardInfoVisual.HideInfo();
         if (scaleAnimations && !parentCard.wasDragged)
         {
             this.transform.DOScale(originalScale, scaleTransition).SetEase(scaleEase);
@@ -209,6 +221,7 @@ public class CardVisuals : MonoBehaviour
     private void PointerDown(Card card, Panel panel)
     {
         if (card != parentCard || panel != parentCard.curPanel) return;
+  
         if (scaleAnimations)
         {
             this.transform.DOScale(scaleOnSelect * originalScale, scaleTransition).SetEase(scaleEase);
@@ -240,14 +253,35 @@ public class CardVisuals : MonoBehaviour
     private void Select(Card card, bool isSelected, Panel panel)
     {
         if (card != parentCard || panel != parentCard.curPanel) return;
+        cardInfoVisual.HideInfo();
         DOTween.Kill(2, true);      // prevents repeatedly triggering punch rotation
         float dir = isSelected ? 1 : 0;     // Pop up or down
-        shakeParent.DOPunchPosition(shakeParent.up * selectPunchAmount * dir, scaleTransition, 10, 1);
+        shakeParent.DOPunchPosition(shakeParent.up * selectPunchAmount * dir, scaleTransition, 10, 1).OnComplete((() =>
+        {
+            if (panel == HandPanel.Instance)
+            {
+                cardInfoVisual.ShowInfo();
+            }
+        }));
         shakeParent.DOPunchRotation(Vector3.forward * (hoverPunchAngle / 2), hoverTransition, 20, 1).SetId(2);
 
         if (scaleAnimations)
         {
             this.transform.DOScale(scaleOnHover * originalScale, scaleTransition).SetEase(scaleEase);
+        }
+       
+    }
+
+
+    private void Score(Card card)
+    {
+        if (card != parentCard) return;
+        DOTween.Kill(2, true);
+
+        shakeParent.DOPunchRotation(Vector3.forward * (hoverPunchAngle / 2), hoverTransition, 20, 1).SetId(2);
+        if (scaleAnimations)
+        {
+            shakeParent.DOPunchScale(Vector3.one * scaleOnPunch, 0.1f, scalePunchAmount, 1);
         }
     }
     #endregion
@@ -257,7 +291,7 @@ public class CardVisuals : MonoBehaviour
         if (swapAnimations)
         {
             DOTween.Kill(2, true);
-            shakeParent.DOPunchRotation((Vector3.forward * swapRotationAngle) * dir, swapTransition, swapVibrato, 1)
+            shakeParent.DOPunchRotation(Vector3.forward * (dir * swapRotationAngle), swapTransition, swapVibrato, 1)
                 .SetId(3);
             
         }

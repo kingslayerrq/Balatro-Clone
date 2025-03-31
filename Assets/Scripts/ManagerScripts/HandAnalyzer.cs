@@ -25,6 +25,7 @@ public class HandAnalyzer : MonoBehaviour
 
     
     [HideInInspector] public UnityEvent<Enums.BasePokerHandType> UpdateHandTypeEvent = new UnityEvent<Enums.BasePokerHandType>();
+
     
     [Header("For Analysis")] 
     [Tooltip("Hold Reference of Cards Selected from Hand Panel")] 
@@ -327,8 +328,8 @@ public class HandAnalyzer : MonoBehaviour
     private void FinalizeHandType(Panel panel)
     {
         scoringHandType = curHand;
-
-        IdentifyScoringCards(cardsInSelectionRef, scoringHandType);
         
+        IdentifyScoringCards(cardsInSelectionRef, scoringHandType);
+
     }
 }

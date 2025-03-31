@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using WaitForSecondsRealtime = UnityEngine.WaitForSecondsRealtime;
 
 [RequireComponent(typeof(CardData))]
+[RequireComponent(typeof(CardScore))]
 public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler,
     IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
@@ -17,6 +18,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     private Canvas _canvas;
     private Image _image;
     public CardData cardData = null;
+    public CardScore cardScore = null;
 
     [Header("Panels")] 
     [SerializeField] private HandPanel handPanel;
@@ -57,12 +59,14 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     [HideInInspector] public static UnityEvent<Card, Panel> endDragEvent = new UnityEvent<Card, Panel>();
     [HideInInspector] public static UnityEvent<Card, bool, Panel> selectEvent = new UnityEvent<Card, bool, Panel>();
     [HideInInspector] public static UnityEvent<Card, Panel> reparentPanelEvent = new UnityEvent<Card, Panel>();
+    [HideInInspector] public static UnityEvent<Card> scoreEvent = new UnityEvent<Card>();
     
     #endregion
     private void Start()
     {
         curPanel = GetComponentInParent<Panel>();
         cardData = GetComponent<CardData>();
+        cardScore = GetComponent<CardScore>();
         cardVisualizer = FindFirstObjectByType<CardVisualizer>().transform;
         if (cardData == null) return;
   
@@ -236,15 +240,20 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         
     }
 
-    
+    // Update scoring card visuals
     private void ScoreCheckHandler(Card card, bool canScore)
     {
         if (card != this) return;
 
-        if (canScore)
+        if (canScore )
         {
-            selectEvent.Invoke(this, true, curPanel);
-            this.transform.localPosition += cardVisuals.transform.up * selectedOffset;
+            if (!card.cardData.isScoring)
+            {
+                card.cardData.isScoring = true;
+                // trigger the select event
+                selectEvent.Invoke(this, true, curPanel);
+                this.transform.localPosition += cardVisuals.transform.up * selectedOffset;
+            }
         }
         else
         {

@@ -195,7 +195,7 @@ public abstract class Panel: MonoBehaviour
             card.transform.parent.SetParent(this.transform);
             // !!! IMPORTANT
             card.cardVisuals.curveRotationOffset = 0;
-            
+
             card.cardVisuals.UpdateIndex(this.transform.childCount);
 
             

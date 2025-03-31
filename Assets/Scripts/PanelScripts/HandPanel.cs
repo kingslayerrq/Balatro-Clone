@@ -98,7 +98,10 @@ public class HandPanel : Panel
         playHandButton.interactable = numOfSelection > 0 ? true : false;
         
         // TODO: Check what triggered this after hand played
-        // Trigger Card Analyzer
-        onCardSelectionChangedEvent.Invoke(cardsInSelection);
+        // Trigger Card Analyzer ONLY when triggered in hand
+        if (card.curPanel == this)
+        { 
+            onCardSelectionChangedEvent.Invoke(cardsInSelection);
+        }
     }
 }

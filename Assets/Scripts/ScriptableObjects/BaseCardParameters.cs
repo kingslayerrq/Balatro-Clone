@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +27,8 @@ public class BaseCardParameters : ScriptableObject
     
     [Tooltip("How many times the card gets triggered in a poker hand. Default is 1")]
     public int triggerCounts = 1;
-    
-    
+
+    public List<CardActionConfig> cardActionConfigs = new List<CardActionConfig>();
+
+
 }

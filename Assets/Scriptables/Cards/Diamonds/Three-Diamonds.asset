@@ -21,3 +21,4 @@ MonoBehaviour:
   baseMult: 1
   sprite: {fileID: 0}
   triggerCounts: 1
+  cardActionConfigs: []
