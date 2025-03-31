@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2484182318684c7c80584f5ed3bc8c1, type: 3}
+  m_Name: Ten-Spades
+  m_EditorClassIdentifier: 
+  cardID: Ten of Spades
+  suit: 0
+  rank: 10
+  edition: 0
+  seal: 4
+  baseChip: 10
+  baseMult: 1
+  sprite: {fileID: 132502090559369358, guid: 0c4ebf249aa3f4b0da90a97944411f4e, type: 3}
+  triggerCounts: 1

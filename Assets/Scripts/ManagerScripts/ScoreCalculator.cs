@@ -23,10 +23,7 @@ public class ScoreCalculator : MonoBehaviour
     public IEnumerator CalculateScore(List<Card> cards)
     {
         // get data reference from cards
-        List<CardData> cardDataList = cards.Select(card => card.GetComponent<CardData>()).ToList();
-        
-        // check whether the cards can be scored (first round of screening)
-        CheckForScoreAvailability(cardDataList);
+        List<CardData> cardDataList = cards.Select(card => card.cardData).ToList();
 
         yield return new WaitForSecondsRealtime(checkCardGap);
         
@@ -36,20 +33,7 @@ public class ScoreCalculator : MonoBehaviour
         
 
     }
-
-    /// <summary>
-    /// Check for score availability and store the cards that can score into cardsInSelection List
-    /// </summary>
-    /// <param name="cards"></param>
-    private void CheckForScoreAvailability(List<CardData> cards)
-    {
-        // check whether the cards can be scored (first round of screening)
-        for (int i = 0; i < cards.Count; i++)
-        {
-            // test
-            cards[i].canScore = i < 3 ;
-        }
-    }
+    
 
     private IEnumerator DisplayCheckScoreResult(List<CardData> cards)
     {

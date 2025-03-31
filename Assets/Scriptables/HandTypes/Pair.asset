@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63224d9362b1e4018909744f65f4ecc8, type: 3}
   m_Name: Pair
   m_EditorClassIdentifier: 
+  name: Pair
   type: 2
   baseChips: 10
   baseMults: 2

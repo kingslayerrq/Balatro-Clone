@@ -61,6 +61,43 @@ public class RunManager : MonoBehaviour
         FlushFive = flushFiveConfig.Create();
         None = noneConfig.Create();
     }
+
+    public HandTypeConfig.HandType GetRunHandTypeInfo(Enums.BasePokerHandType handType)
+    {
+        switch (handType)
+        {
+            case Enums.BasePokerHandType.None:
+                return None;
+            case Enums.BasePokerHandType.HighCard:
+                return HighCard;
+            case Enums.BasePokerHandType.Pair:
+                return Pair;
+            case Enums.BasePokerHandType.TwoPair:
+                return TwoPair;
+            case Enums.BasePokerHandType.ThreeOfAKind:
+                return ThreeOfAKind;
+            case Enums.BasePokerHandType.Straight:
+                return Straight;
+            case Enums.BasePokerHandType.Flush:
+                return Flush;
+            case Enums.BasePokerHandType.FullHouse:
+                return FullHouse;
+            case Enums.BasePokerHandType.FourOfAKind:
+                return FourOfAKind;
+            case Enums.BasePokerHandType.StraightFlush:
+                return StraightFlush;
+            case Enums.BasePokerHandType.RoyalFlush:
+                return RoyalFlush;
+            case Enums.BasePokerHandType.FiveOfAKind:
+                return FiveOfAKind;
+            case Enums.BasePokerHandType.FlushHouse:
+                return FlushHouse;
+            case Enums.BasePokerHandType.FlushFive:
+                return FlushFive;
+            default:
+                return None;
+        }
+    }
     
     
 }

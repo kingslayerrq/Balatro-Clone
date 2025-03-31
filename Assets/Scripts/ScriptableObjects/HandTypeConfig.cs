@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "HandTypeConfig", menuName = "Scriptable Objects/HandTypeConfig")]
 public class HandTypeConfig : ScriptableObject
 {
+    public string name;
     public Enums.BasePokerHandType type = Enums.BasePokerHandType.None;
     public float baseChips;
     public float baseMults;
@@ -14,6 +15,7 @@ public class HandTypeConfig : ScriptableObject
     {
         return new HandType
         {
+            name = name,
             type = type,
             baseChips = baseChips,
             baseMults = baseMults,
@@ -25,6 +27,7 @@ public class HandTypeConfig : ScriptableObject
 
     public class HandType
     {
+        public string name;
         public Enums.BasePokerHandType type;
         public float baseChips;
         public float baseMults;
