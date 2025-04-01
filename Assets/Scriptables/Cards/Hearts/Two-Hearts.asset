@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2484182318684c7c80584f5ed3bc8c1, type: 3}
   m_Name: Two-Hearts
   m_EditorClassIdentifier: 
-  cardID: 
-  suit: 0
-  rank: 1
+  cardID: Two of Hearts
+  suit: 1
+  rank: 2
   edition: 0
   seal: 4
-  baseChip: 0
+  baseChip: 2
   baseMult: 1
-  sprite: {fileID: 0}
+  sprite: {fileID: 1846677931886285916, guid: 075820194e46b4313bac705e95bbfeb9, type: 3}
   triggerCounts: 1
+  cardActionConfigs:
+  - {fileID: 11400000, guid: 6625864105c244f968671aee7c9c4ca4, type: 2}

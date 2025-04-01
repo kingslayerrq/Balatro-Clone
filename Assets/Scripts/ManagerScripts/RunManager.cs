@@ -1,47 +1,98 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RunManager : MonoBehaviour
 {
     public static RunManager Instance;
+    private DeckPanel _deckPanel;
+    public int anteLevel = 1;
+    public int hands;
+    public int discards;
+    public int money = 0;
+    public int round = 1;
 
-    [Header("Poker Hand Type Instance References")]
-    public HandTypeConfig.HandType HighCard = null;
-    public HandTypeConfig.HandType Pair = null;
-    public HandTypeConfig.HandType TwoPair = null;
-    public HandTypeConfig.HandType ThreeOfAKind = null;
-    public HandTypeConfig.HandType Straight = null;
-    public HandTypeConfig.HandType Flush = null;
-    public HandTypeConfig.HandType FullHouse = null;
-    public HandTypeConfig.HandType FourOfAKind = null;
-    public HandTypeConfig.HandType StraightFlush = null;
-    public HandTypeConfig.HandType RoyalFlush = null;
-    public HandTypeConfig.HandType FiveOfAKind = null;
-    public HandTypeConfig.HandType FlushHouse = null;
-    public HandTypeConfig.HandType FlushFive = null;
-    public HandTypeConfig.HandType None = null;
+    public DeckParameters deckConfig = null;
+    public DeckParameters.Deck deck;
+    public GameObject cardSlotPrefab;
+    public GameObject cardPrefab;
+
+    #region HandTypeConfig && Reference
     
-    [Header("Poker Hand Type base configs")]
-    [SerializeField] private HandTypeConfig highCardConfig;
-    [SerializeField] private HandTypeConfig pairConfig;
-    [SerializeField] private HandTypeConfig twoPairConfig;
-    [SerializeField] private HandTypeConfig threeOfAKindConfig;
-    [SerializeField] private HandTypeConfig straightConfig;
-    [SerializeField] private HandTypeConfig flushConfig;
-    [SerializeField] private HandTypeConfig fullHouseConfig;
-    [SerializeField] private HandTypeConfig fourOfAKindConfig;
-    [SerializeField] private HandTypeConfig straightFlushConfig;
-    [SerializeField] private HandTypeConfig royalFlushConfig;
-    [SerializeField] private HandTypeConfig fiveOfAKindConfig;
-    [SerializeField] private HandTypeConfig flushHouseConfig;
-    [SerializeField] private HandTypeConfig flushFiveConfig;
-    [SerializeField] private HandTypeConfig noneConfig;
+        [Header("Poker Hand Type Instance References")]
+        public HandTypeConfig.HandType HighCard = null;
+        public HandTypeConfig.HandType Pair = null;
+        public HandTypeConfig.HandType TwoPair = null;
+        public HandTypeConfig.HandType ThreeOfAKind = null;
+        public HandTypeConfig.HandType Straight = null;
+        public HandTypeConfig.HandType Flush = null;
+        public HandTypeConfig.HandType FullHouse = null;
+        public HandTypeConfig.HandType FourOfAKind = null;
+        public HandTypeConfig.HandType StraightFlush = null;
+        public HandTypeConfig.HandType RoyalFlush = null;
+        public HandTypeConfig.HandType FiveOfAKind = null;
+        public HandTypeConfig.HandType FlushHouse = null;
+        public HandTypeConfig.HandType FlushFive = null;
+        public HandTypeConfig.HandType None = null;
+        
+        [Header("Poker Hand Type base configs")]
+        [SerializeField] private HandTypeConfig highCardConfig;
+        [SerializeField] private HandTypeConfig pairConfig;
+        [SerializeField] private HandTypeConfig twoPairConfig;
+        [SerializeField] private HandTypeConfig threeOfAKindConfig;
+        [SerializeField] private HandTypeConfig straightConfig;
+        [SerializeField] private HandTypeConfig flushConfig;
+        [SerializeField] private HandTypeConfig fullHouseConfig;
+        [SerializeField] private HandTypeConfig fourOfAKindConfig;
+        [SerializeField] private HandTypeConfig straightFlushConfig;
+        [SerializeField] private HandTypeConfig royalFlushConfig;
+        [SerializeField] private HandTypeConfig fiveOfAKindConfig;
+        [SerializeField] private HandTypeConfig flushHouseConfig;
+        [SerializeField] private HandTypeConfig flushFiveConfig;
+        [SerializeField] private HandTypeConfig noneConfig;
+
+    #endregion
+    
     private void Awake()
     {
         if (Instance == null) Instance = this;
         
-        // Load Base HandType
+    }
+
+    private void Start()
+    {
+        _deckPanel = DeckPanel.Instance;
+        Init();
+    }
+
+    private void Init()
+    {
+        // Load Base HandType values
         LoadBaseHandTypes();
+        // Load Deck
+        LoadDeck();
+    }
+    
+    private void LoadDeck()
+    {
+        if (deckConfig == null) return;
+        deck = deckConfig.Create();
+        hands = deck.hands;
+        discards = deck.discards;
+        money = deck.money;
+        
+        var cardsConfig = deck.cardsConfig;
+        foreach (var cardConfig in cardsConfig)
+        {
+            var cardSlot = Instantiate(cardSlotPrefab, _deckPanel.transform);
+            var cardObj = Instantiate(cardPrefab, cardSlot.transform);
+            var card = cardObj.GetComponent<Card>();
+            card.baseCardParameters = cardConfig;
+            card.Init();
+            Debug.LogWarning(card.cardVisuals);
+            Card.cardStatusUpdateEvent?.Invoke(card, CardState.CardStatus.InDeck);
+            
+        }
     }
 
     private void LoadBaseHandTypes()

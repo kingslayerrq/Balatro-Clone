@@ -20,8 +20,8 @@ public class HandPanel : Panel
     [Header("Hand Panel Specific Events")]
     [HideInInspector] public UnityEvent<List<Card>> onCardSelectionChangedEvent = new UnityEvent<List<Card>>();
     [HideInInspector] public UnityEvent<Card, Panel> playCardEvent = new UnityEvent<Card, Panel>();
-    [HideInInspector] public UnityEvent<Panel> handPlayedEvent = new UnityEvent<Panel>(); 
-
+    [HideInInspector] public UnityEvent<Panel> handPlayedEvent = new UnityEvent<Panel>();
+    
     protected override void Awake()
     {
         base.Awake();
@@ -31,6 +31,8 @@ public class HandPanel : Panel
         }
         
     }
+
+    
 
     #region Hand Panel Button Func
     

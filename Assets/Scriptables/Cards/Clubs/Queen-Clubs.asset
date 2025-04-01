@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2484182318684c7c80584f5ed3bc8c1, type: 3}
+  m_Name: Queen-Clubs
+  m_EditorClassIdentifier: 
+  cardID: Queen of Clubs
+  suit: 2
+  rank: 12
+  edition: 0
+  seal: 4
+  baseChip: 10
+  baseMult: 1
+  sprite: {fileID: -6675019034400255153, guid: 5c1d884220ed840e58f8b93fd1911546, type: 3}
+  triggerCounts: 1
+  cardActionConfigs:
+  - {fileID: 11400000, guid: 6625864105c244f968671aee7c9c4ca4, type: 2}

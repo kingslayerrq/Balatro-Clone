@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2484182318684c7c80584f5ed3bc8c1, type: 3}
+  m_Name: Eight-Hearts
+  m_EditorClassIdentifier: 
+  cardID: Eight of Hearts
+  suit: 1
+  rank: 8
+  edition: 0
+  seal: 4
+  baseChip: 8
+  baseMult: 1
+  sprite: {fileID: -8729194218740381472, guid: 7ec02e10574294f40bbd76f1e9427456, type: 3}
+  triggerCounts: 1
+  cardActionConfigs:
+  - {fileID: 11400000, guid: 6625864105c244f968671aee7c9c4ca4, type: 2}

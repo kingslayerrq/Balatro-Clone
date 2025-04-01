@@ -21,3 +21,5 @@ MonoBehaviour:
   baseMult: 1
   sprite: {fileID: 8347581028001077578, guid: a389c1a1703d048b3a382ec0f62b4191, type: 3}
   triggerCounts: 1
+  cardActionConfigs:
+  - {fileID: 11400000, guid: 6625864105c244f968671aee7c9c4ca4, type: 2}

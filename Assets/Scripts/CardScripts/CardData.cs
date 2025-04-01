@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class CardData : MonoBehaviour, IComparable
 {
-    public BaseCardParameters baseCardParameters;
-
     [Header("References")] 
     public Card card;
 
@@ -37,16 +35,18 @@ public class CardData : MonoBehaviour, IComparable
     public List<BaseActionConfig.BaseAction> cardActions = new List<BaseActionConfig.BaseAction>();
     
     
-    private void Awake()
-    {
-        InjectData(baseCardParameters);
-    }
-
-    private void Start()
+    public void Init()
     {
         card = GetComponent<Card>();
+        if (card.baseCardParameters == null)
+        {
+            Debug.LogWarning("Warning");
+        }
+        else
+        {
+            InjectData(card.baseCardParameters);
+        }
     }
-
     private void InjectData(BaseCardParameters cardParam)
     {
         id = cardParam.cardID;
@@ -67,8 +67,8 @@ public class CardData : MonoBehaviour, IComparable
             cardActions.Add(config.Create());
         }
     }
-
-
+    
+    
 
     #region Sort Methods
 
@@ -110,3 +110,4 @@ public class CardData : MonoBehaviour, IComparable
     #endregion
     
 }
+

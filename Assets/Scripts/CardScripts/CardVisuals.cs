@@ -17,6 +17,7 @@ public class CardVisuals : MonoBehaviour
     [SerializeField] private Vector3 rotationDelta;
 
     [Header("References")] 
+    private RunManager _runManager;
     [Tooltip("Separate parent obj from actual card")]
     [SerializeField] private Transform tiltParent;
     [SerializeField] private Transform shakeParent;
@@ -29,6 +30,8 @@ public class CardVisuals : MonoBehaviour
     public Vector3 originalScale;
 
     [Header("CardInfo Visuals")] public CardInfoVisual cardInfoVisual = null;
+
+    [Header("Animation")] [SerializeField] private bool allowAnim = true;
     
     [Header("Movement and Rotation Settings")]
     [SerializeField] private float followSpeed = 50f;
@@ -64,8 +67,7 @@ public class CardVisuals : MonoBehaviour
     
     [Header("Curve")]
     [SerializeField] private CurveParameters curve;
-
-    public  float curveYOffset;
+    public float curveYOffset;
     public float curveRotationOffset;
 
     #endregion
@@ -73,7 +75,7 @@ public class CardVisuals : MonoBehaviour
     private void Start()
     {
         _shadowDistance = cardShadow.localPosition;
-        
+        _runManager = RunManager.Instance;
     }
 
     private void Update()
@@ -93,10 +95,11 @@ public class CardVisuals : MonoBehaviour
         parentCard = target;
         indexInHand = parentCard.GetParentIndex();
         originalScale = GetComponent<RectTransform>().localScale;
-        cardImage.sprite = target.cardData.sprite;
+        //SetCardImage(target.);
         originalColor = cardImage.color;
         cardInfoVisual = GetComponentInChildren<CardInfoVisual>();
-        if (cardInfoVisual == null) Debug.LogWarning("???");
+        
+        if (cardInfoVisual == null) return;
         cardInfoVisual.Init(parentCard.cardData.id, parentCard.cardData.description);
         
         //Event Listening
@@ -108,6 +111,7 @@ public class CardVisuals : MonoBehaviour
         Card.pointerUpEvent.AddListener(PointerUp);
         Card.selectEvent.AddListener(Select);
         Card.scoreEvent.AddListener(Score);
+        Card.cardStatusUpdateEvent.AddListener(StatusUpdate);
         
         
         
@@ -139,7 +143,6 @@ public class CardVisuals : MonoBehaviour
 
     private void FollowRotation()
     {
-
         Vector3 movement = (transform.position - parentCard.transform.position);
         movementDelta = Vector3.Lerp(movementDelta, movement, 25 * Time.deltaTime);
         Vector3 movementRotation = (parentCard.isDragging ? movementDelta : movement) * rotationAmount;
@@ -149,6 +152,7 @@ public class CardVisuals : MonoBehaviour
 
     private void CardTilt()
     {
+        if (!allowAnim) return;
         // If dragging, preserve previous index, else update
         indexInHand = parentCard.isDragging ? indexInHand : parentCard.GetParentIndex();
         float sine = Mathf.Sin(Time.time + indexInHand) * (parentCard.isHovering ? 0.2f : 1f);
@@ -284,8 +288,39 @@ public class CardVisuals : MonoBehaviour
             shakeParent.DOPunchScale(Vector3.one * scaleOnPunch, 0.1f, scalePunchAmount, 1);
         }
     }
+
+    private void StatusUpdate(Card card, CardState.CardStatus status)
+    {
+        if (card != parentCard) return;
+        switch (status)
+        {
+            case CardState.CardStatus.InCreation:
+                allowAnim = false;
+                SetCardImage(RunManager.Instance.deck.deckSprite);
+                break;
+            case CardState.CardStatus.InDeck:
+                allowAnim = false;
+                SetCardImage(RunManager.Instance.deck.deckSprite);
+                break;
+            case CardState.CardStatus.InHand:
+                allowAnim = true;
+                SetCardImage(parentCard.cardData.sprite);
+                break;
+            case CardState.CardStatus.InUsed:
+                allowAnim = false;
+                SetCardImage(parentCard.cardData.sprite);
+                break;
+            default:
+                break;
+        }
+    }
     #endregion
 
+    private void SetCardImage(Sprite sprite)
+    {
+        if (cardImage.sprite == sprite) return;
+        cardImage.sprite = sprite;
+    }
     public void Swap(float dir = 1)
     {
         if (swapAnimations)

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8887457694346204728}
   - component: {fileID: 6678127543588857720}
   - component: {fileID: 9147200678788629950}
+  - component: {fileID: 2197429999951552494}
   m_Layer: 5
   m_Name: BaseCard
   m_TagString: Untagged
@@ -91,8 +92,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c13c9f2f3905c4bde98dd308797553ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _curPanel: {fileID: 0}
+  curPanel: {fileID: 0}
   cardData: {fileID: 0}
+  cardScore: {fileID: 0}
   handPanel: {fileID: 0}
   jokerPanel: {fileID: 0}
   consumablePanel: {fileID: 0}
@@ -107,27 +109,6 @@ MonoBehaviour:
   cvPrefab: {fileID: 479415423309290212, guid: 736ead25481284b0d848038e776663c7, type: 3}
   cardVisuals: {fileID: 0}
   cardVisualizer: {fileID: 0}
-  pointerEnterEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  pointerExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  pointerUpEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  pointerDownEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  beginDragEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  endDragEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  selectEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &8887457694346204728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,8 +177,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a53b717830afa45d1aaa133610aea290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCardParameters: {fileID: 11400000, guid: 73aef7ab4f1164a979ebab5996d41f93, type: 2}
+  baseCardParameters: {fileID: 0}
+  card: {fileID: 0}
+  canScore: 0
+  wasScored: 0
+  isScoring: 0
+  onScoreCheckEvent:
+    m_PersistentCalls:
+      m_Calls: []
   id: 
+  description: 
   suit: 0
   rank: 0
   edition: 0
@@ -206,3 +195,17 @@ MonoBehaviour:
   mults: 0
   triggerCounts: 0
   sprite: {fileID: 0}
+  cardActionConfigs: []
+--- !u!114 &2197429999951552494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9090597072338245930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c728b233e7cc4497db9d50f2d6149428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreTriggerGap: 0.2

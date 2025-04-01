@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2484182318684c7c80584f5ed3bc8c1, type: 3}
   m_Name: Three-Diamonds
   m_EditorClassIdentifier: 
-  cardID: 
-  suit: 0
-  rank: 1
+  cardID: Three of Diamonds
+  suit: 3
+  rank: 3
   edition: 0
   seal: 4
-  baseChip: 0
+  baseChip: 3
   baseMult: 1
-  sprite: {fileID: 0}
+  sprite: {fileID: 6639765473966753130, guid: 90ae889a710384888b26a69c16102906, type: 3}
   triggerCounts: 1
-  cardActionConfigs: []
+  cardActionConfigs:
+  - {fileID: 11400000, guid: 6625864105c244f968671aee7c9c4ca4, type: 2}

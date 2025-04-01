@@ -9,16 +9,19 @@ using WaitForSecondsRealtime = UnityEngine.WaitForSecondsRealtime;
 
 [RequireComponent(typeof(CardData))]
 [RequireComponent(typeof(CardScore))]
+[RequireComponent(typeof(CardState))]
 public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler,
     IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
     #region Card Variables
-    
+
+    public BaseCardParameters baseCardParameters = null;
     public Panel curPanel;
     private Canvas _canvas;
     private Image _image;
     public CardData cardData = null;
     public CardScore cardScore = null;
+    public CardState.CardStatus status = CardState.CardStatus.InCreation;
 
     [Header("Panels")] 
     [SerializeField] private HandPanel handPanel;
@@ -60,10 +63,14 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     [HideInInspector] public static UnityEvent<Card, bool, Panel> selectEvent = new UnityEvent<Card, bool, Panel>();
     [HideInInspector] public static UnityEvent<Card, Panel> reparentPanelEvent = new UnityEvent<Card, Panel>();
     [HideInInspector] public static UnityEvent<Card> scoreEvent = new UnityEvent<Card>();
-    
+    [HideInInspector]
+    public static UnityEvent<Card, CardState.CardStatus> cardStatusUpdateEvent = new UnityEvent<Card, CardState.CardStatus>();
     #endregion
-    private void Start()
+   
+
+    public void Init()
     {
+        if (baseCardParameters == null) return;
         curPanel = GetComponentInParent<Panel>();
         cardData = GetComponent<CardData>();
         cardScore = GetComponent<CardScore>();
@@ -72,6 +79,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
   
         
         // Initialize
+        cardData.Init();
         this.name = cardData.id;
         _canvas = GetComponentInParent<Canvas>();
         _image = GetComponent<Image>();
@@ -90,6 +98,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             handPanel.playCardEvent.AddListener(Played);
         }
         cardData.onScoreCheckEvent.AddListener(ScoreCheckHandler);
+        
         
     }
 
