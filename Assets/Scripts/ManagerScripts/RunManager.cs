@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class RunManager : MonoBehaviour
@@ -10,26 +11,68 @@ public class RunManager : MonoBehaviour
     public static RunManager Instance;
     private AnteManager _anteManager;
     private DeckPanel _deckPanel;
+
+    private int _curAnteLvl = 0;
+    private int _curRoundLvl = 0;
+    private int _hands;
+    private int _discards;
+    private int _money;
+    private int _handSize = 8;
+    public int AnteLvlReqToWin = 8;
     
-    public int curAnteLvl = 1;
-    public int handSize = 8;
-    public int hands;
-    public int discards;
-    public int money = 0;
-    public int round = 1;
+    public AnteManager.Ante CurAnte { get; private set; }
+    public int MinMoney 
+    {
+        get;
+        private set;
+    }
+    public int CurAnteLvl
+    {
+        get => _curAnteLvl;
+        private set => _curAnteLvl = Mathf.Max(0, value);
+    }
+    public int HandSize
+    {
+        get => _handSize;
+        set => _handSize = Mathf.Max(0, _handSize);
+    }
+    public int Hands
+    {
+        get => _hands;
+        set => _hands = Mathf.Max(0, value);
+    }
+    public int Discards
+    {
+        get => _discards;
+        set => _discards = Mathf.Max(0, value);
+    }
+    public int Money
+    {
+        get => _money;
+        set => _money = Mathf.Max(MinMoney, value);
+    }
+    public int CurRoundLvl
+    {
+        get => _curRoundLvl;
+        set => _curRoundLvl = Mathf.Max(_curRoundLvl, value);
+    }
+    
 
     [Tooltip("Starting Deck Config")]
-    public DeckParameters deckConfig = null;
-    public DeckParameters.Deck deck;
+    public DeckParameters DeckConfig = null;
+    public DeckParameters.Deck Deck;
     
-    public GameObject cardSlotPrefab;
-    public GameObject cardPrefab;
+    public GameObject CardSlotPrefab;
+    public GameObject CardPrefab;
 
     [SerializeField] private List<BossBlindConfig> bossList = new List<BossBlindConfig>();
-    public List<AnteManager.Ante> antes = new List<AnteManager.Ante>();
+    [Tooltip("Checklist for Boss, bool - whether this boss has been encountered this run")]
+    private Dictionary<BossBlindConfig, bool> _bossDictionary = new Dictionary<BossBlindConfig, bool>();
+    public List<AnteManager.Ante> Antes = new List<AnteManager.Ante>();
     private List<Card> _cardsDeck = new List<Card>();
-    [Tooltip("Cards for this run")]
-    public IReadOnlyList<Card> CardsDeckRun => _cardsDeck;
+    [Tooltip("Cards for this run")] public IReadOnlyList<Card> CardsDeckRun => _cardsDeck;
+
+    [HideInInspector] public UnityEvent<AnteManager.Ante> StartAnteEvent = new UnityEvent<AnteManager.Ante>();
 
     #region HandTypeConfig && Reference
     
@@ -88,41 +131,63 @@ public class RunManager : MonoBehaviour
         LoadDeck();
         // Shuffle Boss
         RandomizeBossList();
-        // Init Ante
-        InitAnte(curAnteLvl);
+        // Create Ante
+        CreateAnte();
     }
 
-    private void InitAnte(int lvl)
+    private void CreateAnte()
     {
         if (!_anteManager) return;
-        if (bossList == null) return;
+        if (_bossDictionary.Count < 1) return;
+
+        _curAnteLvl += 1;
+
+        var bossItem = _bossDictionary.FirstOrDefault(item => item.Value == false);
+        // Refresh all bosses
+        if (bossItem.Key == null)
+        {
+            foreach (var item in _bossDictionary.Keys)
+            {
+                _bossDictionary[item] = false;
+            }
+            bossItem = _bossDictionary.FirstOrDefault(item => item.Value == false);
+        }
+
+        var ante = _anteManager.Create(_curAnteLvl, bossItem.Key);
         
-        var boss = bossList[curAnteLvl - 1];
-        antes.Add(_anteManager.Create(lvl, boss));
-        bossList.Remove(boss);
+        Antes.Add(ante);
+        CurAnte = ante;
+        StartAnteEvent?.Invoke(CurAnte);
     }
 
-    // Shuffle boss
+    /// <summary>
+    /// Shuffle boss and add to dictionary
+    /// </summary>
     private void RandomizeBossList()
     {
         if (bossList is { Count: > 1 })
         {
             bossList = bossList.OrderBy(x => Random.value).ToList();
         }
+
+        foreach (var boss in bossList)
+        {
+            _bossDictionary.Add(boss, false);
+        }
     }
     private void LoadDeck()
     {
-        if (deckConfig == null) return;
-        deck = deckConfig.Create();
-        hands = deck.hands;
-        discards = deck.discards;
-        money = deck.money;
+        if (DeckConfig == null) return;
+        Deck = DeckConfig.Create();
+        _hands = Deck.hands;
+        _discards = Deck.discards;
+        _money = Deck.money;
         
-        var cardsConfig = deck.cardsConfig;
+        var cardsConfig = Deck.cardsConfig;
         foreach (var cardConfig in cardsConfig)
         {
-            var cardSlot = Instantiate(cardSlotPrefab, _deckPanel.transform);
-            var cardObj = Instantiate(cardPrefab, cardSlot.transform);
+            var cardSlot = Instantiate(CardSlotPrefab, _deckPanel.transform);
+            var cardObj = Instantiate(CardPrefab, cardSlot.transform);
             var card = cardObj.GetComponent<Card>();
             card.baseCardParameters = cardConfig;
             card.Init();

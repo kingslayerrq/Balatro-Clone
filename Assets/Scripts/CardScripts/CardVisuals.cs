@@ -300,11 +300,11 @@ public class CardVisuals : MonoBehaviour
         {
             case CardState.CardStatus.InCreation:
                 allowAnim = false;
-                SetCardImage(RunManager.Instance.deck.deckSprite);
+                SetCardImage(RunManager.Instance.Deck.deckSprite);
                 break;
             case CardState.CardStatus.InDeck:
                 allowAnim = false;
-                SetCardImage(RunManager.Instance.deck.deckSprite);
+                SetCardImage(RunManager.Instance.Deck.deckSprite);
                 break;
             case CardState.CardStatus.InHand:
                 allowAnim = true;

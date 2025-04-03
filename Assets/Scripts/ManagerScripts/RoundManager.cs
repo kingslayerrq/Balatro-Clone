@@ -20,7 +20,8 @@ public class RoundManager : MonoBehaviour
     [HideInInspector] public UnityEvent<State> updateRoundStateEvent = new UnityEvent<State>();
     [HideInInspector] public UnityEvent<Card> drawCardEvent = new UnityEvent<Card>();
     [HideInInspector] public UnityEvent<Card> discardCardEvent = new UnityEvent<Card>();
-
+    [HideInInspector] public UnityEvent<Round> roundSetupVisualEvent = new UnityEvent<Round>();
+    
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -70,6 +71,7 @@ public class RoundManager : MonoBehaviour
     public void StartRound(Round round)
     {
         curRound = round;
+        _runManager.CurRoundLvl += 1;
         updateRoundStateEvent.Invoke(State.Init);
         
     }
@@ -79,27 +81,36 @@ public class RoundManager : MonoBehaviour
         Debug.LogWarning("Init state");
         SetupRound();
         Draw(curRound.handSize, curRound.drawPile, curRound.handPile);
-        updateRoundStateEvent.Invoke(State.Play);
+        updateRoundStateEvent?.Invoke(State.Play);
     }
+    
+    /// <summary>
+    /// Get variable references from RunManager
+    /// </summary>
     private void SetupRound()
     {
         if (_runManager == null || curRound == null) return;
-        curRound.hands = _runManager.hands;
-        curRound.handSize = _runManager.handSize;
-        curRound.discards = _runManager.discards;
+        curRound.hands = _runManager.Hands;
+        curRound.handSize = _runManager.HandSize;
+        curRound.discards = _runManager.Discards;
         curRound.cardsDeckRound = new List<Card>(_runManager.CardsDeckRun);
         curRound.drawPile = curRound.cardsDeckRound.OrderBy(x => Random.value).ToList();
+        curRound.chipGoal = curRound.blind.baseChipGoal * _runManager.CurAnteLvl *
+                            Constants.BASE_BLIND_CHIPGOAL[curRound.blind.type];
+        
+        roundSetupVisualEvent?.Invoke(curRound);
     }
     
     
-    public Round Create(BaseBlindParameters config)
+    public static Round Create(BaseBlindParameters config)
     {
         return new Round
         {
             isComplete = false,
             isSkipped = false,
             blindConfig = config,
-            blind = config.Create()
+            blind = config.Create(),
+            
         };
     }
     
@@ -170,10 +181,12 @@ public class Round
     public bool isSkipped;
     public BaseBlindParameters blindConfig;
     public BaseBlindParameters.BaseBlind blind;
+    
     public int handSize;
     public int hands;
     public int discards;
-    public int money;
+    public float chipGoal;
+    
     public List<Card> cardsDeckRound;
     public List<Card> drawPile = new List<Card>();
     public List<Card> handPile = new List<Card>();

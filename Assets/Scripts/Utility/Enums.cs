@@ -55,4 +55,11 @@ public class Enums
         FlushHouse = 12,
         FlushFive = 13
     }
+
+    public enum BlindType
+    {
+        SmallBlind,
+        BigBlind,
+        BossBlind
+    }
 }

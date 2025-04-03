@@ -21,33 +21,32 @@ public class AnteManager : MonoBehaviour
         _runManager = RunManager.Instance;
         _roundManager = RoundManager.Instance;
     }
+    
 
-    public void SelectSmallBlind(bool chooseToSkip)
+    public void SkipRound(Round round)
     {
-        SelectRound(_runManager.antes[_runManager.curAnteLvl-1].rounds[0], chooseToSkip);
+        if (round == null || _roundManager == null) return;
+        
+        Debug.LogWarning("Skipping");
+        _roundManager.SkipRound(round);
     }
-    public void SelectRound(Round round, bool chooseToSkip)
+    public void SelectRound(Round round)
     {
-        if (round == null) return;
-        if (chooseToSkip)
-        {
-            _roundManager.SkipRound(round);
-        }
-        else
-        {
-            Debug.LogWarning("Starting");
-            // Start the round
-            _roundManager.StartRound(round);
-        }
+        if (round == null || _roundManager == null) return;
+
+        Debug.LogWarning("Starting");
+        _roundManager.StartRound(round);
     }
 
     public Ante Create(int anteLvl, BaseBlindParameters bossBlindConfig)
     {
         if (smallBlindConfig == null || bigBlindConfig == null) return null;
-        var roundList = new List<Round>();
-        roundList.Add(_roundManager.Create(smallBlindConfig));
-        roundList.Add(_roundManager.Create(bigBlindConfig));
-        roundList.Add(_roundManager.Create(bossBlindConfig));
+        var roundList = new List<Round>
+        {
+            RoundManager.Create(smallBlindConfig),
+            RoundManager.Create(bigBlindConfig),
+            RoundManager.Create(bossBlindConfig)
+        };
         return new Ante
         {
             lvl = anteLvl,

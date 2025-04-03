@@ -10,6 +10,7 @@ public class BasicBlindConfig : BaseBlindParameters
         {
             blindName = blindName,
             description = description,
+            type = type,
             baseChipGoal = baseChipGoal,
             reward = reward,
             config = this,

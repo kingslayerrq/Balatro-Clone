@@ -20,6 +20,7 @@ public class BossBlindConfig : BaseBlindParameters
         {
             blindName = blindName,
             description = description,
+            type = type,
             baseChipGoal = baseChipGoal,
             reward = reward,
             config = this,

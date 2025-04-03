@@ -8,6 +8,8 @@ public abstract class BaseBlindParameters : ScriptableObject
     public string blindName;
 
     public string description;
+
+    public Enums.BlindType type;
     
     public float baseChipGoal;
     
@@ -20,6 +22,7 @@ public abstract class BaseBlindParameters : ScriptableObject
     {
         public string blindName;
         public string description;
+        public Enums.BlindType type;
         public float baseChipGoal;
         public int reward;
         public BaseBlindParameters config;
