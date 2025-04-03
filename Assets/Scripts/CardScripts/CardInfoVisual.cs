@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class CardInfoVisual : MonoBehaviour
     [SerializeField] private bool isInit = false;
     [SerializeField] private TextMeshProUGUI cardName;
     [SerializeField] private TextMeshProUGUI cardDescription;
+    
 
     public void Init(string cname, string description)
     {

@@ -11,9 +11,10 @@ public class CardScore : MonoBehaviour, IScorable
     private Card _card;
     private CardData _cardData;
     private ScoreCalculator _scoreCalculator;
-    
 
     [SerializeField] private float scoreTriggerGap = 0.2f;
+    
+    
     private void Start()
     {
         _card = GetComponent<Card>();

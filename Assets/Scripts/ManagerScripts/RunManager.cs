@@ -1,21 +1,35 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using NUnit.Framework;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RunManager : MonoBehaviour
 {
     public static RunManager Instance;
+    private AnteManager _anteManager;
     private DeckPanel _deckPanel;
-    public int anteLevel = 1;
+    
+    public int curAnteLvl = 1;
+    public int handSize = 8;
     public int hands;
     public int discards;
     public int money = 0;
     public int round = 1;
 
+    [Tooltip("Starting Deck Config")]
     public DeckParameters deckConfig = null;
     public DeckParameters.Deck deck;
+    
     public GameObject cardSlotPrefab;
     public GameObject cardPrefab;
+
+    [SerializeField] private List<BossBlindConfig> bossList = new List<BossBlindConfig>();
+    public List<AnteManager.Ante> antes = new List<AnteManager.Ante>();
+    private List<Card> _cardsDeck = new List<Card>();
+    [Tooltip("Cards for this run")]
+    public IReadOnlyList<Card> CardsDeckRun => _cardsDeck;
 
     #region HandTypeConfig && Reference
     
@@ -62,6 +76,7 @@ public class RunManager : MonoBehaviour
     private void Start()
     {
         _deckPanel = DeckPanel.Instance;
+        _anteManager = AnteManager.Instance;
         Init();
     }
 
@@ -71,8 +86,30 @@ public class RunManager : MonoBehaviour
         LoadBaseHandTypes();
         // Load Deck
         LoadDeck();
+        // Shuffle Boss
+        RandomizeBossList();
+        // Init Ante
+        InitAnte(curAnteLvl);
     }
-    
+
+    private void InitAnte(int lvl)
+    {
+        if (!_anteManager) return;
+        if (bossList == null) return;
+        
+        var boss = bossList[curAnteLvl - 1];
+        antes.Add(_anteManager.Create(lvl, boss));
+        bossList.Remove(boss);
+    }
+
+    // Shuffle boss
+    private void RandomizeBossList()
+    {
+        if (bossList is { Count: > 1 })
+        {
+            bossList = bossList.OrderBy(x => Random.value).ToList();
+        }
+    }
     private void LoadDeck()
     {
         if (deckConfig == null) return;
@@ -89,12 +126,13 @@ public class RunManager : MonoBehaviour
             var card = cardObj.GetComponent<Card>();
             card.baseCardParameters = cardConfig;
             card.Init();
-            Debug.LogWarning(card.cardVisuals);
-            Card.cardStatusUpdateEvent?.Invoke(card, CardState.CardStatus.InDeck);
+            // Update Card State
+            Card.cardStatusUpdateEvent?.Invoke(card, CardState.CardStatus.InCreation);
             
+            // Add card
+            _cardsDeck.Add(card);
         }
     }
-
     private void LoadBaseHandTypes()
     {
         HighCard = highCardConfig.Create();

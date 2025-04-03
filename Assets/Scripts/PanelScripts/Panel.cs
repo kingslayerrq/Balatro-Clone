@@ -189,6 +189,7 @@ public abstract class Panel: MonoBehaviour
     protected virtual void OnParent(Card card, Panel panel)
     {
         if (panel != this) return;
+        card.curPanel = this;
         if (!cardsInPanel.Contains(card))
         {
             cardsInPanel.Add(card);

@@ -13,6 +13,8 @@ using WaitForSecondsRealtime = UnityEngine.WaitForSecondsRealtime;
 public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler,
     IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
+    private RoundManager _roundManager;
+    
     #region Card Variables
 
     public BaseCardParameters baseCardParameters = null;
@@ -28,6 +30,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     [SerializeField] private JokerPanel jokerPanel;
     [SerializeField] private ConsumablePanel consumablePanel;
     [SerializeField] private PlayedCardPanel playedCardPanel;
+    [SerializeField] private DiscardPanel discardPanel;
     
     [Header("Drag Debug")]
     private Vector2 _pointerOffset;
@@ -66,10 +69,16 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     [HideInInspector]
     public static UnityEvent<Card, CardState.CardStatus> cardStatusUpdateEvent = new UnityEvent<Card, CardState.CardStatus>();
     #endregion
-   
+
+    private void Start()
+    {
+        
+    }
 
     public void Init()
     {
+        _roundManager = RoundManager.Instance;
+        
         if (baseCardParameters == null) return;
         curPanel = GetComponentInParent<Panel>();
         cardData = GetComponent<CardData>();
@@ -95,11 +104,12 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         // Add Event handlers
         if (handPanel != null)
         {
-            handPanel.playCardEvent.AddListener(Played);
+            handPanel.playCardEvent.AddListener(OnPlayed);
         }
         cardData.onScoreCheckEvent.AddListener(ScoreCheckHandler);
-        
-        
+        _roundManager.drawCardEvent.AddListener(OnDrawn);
+        _roundManager.discardCardEvent.AddListener(OnDiscard);
+
     }
 
     private void Update()
@@ -233,20 +243,35 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     
     #endregion
 
-    private void Played(Card card, Panel targetPanel)
+    private void OnPlayed(Card card, Panel targetPanel)
     {
         // only respond if invoked on self
-        if (card == this)
-        {
-            isSelected = false;
-            
-            // update panel
-            this.curPanel = targetPanel;
-            
-            reparentPanelEvent.Invoke(this, targetPanel);
-        }
+        if (card != this) return;
         
+        isSelected = false;
+
+        cardStatusUpdateEvent.Invoke(this, CardState.CardStatus.InPlayed);
+            
+        reparentPanelEvent.Invoke(this, targetPanel);
+
+    }
+
+    private void OnDrawn(Card card)
+    {
+        if (card != this) return;
         
+        cardStatusUpdateEvent.Invoke(this, CardState.CardStatus.InHand);
+        
+        reparentPanelEvent.Invoke(this, handPanel);
+    }
+
+    private void OnDiscard(Card card)
+    {
+        if (card != this) return;
+
+        cardStatusUpdateEvent.Invoke(this, CardState.CardStatus.InUsed);
+        
+        reparentPanelEvent.Invoke(this, discardPanel);
     }
 
     // Update scoring card visuals

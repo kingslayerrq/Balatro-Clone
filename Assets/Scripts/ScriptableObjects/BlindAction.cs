@@ -1,16 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BlindAction", menuName = "Scriptable Objects/BlindAction")]
-public class BlindActionConfig : BaseActionConfig
+[CreateAssetMenu(fileName = "BasicBlindAction", menuName = "Scriptable Objects/BasicBlindAction")]
+public class BlindActionConfig : BaseBlindActionParameters
 {
-    public override void Execute(Card card, List<Card> allCards, ScoreCalculator calculator)
+    public override void Execute(Round round, RoundManager.State state)
     {
-        Debug.LogWarning("Doing nothing");
-        return;
+        Debug.LogWarning("Doing nothing as blind");
     }
 
-    public override BaseAction Create()
+    public override BaseBlindAction Create()
     {
         return new BlindAction
         {
@@ -21,7 +20,7 @@ public class BlindActionConfig : BaseActionConfig
         };
     }
 
-    public class BlindAction : BaseAction
+    public class BlindAction : BaseBlindAction
     {
         
     }

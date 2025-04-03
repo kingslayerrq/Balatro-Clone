@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CardScoringAction", menuName = "Scriptable Objects/CardScoringAction")]
+
 public abstract class BaseActionConfig : ScriptableObject
 {
     [Tooltip("Name of this scoring action")]
@@ -30,6 +31,7 @@ public abstract class BaseActionConfig : ScriptableObject
 
     public abstract BaseAction Create();
 
+    [Serializable]
     public abstract class BaseAction
     {
         public string actionName;

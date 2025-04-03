@@ -9,6 +9,7 @@ public class CardState : MonoBehaviour
         InCreation,
         InDeck,
         InHand,
+        InPlayed,
         InUsed
     }
 }

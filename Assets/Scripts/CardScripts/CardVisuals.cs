@@ -180,8 +180,11 @@ public class CardVisuals : MonoBehaviour
     private void PointerEnter(Card card, Panel panel)
     {
         if (card != parentCard || panel != parentCard.curPanel) return;
-        
-        cardInfoVisual.ShowInfo();
+
+        if (card.status == CardState.CardStatus.InHand)
+        {
+            cardInfoVisual.ShowInfo();
+        }
         if (scaleAnimations)
         {
             this.transform.DOScale(scaleOnHover * originalScale, scaleTransition).SetEase(scaleEase);
@@ -292,6 +295,7 @@ public class CardVisuals : MonoBehaviour
     private void StatusUpdate(Card card, CardState.CardStatus status)
     {
         if (card != parentCard) return;
+        card.status = status;
         switch (status)
         {
             case CardState.CardStatus.InCreation:

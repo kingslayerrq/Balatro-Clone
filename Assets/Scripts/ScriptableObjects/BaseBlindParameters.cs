@@ -1,19 +1,27 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BaseBlindParameters", menuName = "Scriptable Objects/BaseBlindParameters")]
-public class BaseBlindParameters : ScriptableObject
+
+public abstract class BaseBlindParameters : ScriptableObject
 {
+    public string blindName;
+
+    public string description;
+    
     public float baseChipGoal;
     
     public int reward;
-    
-    [Tooltip("Actions upon selecting this blind")]
-    public List<BlindActionConfig> actionConfigsOnEnter = new List<BlindActionConfig>();
-    
-    [Tooltip("Actions upon played cards")]
-    public List<BlindActionConfig> blindActionConfigs = new List<BlindActionConfig>();
 
-    [Tooltip("Actions upon beating this blind")]
-    public List<BlindActionConfig> actionConfigsOnWin = new List<BlindActionConfig>();
+    public abstract BaseBlind Create();
+    
+    [Serializable]
+    public abstract class BaseBlind
+    {
+        public string blindName;
+        public string description;
+        public float baseChipGoal;
+        public int reward;
+        public BaseBlindParameters config;
+    }
 }

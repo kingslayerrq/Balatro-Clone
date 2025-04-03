@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd2b11274ee24f99b636286357f4919, type: 3}
+  m_Name: TheWall
+  m_EditorClassIdentifier: 
+  blindName: The Wall
+  description: Extra Large Blind
+  baseChipGoal: 600
+  reward: 10
+  actionConfigsOnEnter:
+  - {fileID: 11400000, guid: 93e83187de2a247b9bacb7c879aa6445, type: 2}
+  blindActionConfigs: []
+  actionConfigsOnWin: []
