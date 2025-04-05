@@ -57,27 +57,22 @@ public class PlayedCardPanel : Panel
         // TODO: this is waiting for HandAnalyzer to finalize the scoring hand
         yield return new WaitForEndOfFrame();
         // First reset all cards to ensure consistent starting state
-        foreach (Card card in cards)
+        foreach (var card in cards.Where(card => !card.cardData.isScoring))
         {
-            // Reset card visual state
-            if (!card.cardData.isScoring)
-            {
-                card.cardVisuals.transform.localScale = card.cardVisuals.originalScale;
-            }
-  
+            card.cardVisuals.transform.localScale = card.cardVisuals.originalScale;
         }
-        yield return new WaitForSecondsRealtime(checkCardGap);
+        yield return new WaitForSecondsRealtime(0.2f);
         foreach (Card cd in cards)
         {
             if (!cd.cardData.canScore) continue;
             
             yield return new WaitForSecondsRealtime(checkCardGap);
             
-            cd.cardData.onScoreCheckEvent.Invoke(cd, cd.cardData.canScore);
+            cd.cardData.onScoreCheckEvent?.Invoke(cd, cd.cardData.canScore);
         }
 
         yield return new WaitForSecondsRealtime(waitForScoring);
         // trigger to calculate score
-        calculateScoringCardsEvent.Invoke(cardsInSelection);
+        calculateScoringCardsEvent?.Invoke(cardsInSelection);
     }
 }

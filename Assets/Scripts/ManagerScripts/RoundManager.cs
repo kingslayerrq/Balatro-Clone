@@ -11,8 +11,14 @@ public class RoundManager : MonoBehaviour
 {
     public static RoundManager Instance;
     private RunManager _runManager;
+    private ScoreCalculator _scoreCalculator;
+    private HandPanel _handPanel;
+    private UsedPanel _usedPanel;
+    private DrawPanel _drawPanel;
     
     public State curState = State.None ;
+    [Tooltip("Scored by this hand")]
+    [SerializeField] private float _handScore = 0;
     public Round curRound = null;
  
     
@@ -23,6 +29,8 @@ public class RoundManager : MonoBehaviour
     [HideInInspector] public UnityEvent<Card> drawCardEvent = new UnityEvent<Card>();
     [HideInInspector] public UnityEvent<Card> discardCardEvent = new UnityEvent<Card>();
     [HideInInspector] public UnityEvent<Round> roundSetupVisualEvent = new UnityEvent<Round>();
+    [HideInInspector] public UnityEvent<Round, bool> roundEndEvent = new UnityEvent<Round, bool>();
+    [HideInInspector] public UnityEvent<Round> scoreUpdateEndEvent = new UnityEvent<Round>();
     
     private void Awake()
     {
@@ -33,7 +41,20 @@ public class RoundManager : MonoBehaviour
     private void Start()
     {
         _runManager = RunManager.Instance;
+        _scoreCalculator = ScoreCalculator.Instance;
+        _handPanel = HandPanel.Instance;
+        _usedPanel = UsedPanel.Instance;
+        _drawPanel = DrawPanel.Instance;
+
+        
+
+        HandTypeVisualizer.Instance.UpdateRoundScoreEvent.AddListener(RegisterHandScore);
+        if (_handPanel)
+        {
+            _handPanel.playHandEvent.AddListener(OnPlayHand);
+        }
         updateRoundStateEvent.AddListener(HandleStateUpdate);
+        
     }
 
     private void HandleStateUpdate(State newState)
@@ -46,11 +67,21 @@ public class RoundManager : MonoBehaviour
             case State.Init:
                 HandleInitState();
                 break;
+            case State.Draw:
+                StartCoroutine(HandleDrawState());
+                break;
             case State.Play:
                 break;
             case State.Score:
                 break;
             case State.Evaluate:
+                HandleEvalState();
+                break;
+            case State.Complete:
+                HandleCompleteState();
+                break;
+            case State.Fail:
+                HandleFailState();
                 break;
             default:
                 break;
@@ -73,6 +104,10 @@ public class RoundManager : MonoBehaviour
     public void StartRound(Round round)
     {
         curRound = round;
+        // Reset
+        curState = State.None;
+        _handScore = 0;
+        
         _runManager.CurRoundLvl += 1;
         updateRoundStateEvent?.Invoke(State.Init);
         
@@ -80,10 +115,7 @@ public class RoundManager : MonoBehaviour
 
     private void HandleInitState()
     {
-        Debug.LogWarning("Init state");
         StartCoroutine(SetupRound());
-        
-        
     }
     
     /// <summary>
@@ -96,22 +128,93 @@ public class RoundManager : MonoBehaviour
         curRound.handSize = _runManager.HandSize;
         curRound.discards = _runManager.Discards;
         curRound.cardsDeckRound = new List<Card>(_runManager.CardsDeckRun);
-        curRound.drawPile = curRound.cardsDeckRound.OrderBy(x => Random.value).ToList();
-        Debug.LogWarning(curRound.drawPile[0]);
-        curRound.chipGoal = curRound.blind.baseChipGoal * _runManager.CurAnteLvl *
-                            Constants.BASE_BLIND_CHIPGOAL[curRound.blind.type];
-        foreach (var card in curRound.drawPile.AsEnumerable().Reverse())
+        var startingDeck = curRound.cardsDeckRound.OrderBy(x => Random.value).ToList();
+        
+        // load card into drawpile
+        foreach (var card in startingDeck)
         {
             loadCardEvent?.Invoke(card);
             yield return new WaitForEndOfFrame();
         }
+        
+        
+        Debug.LogWarning(_drawPanel.cardsInPanel[0]);
+        curRound.chipGoal = curRound.blind.baseChipGoal * _runManager.CurAnteLvl *
+                            Constants.BASE_BLIND_CHIPGOAL[curRound.blind.type];
         roundSetupVisualEvent?.Invoke(curRound);
         yield return new WaitForSecondsRealtime(0.5f);
-        yield return StartCoroutine(Draw(curRound.handSize, curRound.drawPile, curRound.handPile));
-        updateRoundStateEvent?.Invoke(State.Play);
+        updateRoundStateEvent?.Invoke(State.Draw);
     }
+
+    private void OnPlayHand(Panel panel)
+    {
+        curRound.hands -= 1;
+        updateRoundStateEvent?.Invoke(State.Score);
+    }
+
+    /// <summary>
+    /// Add hand score to round score
+    /// </summary>
+    /// <param name="score"></param>
+    private void RegisterHandScore(float score)
+    {
+        _handScore = score;
+        // Update round score
+        curRound.roundScore += _handScore;
+        
+        scoreUpdateEndEvent?.Invoke(curRound);
+        
+        
+    }
+
+    private void HandleCompleteState()
+    {
+        curRound.isComplete = true;
+        roundEndEvent?.Invoke(curRound, curRound.isComplete);
+    }
+
+    private void HandleFailState()
+    {
+        roundEndEvent?.Invoke(curRound, curRound.isComplete);
+    }
+    private IEnumerator HandleDrawState()
+    {
+        // Debug.LogWarning($"drawing {curRound.handSize} - {_handPanel.cardsInPanel.Count}");
+        yield return StartCoroutine(Draw(curRound.handSize - _handPanel.cardsInPanel.Count, _drawPanel.cardsInPanel, _handPanel.cardsInPanel));
+
     
-    
+        // if there are no cards in hand -> lose
+        updateRoundStateEvent?.Invoke(_handPanel.cardsInPanel.Count == 0 ? State.Fail : State.Play);
+    }
+
+    private void HandleEvalState()
+    {
+        var isComplete = EvaluateScore();
+        if (isComplete)
+        {
+            updateRoundStateEvent?.Invoke(State.Complete);
+        }
+        else
+        {
+            if (curRound.hands > 0)
+            {
+                updateRoundStateEvent?.Invoke(State.Draw);
+            }
+            else
+            {
+                updateRoundStateEvent?.Invoke(State.Fail);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Check if round score suffice the round goal
+    /// </summary>
+    /// <returns></returns>
+    private bool EvaluateScore()
+    {
+        return curRound.roundScore >= curRound.chipGoal;
+    }
     public static Round Create(BaseBlindParameters config)
     {
         return new Round
@@ -135,18 +238,16 @@ public class RoundManager : MonoBehaviour
         if (from.Count == 0 || to == null) yield break;
         
         int count = Mathf.Min(from.Count, num);
+        var drawn = from.GetRange(from.Count - count, count);
+        drawn.Reverse();
         
-        var drawn = from.GetRange(0, count);
-        
-        to.AddRange(drawn);
-        
-        foreach (var card in drawn.AsEnumerable().Reverse())
+        foreach (var card in drawn)
         {
-            drawCardEvent.Invoke(card);
+            drawCardEvent?.Invoke(card);
             yield return new WaitForSecondsRealtime(.1f);
 
         }
-        from.RemoveRange(0, count);
+        from.RemoveRange(from.Count - count, count);
     }
 
     /// <summary>
@@ -168,9 +269,9 @@ public class RoundManager : MonoBehaviour
         selection.Clear();
 
         // Draw to fill hands
-        var drawAmount = this.curRound.handSize - this.curRound.handPile.Count;
+        var drawAmount = this.curRound.handSize - _handPanel.cardsInPanel.Count;
         
-        Draw(drawAmount, this.curRound.drawPile, this.curRound.handPile);
+        Draw(drawAmount, _drawPanel.cardsInPanel, _handPanel.cardsInPanel);
     }
 
     public enum State
@@ -181,7 +282,8 @@ public class RoundManager : MonoBehaviour
         Score,
         Evaluate,
         Draw,
-        Result
+        Complete,
+        Fail
     }
     
 }
@@ -198,11 +300,27 @@ public class Round
     public int hands;
     public int discards;
     public float chipGoal;
+    public float roundScore = 0;
     
     public List<Card> cardsDeckRound;
-    public List<Card> drawPile = new List<Card>();
-    public List<Card> handPile = new List<Card>();
-    public List<Card> usedPile = new List<Card>();
+
+    // public List<Card> DrawPile
+    // {
+    //     get => DrawPanel.Instance.cardsInPanel;
+    //     set => DrawPanel.Instance.cardsInPanel = value;
+    // }
+    //
+    // public List<Card> HandPile
+    // {
+    //     get => HandPanel.Instance.cardsInPanel;
+    //     set => HandPanel.Instance.cardsInPanel = value;
+    // }
+    //
+    // public List<Card> UsedPile
+    // {
+    //     get => UsedPanel.Instance.cardsInPanel;
+    //     set => UsedPanel.Instance.cardsInPanel = value;
+    // }
     
 }
 

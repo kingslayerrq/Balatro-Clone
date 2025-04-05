@@ -263,18 +263,24 @@ public class CardVisuals : MonoBehaviour
 
     private void Select(Card card, bool isSelected, Panel panel)
     {
+        
         if (card != parentCard || panel != parentCard.curPanel) return;
-        cardInfoVisual.HideInfo();
-        DOTween.Kill(2, true);      // prevents repeatedly triggering punch rotation
+        
+        var c = DOTween.Kill(2, true);      // prevents repeatedly triggering punch rotation
         float dir = isSelected ? 1 : 0;     // Pop up or down
+        cardInfoVisual.HideInfo();
         shakeParent.DOPunchPosition(shakeParent.up * selectPunchAmount * dir, scaleTransition, 10, 1).OnComplete((() =>
         {
-            if (panel == HandPanel.Instance)
+            // only show when pointer is still hovering
+            if (panel == HandPanel.Instance && parentCard.isHovering)
             {
                 cardInfoVisual.ShowInfo();
             }
         }));
-        shakeParent.DOPunchRotation(Vector3.forward * (hoverPunchAngle / 2), hoverTransition, 20, 1).SetId(2);
+        if (isSelected)
+        {
+            shakeParent.DOPunchRotation(Vector3.forward * (hoverPunchAngle / 2), hoverTransition, 20, 1).SetId(2);
+        }
 
         if (scaleAnimations)
         {
@@ -324,9 +330,8 @@ public class CardVisuals : MonoBehaviour
                 Card.reparentPanelEvent?.Invoke(parentCard, HandPanel.Instance);
                 break;
             case CardState.CardStatus.InUsed:
-                cardImage.enabled = false;
-                allowTilt = false;
-                SetCardImage(parentCard.cardData.sprite);
+                allowTilt = true;
+                SetCardImage(RunManager.Instance.Deck.deckSprite);
                 HideEdition();
                 Card.reparentPanelEvent?.Invoke(parentCard, UsedPanel.Instance);
                 break;

@@ -20,8 +20,10 @@ public class HandPanel : Panel
     [Header("Hand Panel Specific Events")]
     [HideInInspector] public UnityEvent<List<Card>> onCardSelectionChangedEvent = new UnityEvent<List<Card>>();
     [HideInInspector] public UnityEvent<Card, Panel> playCardEvent = new UnityEvent<Card, Panel>();
-    [HideInInspector] public UnityEvent<Panel> handPlayedEvent = new UnityEvent<Panel>();
-    
+    [HideInInspector] 
+    [Tooltip("Events to trigger after all cards has been played")] public UnityEvent<Panel> handPlayedEvent = new UnityEvent<Panel>();
+    [HideInInspector] 
+    [Tooltip("Events to trigger as the played button is pressed")] public UnityEvent<Panel> playHandEvent = new UnityEvent<Panel>();
     protected override void Awake()
     {
         base.Awake();
@@ -46,6 +48,7 @@ public class HandPanel : Panel
 
         IEnumerator PlayCardCoroutine()
         {
+            playHandEvent?.Invoke(this);
             // Sort the card based on their x position
             cardsInSelection.Sort(((card1, card2) => card1.transform.position.x.CompareTo(card2.transform.position.x)));
             
@@ -103,7 +106,7 @@ public class HandPanel : Panel
         // Trigger Card Analyzer ONLY when triggered in hand
         if (card.curPanel == this)
         { 
-            onCardSelectionChangedEvent.Invoke(cardsInSelection);
+            onCardSelectionChangedEvent?.Invoke(cardsInSelection);
         }
     }
 }

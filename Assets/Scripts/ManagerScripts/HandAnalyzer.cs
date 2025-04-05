@@ -19,7 +19,7 @@ public class HandAnalyzer : MonoBehaviour
 
     [Header("During Selection")]
     [Tooltip("The highest tier Hand Type of current selection")]
-    [SerializeField] private Enums.BasePokerHandType curHand = Enums.BasePokerHandType.None;
+    public Enums.BasePokerHandType curHand = Enums.BasePokerHandType.None;
     [Tooltip("List of Hand Types included in the current selection")]
     public List<Enums.BasePokerHandType> handTypesContained = new List<Enums.BasePokerHandType>();
 
@@ -56,6 +56,7 @@ public class HandAnalyzer : MonoBehaviour
             _handPanel.onCardSelectionChangedEvent.AddListener(AnalyzeHand);
             _handPanel.handPlayedEvent.AddListener(FinalizeHandType);
         }
+  
     }
 
     /// <summary>
@@ -238,8 +239,8 @@ public class HandAnalyzer : MonoBehaviour
             curHand = handTypesContained.Count > 0 ? handTypesContained.Max() : Enums.BasePokerHandType.None;
         }
 
-        Debug.LogWarning("Cur Hand Type: " + curHand);
-        UpdateHandTypeEvent.Invoke(curHand);
+        //Debug.LogWarning("Cur Hand Type: " + curHand);
+        UpdateHandTypeEvent?.Invoke(curHand);
     }
 
     /// <summary>

@@ -25,13 +25,14 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     public CardScore cardScore = null;
     public CardState.CardStatus status = CardState.CardStatus.InCreation;
 
-    [Header("Panels")] 
+    [Header("References")] 
     [SerializeField] private HandPanel handPanel;
     [SerializeField] private JokerPanel jokerPanel;
     [SerializeField] private ConsumablePanel consumablePanel;
     [SerializeField] private PlayedCardPanel playedCardPanel;
     [SerializeField] private DrawPanel drawPanel;
     [SerializeField] private DiscardPanel discardPanel;
+    private ScoreCalculator _scoreCalculator;
     
     [Header("Drag Debug")]
     private Vector2 _pointerOffset;
@@ -103,12 +104,21 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         jokerPanel = JokerPanel.Instance;
         playedCardPanel = PlayedCardPanel.Instance;
         drawPanel = DrawPanel.Instance;
+        _scoreCalculator = ScoreCalculator.Instance;
+        
         
         // Add Event handlers
-        if (handPanel != null)
+        if (handPanel)
         {
             handPanel.playCardEvent.AddListener(OnPlayed);
         }
+
+        if (_scoreCalculator)
+        {
+            _scoreCalculator.OnCardUsedEvent.AddListener(OnUsed);
+        }
+
+        
         cardData.onScoreCheckEvent.AddListener(ScoreCheckHandler);
         _roundManager.loadCardEvent.AddListener(OnLoad);
         _roundManager.drawCardEvent.AddListener(OnDrawn);
@@ -225,18 +235,22 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         if (shortPress && !wasDragged)
         {
             isSelected = !isSelected;
-            selectEvent.Invoke(this, isSelected, curPanel);
-            if (isSelected)
-            {
-                this.transform.localPosition += cardVisuals.transform.up * selectedOffset;
-            }
-            else
-            {
-                this.transform.localPosition = Vector3.zero;
-            }
+            selectEvent?.Invoke(this, isSelected, curPanel);
+            SelectTransformUpdate();
         }
     }
 
+    public void SelectTransformUpdate()
+    {
+        if (isSelected)
+        {
+            this.transform.localPosition += cardVisuals.transform.up * selectedOffset;
+        }
+        else
+        {
+            this.transform.localPosition = Vector3.zero;
+        }
+    }
     public void OnPointerDown(PointerEventData eventData)
     {
         if (!curPanel || eventData.button != PointerEventData.InputButton.Left) return;
@@ -252,7 +266,6 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         // only respond if invoked on self
         if (card != this) return;
         
-        isSelected = false;
 
         cardStatusUpdateEvent?.Invoke(this, CardState.CardStatus.InPlayed);
             
@@ -291,24 +304,31 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         //reparentPanelEvent?.Invoke(this, discardPanel);
     }
 
+    private void OnUsed(Card card)
+    {
+        if (card != this) return;
+        
+        cardStatusUpdateEvent?.Invoke(this, CardState.CardStatus.InUsed);
+    }
+
     // Update scoring card visuals
     private void ScoreCheckHandler(Card card, bool canScore)
     {
         if (card != this) return;
 
-        if (canScore )
+        if (card.cardData.canScore)
         {
-            if (!card.cardData.isScoring)
-            {
-                card.cardData.isScoring = true;
-                // trigger the select event
-                selectEvent.Invoke(this, true, curPanel);
-                this.transform.localPosition += cardVisuals.transform.up * selectedOffset;
-            }
+            if (card.cardData.isScoring) return;
+            card.cardData.isScoring = true;
+            // trigger the select event
+            isSelected = true;
+            selectEvent?.Invoke(this, isSelected, curPanel);
+            SelectTransformUpdate();
         }
         else
         {
             // set to gray
+            Debug.Log("set to gray");
             cardVisuals.cardImage.color = Color.Lerp(cardVisuals.originalColor, Color.gray, 1f);
         }
     }

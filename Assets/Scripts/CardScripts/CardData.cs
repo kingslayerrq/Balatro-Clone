@@ -87,7 +87,7 @@ public class CardData : MonoBehaviour, IComparable
 
     public int SortByRank(CardData other)
     {
-        int rankComparison = this.rank.CompareTo(other.rank);
+        int rankComparison = other.rank.CompareTo(this.rank);
         if (rankComparison != 0)
         {
             return rankComparison;

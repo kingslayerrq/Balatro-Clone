@@ -11,10 +11,12 @@ public class ScoreCalculator : MonoBehaviour
 {
     public static ScoreCalculator Instance;
     
+    
     private JokerPanel _jokerPanel;
     private PlayedCardPanel _playedCardPanel;
     private HandPanel _handPanel;
     private RunManager _runManager;
+    private RoundManager _roundManager;
     private HandAnalyzer _handAnalyzer;
 
     [SerializeField] private float cardScoringGap = 0.2f;
@@ -22,7 +24,7 @@ public class ScoreCalculator : MonoBehaviour
     
     public float curChips = 0;
     public float curMults = 0;
-    public float curScore = 0;
+    private float curScore = 0;
     private float _lastChips = 0;
     private float _lastMults = 0;
     private float _lastScore = 0;
@@ -33,7 +35,8 @@ public class ScoreCalculator : MonoBehaviour
     [HideInInspector] public UnityEvent<float> UpdateChipsVisualEvent = new UnityEvent<float>();
     [HideInInspector] public UnityEvent<float> UpdateMultsVisualEvent = new UnityEvent<float>();
     [HideInInspector] public UnityEvent<float> UpdateScoreVisualEvent = new UnityEvent<float>();
-
+    [HideInInspector] public UnityEvent<float> OnScoreEndEvent = new UnityEvent<float>();
+    [HideInInspector] public UnityEvent<Card> OnCardUsedEvent = new UnityEvent<Card>();
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -44,7 +47,10 @@ public class ScoreCalculator : MonoBehaviour
         _jokerPanel = JokerPanel.Instance;
         _playedCardPanel = PlayedCardPanel.Instance;
         _runManager = RunManager.Instance;
+        _roundManager = RoundManager.Instance;
         _handAnalyzer = HandAnalyzer.Instance;
+    
+        
         if (_handAnalyzer && _runManager)
         {
             _handAnalyzer.UpdateHandTypeEvent.AddListener(UpdateCalculatorByHandType);
@@ -53,6 +59,13 @@ public class ScoreCalculator : MonoBehaviour
         {
             _playedCardPanel.calculateScoringCardsEvent.AddListener(CalculateScore);
         }
+
+        if (_roundManager)
+        {
+            _roundManager.scoreUpdateEndEvent.AddListener(CleanUpAfterScore);
+        }
+
+        
     }
 
     private void Update()
@@ -60,19 +73,22 @@ public class ScoreCalculator : MonoBehaviour
         if (_lastChips != curChips)
         {
             _lastChips = curChips;
-            UpdateChipsVisualEvent.Invoke(curChips);
+            UpdateChipsVisualEvent?.Invoke(curChips);
         }
 
         if (_lastMults != curMults)
         {
             _lastMults = curMults;
-            UpdateMultsVisualEvent.Invoke(curMults);
+            UpdateMultsVisualEvent?.Invoke(curMults);
         }
 
         if (_lastScore != curScore)
         {
             _lastScore = curScore;
-            UpdateScoreVisualEvent.Invoke(curScore);
+            UpdateScoreVisualEvent?.Invoke(curScore);
+            
+            _handAnalyzer.curHand = Enums.BasePokerHandType.None;
+            _handAnalyzer.UpdateHandTypeEvent?.Invoke(_handAnalyzer.curHand);
         } 
     }
 
@@ -91,13 +107,58 @@ public class ScoreCalculator : MonoBehaviour
         }
 
         curScore = curChips * curMults;
+        
+
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        yield return StartCoroutine(RecycleCards(cards));
+
+
     }
 
+    private void CleanUpAfterScore(Round round)
+    {
+        if (round != _roundManager.curRound) return;
+        StartCoroutine(RecycleCards(_playedCardPanel.cardsInSelection));
+    }
+
+    private IEnumerator RecycleCards(List<Card> cards)
+    {
+        var cardsCopy = cards.ToArray();
+        foreach (var card in cardsCopy)
+        {
+            card.isSelected = false;
+            Card.selectEvent?.Invoke(card, card.isSelected, card.curPanel);
+            card.SelectTransformUpdate();
+            
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        var cardsInPanelCopy = _playedCardPanel.cardsInPanel.ToArray();
+        foreach (var card in cardsInPanelCopy)
+        {
+            
+            yield return new WaitForEndOfFrame();
+            OnCardUsedEvent?.Invoke(card);
+            _playedCardPanel.cardsInPanel.Remove(card);
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+        
+        OnScoreEndEvent?.Invoke(curScore);
+        
+        
+        curScore = 0;
+        _roundManager.updateRoundStateEvent?.Invoke(RoundManager.State.Evaluate);
+        
+    }
+    
     private void UpdateCalculatorByHandType(Enums.BasePokerHandType handType)
     {
         var runHandType = _runManager.GetRunHandTypeInfo(handType);
         curChips = runHandType.baseChips;
         curMults = runHandType.baseMults;
-        UpdateHandTypeVisualEvent.Invoke(runHandType);
+        UpdateHandTypeVisualEvent?.Invoke(runHandType);
     }
 }

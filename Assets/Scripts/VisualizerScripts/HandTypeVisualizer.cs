@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HandTypeVisualizer : MonoBehaviour
 {
@@ -14,6 +16,11 @@ public class HandTypeVisualizer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI handTypeBaseChips;
     [SerializeField] private TextMeshProUGUI handTypeBaseMults;
     [SerializeField] private TextMeshProUGUI handScore;
+    [SerializeField] private GameObject handTypeObj;
+    [SerializeField] private GameObject handTypeLvlObj;
+    [SerializeField] private GameObject handScoreObj;
+
+    [HideInInspector] public UnityEvent<float> UpdateRoundScoreEvent = new UnityEvent<float>();
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -27,7 +34,7 @@ public class HandTypeVisualizer : MonoBehaviour
             _scoreCalculator.UpdateHandTypeVisualEvent.AddListener(UpdateHandTypePanelVisuals);
             _scoreCalculator.UpdateChipsVisualEvent.AddListener(UpdateChipsPanelVisuals);
             _scoreCalculator.UpdateMultsVisualEvent.AddListener(UpdateMultsPanelVisuals);
-            _scoreCalculator.UpdateScoreVisualEvent.AddListener(UpdateScorePanelVisuals);
+            _scoreCalculator.UpdateScoreVisualEvent.AddListener(UpdateHandScorePanelVisualWrapper);
         }
 
 
@@ -37,23 +44,38 @@ public class HandTypeVisualizer : MonoBehaviour
     {
         handTypeName.text = handType.handTypeName;
         handTypeLvl.text = handType.type == Enums.BasePokerHandType.None ? "" : "lvl. " + handType.lvl;
-        handTypeBaseChips.text = handType.baseChips.ToString();
-        handTypeBaseMults.text = handType.baseMults.ToString();
+        handTypeBaseChips.text = handType.baseChips.FormatFloat();
+        handTypeBaseMults.text = handType.baseMults.FormatFloat();
 
     }
 
     private void UpdateChipsPanelVisuals(float chips)
     {
-        handTypeBaseChips.text = chips.ToString();
+        handTypeBaseChips.text = chips.FormatFloat();
     }
 
     private void UpdateMultsPanelVisuals(float mults)
     {
-        handTypeBaseMults.text = mults.ToString();
+        handTypeBaseMults.text = mults.FormatFloat();
     }
 
-    private void UpdateScorePanelVisuals(float score)
+    private void UpdateHandScorePanelVisualWrapper(float score)
     {
-        handScore.text = score.ToString();
+        if (score == 0) return;
+        StartCoroutine(UpdateScorePanelVisuals(score));
+    }
+
+    private IEnumerator UpdateScorePanelVisuals(float score)
+    {
+        if (handTypeObj == null || handTypeLvlObj == null) yield break;
+        handTypeLvlObj.SetActive(false);
+        handTypeObj.SetActive(false);
+        handScoreObj.SetActive(true);
+        handScore.text = score.FormatFloat();
+        yield return new WaitForSecondsRealtime(1f);
+        handScoreObj.SetActive(false);
+        UpdateRoundScoreEvent?.Invoke(score);
+        handTypeObj.SetActive(true);
+        handTypeLvlObj.SetActive(true);
     }
 }

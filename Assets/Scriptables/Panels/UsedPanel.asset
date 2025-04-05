@@ -19,4 +19,4 @@ MonoBehaviour:
   allowCurve: 0
   allowSwap: 0
   allowDrag: 0
-  cardReturnTransition: 0
+  cardReturnTransition: 0.15

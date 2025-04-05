@@ -190,14 +190,23 @@ public abstract class Panel: MonoBehaviour
     {
         if (panel != this) return;
         card.curPanel = this;
-  
-        cardsInPanel.Add(card);
+
+        if (!cardsInPanel.Contains(card))
+        {
+            cardsInPanel.Add(card);
+        }
         
         card.transform.parent.SetParent(this.transform);
+        card.isSelected = false;
         // !!! IMPORTANT
         card.cardVisuals.curveRotationOffset = 0;
+        card.cardVisuals.curveYOffset = 0;
+        card.transform.localPosition = Vector3.zero;
 
-        card.cardVisuals.UpdateIndex(this.transform.childCount);
+        foreach (var cd in panel.cardsInPanel)
+        {
+            cd.cardVisuals.UpdateIndex(this.transform.childCount);
+        }
             
         
         

@@ -32,7 +32,7 @@ public class CardScore : MonoBehaviour, IScorable
             foreach (var action in cardActions)
             {
                 yield return new WaitForSecondsRealtime(cardActions.Count > 1 ? scoreTriggerGap : 0);
-                Card.scoreEvent.Invoke(_card);
+                Card.scoreEvent?.Invoke(_card);
                 action.Execute(_card, _card.curPanel.cardsInSelection, _scoreCalculator);
             }
 
