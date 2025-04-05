@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92b34ba5637f9406e92ed66b7cc936da, type: 3}
-  m_Name: DiscardPanel
+  m_Name: UsedPanel
   m_EditorClassIdentifier: 
-  panelID: Discard Panel
+  panelID: Used Panel
   panelType: 4
   maxSize: 10
   maxSelectionSize: 0
   allowCurve: 0
   allowSwap: 0
   allowDrag: 0
-  cardReturnTransition: 0.15
+  cardReturnTransition: 0

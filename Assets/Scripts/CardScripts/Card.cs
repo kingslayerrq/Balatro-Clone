@@ -30,6 +30,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     [SerializeField] private JokerPanel jokerPanel;
     [SerializeField] private ConsumablePanel consumablePanel;
     [SerializeField] private PlayedCardPanel playedCardPanel;
+    [SerializeField] private DrawPanel drawPanel;
     [SerializeField] private DiscardPanel discardPanel;
     
     [Header("Drag Debug")]
@@ -84,10 +85,10 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         cardData = GetComponent<CardData>();
         cardScore = GetComponent<CardScore>();
         cardVisualizer = FindFirstObjectByType<CardVisualizer>().transform;
-        if (cardData == null) return;
   
         
         // Initialize
+        if (cardData == null) return;
         cardData.Init();
         this.name = cardData.id;
         _canvas = GetComponentInParent<Canvas>();
@@ -96,10 +97,12 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         cardVisuals.name = cardData.id;
         cardVisuals.Init(this);
 
+        // Get References
         handPanel = HandPanel.Instance;
         consumablePanel = ConsumablePanel.Instance;
         jokerPanel = JokerPanel.Instance;
         playedCardPanel = PlayedCardPanel.Instance;
+        drawPanel = DrawPanel.Instance;
         
         // Add Event handlers
         if (handPanel != null)
@@ -107,6 +110,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             handPanel.playCardEvent.AddListener(OnPlayed);
         }
         cardData.onScoreCheckEvent.AddListener(ScoreCheckHandler);
+        _roundManager.loadCardEvent.AddListener(OnLoad);
         _roundManager.drawCardEvent.AddListener(OnDrawn);
         _roundManager.discardCardEvent.AddListener(OnDiscard);
 
@@ -114,9 +118,9 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     private void Update()
     {
-        ClampPosition();
         if (isDragging)
         {
+            ClampPosition();
             Vector2 targetPosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - _pointerOffset;
             Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
             Vector2 velocity = direction * Mathf.Min(moveSpeedLimit, Vector2.Distance(transform.position, targetPosition) / Time.deltaTime);
@@ -250,28 +254,41 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         
         isSelected = false;
 
-        cardStatusUpdateEvent.Invoke(this, CardState.CardStatus.InPlayed);
+        cardStatusUpdateEvent?.Invoke(this, CardState.CardStatus.InPlayed);
             
-        reparentPanelEvent.Invoke(this, targetPanel);
+        //reparentPanelEvent?.Invoke(this, targetPanel);
 
+    }
+
+    /// <summary>
+    /// On Round starts load the deck from creation into Draw Pile
+    /// </summary>
+    /// <param name="card"></param>
+    private void OnLoad(Card card)
+    {
+        if (card != this) return;
+        
+        cardStatusUpdateEvent?.Invoke(this, CardState.CardStatus.InDeck);
+        
+        //reparentPanelEvent?.Invoke(this, drawPanel);
     }
 
     private void OnDrawn(Card card)
     {
         if (card != this) return;
         
-        cardStatusUpdateEvent.Invoke(this, CardState.CardStatus.InHand);
+        cardStatusUpdateEvent?.Invoke(this, CardState.CardStatus.InHand);
         
-        reparentPanelEvent.Invoke(this, handPanel);
+        //reparentPanelEvent?.Invoke(this, handPanel);
     }
 
     private void OnDiscard(Card card)
     {
         if (card != this) return;
 
-        cardStatusUpdateEvent.Invoke(this, CardState.CardStatus.InUsed);
+        cardStatusUpdateEvent?.Invoke(this, CardState.CardStatus.InUsed);
         
-        reparentPanelEvent.Invoke(this, discardPanel);
+        //reparentPanelEvent?.Invoke(this, discardPanel);
     }
 
     // Update scoring card visuals

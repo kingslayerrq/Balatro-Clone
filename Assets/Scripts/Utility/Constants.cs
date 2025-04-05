@@ -14,4 +14,12 @@ public class Constants
         { Enums.BlindType.BigBlind, 450 },
         { Enums.BlindType.BossBlind, 600 },
     };
+
+    public static readonly string[] CARD_EDITIONS = new string[]
+    {
+        "REGULAR",
+        "POLYCHROME",
+        "FOIL",
+        "NEGATIVE"
+    };
 }

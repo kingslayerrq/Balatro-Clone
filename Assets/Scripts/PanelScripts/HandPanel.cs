@@ -63,7 +63,7 @@ public class HandPanel : Panel
             playHandButton.interactable = false;
             
             // trigger event after all cards has been played
-            handPlayedEvent.Invoke(PlayedCardPanel.Instance);
+            handPlayedEvent?.Invoke(PlayedCardPanel.Instance);
         }
     }
     

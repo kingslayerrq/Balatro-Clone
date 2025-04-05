@@ -15,7 +15,7 @@ public class PlayedCardPanel : Panel
 
     [SerializeField] private float checkCardGap = 0.1f;
     [Tooltip("Seconds in real time before calculating score")]
-    [SerializeField] private float waitForScoring = 0.5f;
+    [SerializeField] private float waitForScoring = 1f;
     
     [HideInInspector] public UnityEvent<List<Card>> calculateScoringCardsEvent = new UnityEvent<List<Card>>();
     

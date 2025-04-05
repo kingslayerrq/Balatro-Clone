@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
@@ -18,6 +19,7 @@ public class RoundManager : MonoBehaviour
 
     
     [HideInInspector] public UnityEvent<State> updateRoundStateEvent = new UnityEvent<State>();
+    [HideInInspector] public UnityEvent<Card> loadCardEvent = new UnityEvent<Card>();
     [HideInInspector] public UnityEvent<Card> drawCardEvent = new UnityEvent<Card>();
     [HideInInspector] public UnityEvent<Card> discardCardEvent = new UnityEvent<Card>();
     [HideInInspector] public UnityEvent<Round> roundSetupVisualEvent = new UnityEvent<Round>();
@@ -72,33 +74,41 @@ public class RoundManager : MonoBehaviour
     {
         curRound = round;
         _runManager.CurRoundLvl += 1;
-        updateRoundStateEvent.Invoke(State.Init);
+        updateRoundStateEvent?.Invoke(State.Init);
         
     }
 
     private void HandleInitState()
     {
         Debug.LogWarning("Init state");
-        SetupRound();
-        Draw(curRound.handSize, curRound.drawPile, curRound.handPile);
-        updateRoundStateEvent?.Invoke(State.Play);
+        StartCoroutine(SetupRound());
+        
+        
     }
     
     /// <summary>
     /// Get variable references from RunManager
     /// </summary>
-    private void SetupRound()
+    private IEnumerator SetupRound()
     {
-        if (_runManager == null || curRound == null) return;
+        if (_runManager == null || curRound == null) yield break;
         curRound.hands = _runManager.Hands;
         curRound.handSize = _runManager.HandSize;
         curRound.discards = _runManager.Discards;
         curRound.cardsDeckRound = new List<Card>(_runManager.CardsDeckRun);
         curRound.drawPile = curRound.cardsDeckRound.OrderBy(x => Random.value).ToList();
+        Debug.LogWarning(curRound.drawPile[0]);
         curRound.chipGoal = curRound.blind.baseChipGoal * _runManager.CurAnteLvl *
                             Constants.BASE_BLIND_CHIPGOAL[curRound.blind.type];
-        
+        foreach (var card in curRound.drawPile.AsEnumerable().Reverse())
+        {
+            loadCardEvent?.Invoke(card);
+            yield return new WaitForEndOfFrame();
+        }
         roundSetupVisualEvent?.Invoke(curRound);
+        yield return new WaitForSecondsRealtime(0.5f);
+        yield return StartCoroutine(Draw(curRound.handSize, curRound.drawPile, curRound.handPile));
+        updateRoundStateEvent?.Invoke(State.Play);
     }
     
     
@@ -120,9 +130,9 @@ public class RoundManager : MonoBehaviour
     /// <param name="num">Amount to draw</param>
     /// <param name="from">List to draw from</param>
     /// <param name="to">List to draw into</param>
-    public void Draw(int num, List<Card> from, List<Card> to)
+    public IEnumerator Draw(int num, List<Card> from, List<Card> to)
     {
-        if (from.Count == 0 || to == null) return;
+        if (from.Count == 0 || to == null) yield break;
         
         int count = Mathf.Min(from.Count, num);
         
@@ -130,9 +140,11 @@ public class RoundManager : MonoBehaviour
         
         to.AddRange(drawn);
         
-        foreach (var card in drawn)
+        foreach (var card in drawn.AsEnumerable().Reverse())
         {
             drawCardEvent.Invoke(card);
+            yield return new WaitForSecondsRealtime(.1f);
+
         }
         from.RemoveRange(0, count);
     }

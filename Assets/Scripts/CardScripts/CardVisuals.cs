@@ -8,6 +8,7 @@ public class CardVisuals : MonoBehaviour
 {
     #region CardVisuals Variables
     
+    
     [Header("Card")]
     public Card parentCard = null;
     [SerializeField] private int indexInHand;
@@ -18,6 +19,9 @@ public class CardVisuals : MonoBehaviour
 
     [Header("References")] 
     private RunManager _runManager;
+
+    [SerializeField] private ShaderCode cardShader;
+    
     [Tooltip("Separate parent obj from actual card")]
     [SerializeField] private Transform tiltParent;
     [SerializeField] private Transform shakeParent;
@@ -31,7 +35,8 @@ public class CardVisuals : MonoBehaviour
 
     [Header("CardInfo Visuals")] public CardInfoVisual cardInfoVisual = null;
 
-    [Header("Animation")] [SerializeField] private bool allowAnim = true;
+    [Header("Animation")] 
+    [SerializeField] private bool allowTilt = true;
     
     [Header("Movement and Rotation Settings")]
     [SerializeField] private float followSpeed = 50f;
@@ -67,8 +72,8 @@ public class CardVisuals : MonoBehaviour
     
     [Header("Curve")]
     [SerializeField] private CurveParameters curve;
-    public float curveYOffset;
-    public float curveRotationOffset;
+    [HideInInspector] public float curveYOffset;
+    [HideInInspector] public float curveRotationOffset;
 
     #endregion
 
@@ -152,7 +157,7 @@ public class CardVisuals : MonoBehaviour
 
     private void CardTilt()
     {
-        if (!allowAnim) return;
+        if (!allowTilt) return;
         // If dragging, preserve previous index, else update
         indexInHand = parentCard.isDragging ? indexInHand : parentCard.GetParentIndex();
         float sine = Mathf.Sin(Time.time + indexInHand) * (parentCard.isHovering ? 0.2f : 1f);
@@ -212,7 +217,6 @@ public class CardVisuals : MonoBehaviour
         {
             this.transform.DOScale(scaleOnSelect * originalScale, scaleTransition).SetEase(scaleEase);
         }
-        
         
         canvas.overrideSorting = true;
 
@@ -299,20 +303,39 @@ public class CardVisuals : MonoBehaviour
         switch (status)
         {
             case CardState.CardStatus.InCreation:
-                allowAnim = false;
+                allowTilt = false;
                 SetCardImage(RunManager.Instance.Deck.deckSprite);
+                HideEdition();
+                cardImage.enabled = false;
+                Card.reparentPanelEvent?.Invoke(parentCard, DeckPanel.Instance);
                 break;
             case CardState.CardStatus.InDeck:
-                allowAnim = false;
+                cardImage.enabled = true;
+                allowTilt = false;
                 SetCardImage(RunManager.Instance.Deck.deckSprite);
+                HideEdition();
+                Card.reparentPanelEvent?.Invoke(parentCard, DrawPanel.Instance);
                 break;
             case CardState.CardStatus.InHand:
-                allowAnim = true;
+                cardImage.enabled = true;
+                allowTilt = true;
                 SetCardImage(parentCard.cardData.sprite);
+                ShowEdition();
+                Card.reparentPanelEvent?.Invoke(parentCard, HandPanel.Instance);
                 break;
             case CardState.CardStatus.InUsed:
-                allowAnim = false;
+                cardImage.enabled = false;
+                allowTilt = false;
                 SetCardImage(parentCard.cardData.sprite);
+                HideEdition();
+                Card.reparentPanelEvent?.Invoke(parentCard, UsedPanel.Instance);
+                break;
+            case CardState.CardStatus.InPlayed:
+                cardImage.enabled = true;
+                allowTilt = true;
+                SetCardImage(parentCard.cardData.sprite);
+                ShowEdition();
+                Card.reparentPanelEvent?.Invoke(parentCard, PlayedCardPanel.Instance);
                 break;
             default:
                 break;
@@ -320,6 +343,17 @@ public class CardVisuals : MonoBehaviour
     }
     #endregion
 
+    private void ShowEdition()
+    {
+        if (cardShader == null || parentCard == null) return;
+        
+        cardShader.SetEdition((int)parentCard.cardData.edition);
+    }
+
+    private void HideEdition()
+    {
+        if (cardShader) cardShader.SetEdition(0);
+    }
     private void SetCardImage(Sprite sprite)
     {
         if (cardImage.sprite == sprite) return;

@@ -14,7 +14,7 @@ public class BaseCardParameters : ScriptableObject
     [Range(1, 14)]
     public int rank;
     
-    public Enums.Edition edition = Enums.Edition.Basic;
+    public Enums.Edition edition = Enums.Edition.Regular;
 
     public Enums.Seal seal = Enums.Seal.None;
     

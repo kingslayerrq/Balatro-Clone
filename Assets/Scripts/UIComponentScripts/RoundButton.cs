@@ -2,14 +2,18 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class RoundButton : MonoBehaviour
 {
-    [SerializeField] private Button playButton;
-    [SerializeField] private Button skipButton;
+    public Button playButton;
+    public Button skipButton;
     
     private Round _round;
     private AnteManager _anteManager;
+
+    [HideInInspector] public static UnityEvent<Round> SelectRoundEvent = new UnityEvent<Round>();
+    [HideInInspector] public static UnityEvent<Round> SkipRoundEvent = new UnityEvent<Round>();
 
     private void Start()
     {
@@ -33,7 +37,9 @@ public class RoundButton : MonoBehaviour
     {
         if (_round != null && _anteManager != null)
         {
-            _anteManager.SelectRound(_round);
+            playButton.interactable = false;
+            skipButton.interactable = false;                // Also removes the ability to skip this round
+            SelectRoundEvent?.Invoke(_round);
         }
     }
     
@@ -41,7 +47,8 @@ public class RoundButton : MonoBehaviour
     {
         if (_round != null && _anteManager != null)
         {
-            _anteManager.SkipRound(_round);
+            skipButton.interactable = false;
+            SkipRoundEvent?.Invoke(_round);
         }
     }
 }

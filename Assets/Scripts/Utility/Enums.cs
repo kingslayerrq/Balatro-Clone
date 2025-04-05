@@ -13,11 +13,10 @@ public class Enums
 
     public enum Edition
     {
-        Basic,
-        Foil,
-        Holographic,
-        Polychrome,
-        Negative
+        Regular = 0,
+        Polychrome = 1,
+        Foil = 2,
+        Negative = 3
     }
 
     public enum Seal

@@ -69,6 +69,7 @@ public class RunManager : MonoBehaviour
     [Tooltip("Checklist for Boss, bool - whether this boss has been encountered this run")]
     private Dictionary<BossBlindConfig, bool> _bossDictionary = new Dictionary<BossBlindConfig, bool>();
     public List<AnteManager.Ante> Antes = new List<AnteManager.Ante>();
+    [Tooltip("Deck generated from starting deck config, can be modified throughout this run")]
     private List<Card> _cardsDeck = new List<Card>();
     [Tooltip("Cards for this run")] public IReadOnlyList<Card> CardsDeckRun => _cardsDeck;
 
@@ -120,10 +121,13 @@ public class RunManager : MonoBehaviour
     {
         _deckPanel = DeckPanel.Instance;
         _anteManager = AnteManager.Instance;
-        Init();
+        
     }
 
-    private void Init()
+    /// <summary>
+    /// Initialize a Run
+    /// </summary>
+    public void Init()
     {
         // Load Base HandType values
         LoadBaseHandTypes();
@@ -189,13 +193,17 @@ public class RunManager : MonoBehaviour
             var cardSlot = Instantiate(CardSlotPrefab, _deckPanel.transform);
             var cardObj = Instantiate(CardPrefab, cardSlot.transform);
             var card = cardObj.GetComponent<Card>();
+
+ 
             card.baseCardParameters = cardConfig;
             card.Init();
-            // Update Card State
-            Card.cardStatusUpdateEvent?.Invoke(card, CardState.CardStatus.InCreation);
+            
             
             // Add card
             _cardsDeck.Add(card);
+            
+            // Update Card State
+            Card.cardStatusUpdateEvent?.Invoke(card, CardState.CardStatus.InCreation);
         }
     }
     private void LoadBaseHandTypes()

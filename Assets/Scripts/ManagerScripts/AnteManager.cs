@@ -20,17 +20,19 @@ public class AnteManager : MonoBehaviour
     {
         _runManager = RunManager.Instance;
         _roundManager = RoundManager.Instance;
+        RoundButton.SelectRoundEvent.AddListener(SelectRound);
+        RoundButton.SkipRoundEvent.AddListener(SkipRound);
     }
     
 
-    public void SkipRound(Round round)
+    private void SkipRound(Round round)
     {
         if (round == null || _roundManager == null) return;
         
         Debug.LogWarning("Skipping");
         _roundManager.SkipRound(round);
     }
-    public void SelectRound(Round round)
+    private void SelectRound(Round round)
     {
         if (round == null || _roundManager == null) return;
 
