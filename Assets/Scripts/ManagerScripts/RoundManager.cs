@@ -18,7 +18,7 @@ public class RoundManager : MonoBehaviour
     
     public State curState = State.None ;
     [Tooltip("Scored by this hand")]
-    [SerializeField] private float _handScore = 0;
+    [SerializeField] private float handScore = 0;
     public Round curRound = null;
  
     
@@ -49,10 +49,7 @@ public class RoundManager : MonoBehaviour
         
 
         HandTypeVisualizer.Instance.UpdateRoundScoreEvent.AddListener(RegisterHandScore);
-        if (_handPanel)
-        {
-            _handPanel.playHandEvent.AddListener(OnPlayHand);
-        }
+        
         updateRoundStateEvent.AddListener(HandleStateUpdate);
         
     }
@@ -64,15 +61,24 @@ public class RoundManager : MonoBehaviour
         curState = newState;
         switch (newState)
         {
+            case State.None:
+                break;
             case State.Init:
                 HandleInitState();
                 break;
             case State.Draw:
                 StartCoroutine(HandleDrawState());
                 break;
+            case State.Discard:
+                break;
             case State.Play:
                 break;
+            case State.OnPlayed:
+                OnPlayed();
+                break;
             case State.Score:
+                break;
+            case State.OnScored:
                 break;
             case State.Evaluate:
                 HandleEvalState();
@@ -106,11 +112,9 @@ public class RoundManager : MonoBehaviour
         curRound = round;
         // Reset
         curState = State.None;
-        _handScore = 0;
-        
+        handScore = 0;
         _runManager.CurRoundLvl += 1;
         updateRoundStateEvent?.Invoke(State.Init);
-        
     }
 
     private void HandleInitState()
@@ -146,23 +150,24 @@ public class RoundManager : MonoBehaviour
         updateRoundStateEvent?.Invoke(State.Draw);
     }
 
-    private void OnPlayHand(Panel panel)
+    
+
+    private void OnPlayed()
     {
         curRound.hands -= 1;
-        updateRoundStateEvent?.Invoke(State.Score);
+        
     }
-
     /// <summary>
     /// Add hand score to round score
     /// </summary>
     /// <param name="score"></param>
     private void RegisterHandScore(float score)
     {
-        _handScore = score;
+        handScore = score;
         // Update round score
-        curRound.roundScore += _handScore;
+        curRound.roundScore += handScore;
         
-        scoreUpdateEndEvent?.Invoke(curRound);
+        updateRoundStateEvent?.Invoke(State.OnScored);
         
         
     }
@@ -179,10 +184,9 @@ public class RoundManager : MonoBehaviour
     }
     private IEnumerator HandleDrawState()
     {
-        // Debug.LogWarning($"drawing {curRound.handSize} - {_handPanel.cardsInPanel.Count}");
-        yield return StartCoroutine(Draw(curRound.handSize - _handPanel.cardsInPanel.Count, _drawPanel.cardsInPanel, _handPanel.cardsInPanel));
-
-    
+        yield return StartCoroutine(Draw(curRound.handSize - _handPanel.cardsInPanel.Count,
+            _drawPanel.cardsInPanel, _handPanel.cardsInPanel));
+        
         // if there are no cards in hand -> lose
         updateRoundStateEvent?.Invoke(_handPanel.cardsInPanel.Count == 0 ? State.Fail : State.Play);
     }
@@ -279,9 +283,12 @@ public class RoundManager : MonoBehaviour
         None,
         Init,
         Play,
+        OnPlayed,
         Score,
+        OnScored,
         Evaluate,
         Draw,
+        Discard,
         Complete,
         Fail
     }

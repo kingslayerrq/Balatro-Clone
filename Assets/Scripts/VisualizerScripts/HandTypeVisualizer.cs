@@ -10,6 +10,7 @@ public class HandTypeVisualizer : MonoBehaviour
     
     private HandAnalyzer _handAnalyzer;
     private ScoreCalculator _scoreCalculator;
+    private RoundManager _roundManager;
 
     [SerializeField] private TextMeshProUGUI handTypeName;
     [SerializeField] private TextMeshProUGUI handTypeLvl;
@@ -28,6 +29,7 @@ public class HandTypeVisualizer : MonoBehaviour
 
     private void Start()
     {
+        _roundManager = RoundManager.Instance;
         _scoreCalculator = ScoreCalculator.Instance;
         if (_scoreCalculator)
         {
@@ -62,9 +64,16 @@ public class HandTypeVisualizer : MonoBehaviour
     private void UpdateHandScorePanelVisualWrapper(float score)
     {
         if (score == 0) return;
+        if (!_roundManager || _roundManager.curState != RoundManager.State.Score) return;
         StartCoroutine(UpdateScorePanelVisuals(score));
     }
 
+    /// <summary>
+    /// Updates the calculated score during score state
+    /// Invokes UpdateRoundScoreEvent when done
+    /// </summary>
+    /// <param name="score"></param>
+    /// <returns></returns>
     private IEnumerator UpdateScorePanelVisuals(float score)
     {
         if (handTypeObj == null || handTypeLvlObj == null) yield break;

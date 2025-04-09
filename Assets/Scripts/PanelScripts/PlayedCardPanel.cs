@@ -12,6 +12,7 @@ public class PlayedCardPanel : Panel
 
     private HandPanel _handPanel;
     private ScoreCalculator _scoreCalculator;
+    private RoundManager _roundManager;
 
     [SerializeField] private float checkCardGap = 0.1f;
     [Tooltip("Seconds in real time before calculating score")]
@@ -36,22 +37,29 @@ public class PlayedCardPanel : Panel
         _scoreCalculator = GetComponent<ScoreCalculator>();
         
         _handPanel = HandPanel.Instance;
+        _roundManager = RoundManager.Instance;
 
-        if (_handPanel != null)
+        
+
+        if (_roundManager != null)
         {
-            _handPanel.handPlayedEvent.AddListener(PlayedHandHandler);
+            _roundManager.updateRoundStateEvent.AddListener(OnPlayedStateHandler);
         }
     }
 
-
-    private void PlayedHandHandler(Panel panel)
+    private void OnPlayedStateHandler(RoundManager.State state)
     {
-        if (panel != this) return;
-        
+        if (state != RoundManager.State.OnPlayed) return;
         // Displaying Scoring Cards
         StartCoroutine(DisplayScoringCards(cardsInPanel));
     }
-    
+
+   
+    /// <summary>
+    /// Display the cards that can be scored and update state at the end
+    /// </summary>
+    /// <param name="cards"></param>
+    /// <returns></returns>
     private IEnumerator DisplayScoringCards(List<Card> cards)
     {
         // TODO: this is waiting for HandAnalyzer to finalize the scoring hand
@@ -62,17 +70,15 @@ public class PlayedCardPanel : Panel
             card.cardVisuals.transform.localScale = card.cardVisuals.originalScale;
         }
         yield return new WaitForSecondsRealtime(0.2f);
-        foreach (Card cd in cards)
+        foreach (var cd in cards.Where(cd => cd.cardData.canScore))
         {
-            if (!cd.cardData.canScore) continue;
-            
             yield return new WaitForSecondsRealtime(checkCardGap);
             
             cd.cardData.onScoreCheckEvent?.Invoke(cd, cd.cardData.canScore);
         }
 
         yield return new WaitForSecondsRealtime(waitForScoring);
-        // trigger to calculate score
-        calculateScoringCardsEvent?.Invoke(cardsInSelection);
+        // update state
+        _roundManager.updateRoundStateEvent?.Invoke(RoundManager.State.Score);
     }
 }

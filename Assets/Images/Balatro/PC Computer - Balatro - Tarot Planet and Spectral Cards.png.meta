@@ -1,0 +1,1612 @@
+fileFormatVersion: 2
+guid: b58427ddfa7d841f7b75b0173f7b8bb0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4490756893814908338
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_0
+  - first:
+      213: 4392247119517380343
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_1
+  - first:
+      213: 5335622625402805335
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_2
+  - first:
+      213: -5149419384619234542
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_3
+  - first:
+      213: 8618592423233656506
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_4
+  - first:
+      213: -5443798916815068604
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_5
+  - first:
+      213: 6703864732753437544
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_6
+  - first:
+      213: -1317769070431710009
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_7
+  - first:
+      213: 5440083401322381973
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_8
+  - first:
+      213: -9121903731603833374
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_9
+  - first:
+      213: 5510709381041416869
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_10
+  - first:
+      213: -7070542044992593951
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_11
+  - first:
+      213: -4133254413709085831
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_12
+  - first:
+      213: -4652535199526153705
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_13
+  - first:
+      213: 3515925518535440781
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_14
+  - first:
+      213: -6060861293764446206
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_15
+  - first:
+      213: 806776658806336396
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_16
+  - first:
+      213: -6952417559665621516
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_17
+  - first:
+      213: 4352703344292806597
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_18
+  - first:
+      213: -1046365654980035676
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_19
+  - first:
+      213: -1166316505759205853
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_20
+  - first:
+      213: -2910390915014412039
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_21
+  - first:
+      213: -1525069900865051602
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_22
+  - first:
+      213: -847695064490616677
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_23
+  - first:
+      213: 3502733603854347502
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_24
+  - first:
+      213: 2544376265697558153
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_25
+  - first:
+      213: -3512985499887573901
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_26
+  - first:
+      213: -1722224409807982893
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_27
+  - first:
+      213: -3307351907349845817
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_28
+  - first:
+      213: -4220893826309726475
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_29
+  - first:
+      213: 7027561417422886179
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_30
+  - first:
+      213: -3340019974222033763
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_31
+  - first:
+      213: -1047148729832469346
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_32
+  - first:
+      213: -2832503049533047808
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_33
+  - first:
+      213: -7589024292478857722
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_34
+  - first:
+      213: -5223241790711320833
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_35
+  - first:
+      213: 897380220320270842
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_36
+  - first:
+      213: 1622458166897527828
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_37
+  - first:
+      213: -2295158998250818253
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_38
+  - first:
+      213: 659884477312439752
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_39
+  - first:
+      213: 8095008017698709435
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_40
+  - first:
+      213: 6168592829933182566
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_41
+  - first:
+      213: 5447107827491688134
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_42
+  - first:
+      213: 4583631210384837568
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_43
+  - first:
+      213: -4498076732965028955
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_44
+  - first:
+      213: 4939103376372103884
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_45
+  - first:
+      213: 8815337277157918782
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_46
+  - first:
+      213: 446331405109598282
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_47
+  - first:
+      213: 2715005280547520107
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_48
+  - first:
+      213: -8232367236423322709
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_49
+  - first:
+      213: 2759286251865026742
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_50
+  - first:
+      213: -125866827227474580
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_51
+  - first:
+      213: -5702835326824569364
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_52
+  - first:
+      213: 5895519026245676422
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_53
+  - first:
+      213: -5590786455809835031
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_54
+  - first:
+      213: -3790273554659695324
+    second: PC Computer - Balatro - Tarot Planet and Spectral Cards_55
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: VisionOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 476
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b11c269dbb841444ea0016425b4f5d85
+      internalID: 1315477959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_1
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 476
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd8dfe759f1514da0a80d65bfbabd742
+      internalID: 1775401951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_2
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 476
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e76b80df63da4df6a4eef2c3a40d100
+      internalID: -4755994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_3
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 476
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3d401aee52014764947afd20968e48e
+      internalID: -2121375080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_4
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 476
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8456f914d010f48478afee6caec10619
+      internalID: 1174540484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_5
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 476
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04dfba8e33b74346b745281a9ced348
+      internalID: 2001572998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_6
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 476
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f71f48b0bc241acab0f9f7fc185e25
+      internalID: 1189706507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_7
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 476
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4201e856b76cc4c9e9b28db2aff6128c
+      internalID: 1592294563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_8
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 476
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f168f235ab66e4e509c9fa5784dd2868
+      internalID: 2103596297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_9
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 476
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b700a17551d854dddabf09f115cdc7be
+      internalID: -1641094126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_10
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 381
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 373e839ab9b744ad28af17bd53ea168b
+      internalID: 1159723635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_11
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 381
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe70af2014b7e424198e24506d90a01f
+      internalID: 1629280697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_12
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 381
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9745f11904c243fc88b86bfa50dcad0
+      internalID: -1588946858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_13
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 381
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5edbfa3ce1ad5476da3cf6f96b3f81e5
+      internalID: -377210576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_14
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 381
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 549166e8bd3af475a841df9f58676611
+      internalID: 1605718589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_15
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 381
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4276b3374ec1849098f7fa88d30c65fc
+      internalID: -1975036648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_16
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 381
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39506aedcbd474e91877616459147364
+      internalID: 1960879331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_17
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 381
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc68ee0c5a2d4cde9b1f0cf113c051d
+      internalID: 544517230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_18
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 381
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f91b6b2e1081a497fa95ff3076248cf8
+      internalID: -1865524250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_19
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 381
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb9919895fae4ebbbc96133239d48bc
+      internalID: 804995404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_20
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 286
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c34f11e5fcf404c42aca1ca6d986ed5b
+      internalID: 1261580572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_21
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 286
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7ab8f70c71ab4aeda23f642f00a429b
+      internalID: 1997681020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_22
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 286
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75a57ba3943ee4e558d49d12e3d6ed31
+      internalID: -1140990451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_23
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 286
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18fa0f9e5c20d4ff9b38d2c6ed89cd43
+      internalID: -902295549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_24
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 285
+        width: 63
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e9ec746be64c462ab6c4b8d714fa867
+      internalID: -455504331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_25
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 286
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f795883b2c49a4e6cb1571e3ed5e9251
+      internalID: 1645498387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_26
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 286
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 328eaa62793174c7fb21fba43f87151e
+      internalID: -645614320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_27
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 286
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 274f009e435fc48a7bc0787ced067858
+      internalID: 43306819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_28
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 286
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fb3e450cafb642ac810cc6e0bb133e7
+      internalID: 429349525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_29
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 286
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6d82fa5b3427471f85076840cbc816a
+      internalID: 455351108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_30
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 191
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03295c3ff6faf4cccada144c86f0a671
+      internalID: -585274021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_31
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 191
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f58563ed88ae24d93b71898a2f0f13ec
+      internalID: 1674829774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_32
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 191
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccc266adc4253408ba7c21e87b8ff876
+      internalID: -975180024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_33
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 191
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c11c99e0732ad4a82a40af0f169254aa
+      internalID: -1240748680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_34
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 191
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697dd6fda818d462784a67a83f93dbcf
+      internalID: -886313516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_35
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 191
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4666cb6aae62948f5ab755416f68e764
+      internalID: -1876700143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_36
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 191
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b68a95b8fdd246229a6b5128c9ade48
+      internalID: 1340645754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_37
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 191
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e8a6b5d1e334a24960539657a4a569
+      internalID: 1701104630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_38
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 191
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a83297f68de6435d974ffd1f26b9938
+      internalID: 1647962622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_39
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 191
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c5b45a1f0b3242b0a38e708edca7771
+      internalID: -1885793526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_40
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 96
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e3fccf0de01b411da71473a46d860ab
+      internalID: 286953773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_41
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 96
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5320b75874c6a4a1399491b8886cc75a
+      internalID: 708172417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_42
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 96
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9a72792d1aa4f5fa274e1e1f50b219
+      internalID: 1001641093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_43
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 96
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16dc959fe48b1438fb5d0254dfebca8c
+      internalID: -1204745627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_44
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5676163a16a8425c9d0459561fe24a3
+      internalID: 134145266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_45
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 96
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 869650f07c53d448d9a14fb0e6ef40fa
+      internalID: -347526744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_46
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 96
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2dbb3230bc7c419ab75455bb93d131c
+      internalID: -759125601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_47
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 96
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b5ce153bca3b47ec8828e2171b2a54d
+      internalID: -1141999355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_48
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 96
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4baf95bc5f5e54e9cb3b6d3edcc13eb8
+      internalID: 1681394784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_49
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 96
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb03f779a6cfc45649e422e57bf7e4ee
+      internalID: -1257238678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_50
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda5e474829ca4ca3adbe5c17a633c75
+      internalID: -1123435189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_51
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50104a2263a5548558a3c4f27af94f3f
+      internalID: -1827061615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_52
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 1
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7a629a2600b0463d97f2a80e707a648
+      internalID: -1877029630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_53
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 1
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c013c2ebb316b49589db8bd7c5eaf9cb
+      internalID: -1169926949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_54
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53941c40a7ea7450086006538fdb674b
+      internalID: -2136000005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Tarot Planet and Spectral Cards_55
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 1
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a528dac88694c8fba627cf39c7188e
+      internalID: -2133455566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e09784d7836ae44d8a431838539ab6e6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_0: 1315477959
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_1: 1775401951
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_10: 1159723635
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_11: 1629280697
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_12: -1588946858
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_13: -377210576
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_14: 1605718589
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_15: -1975036648
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_16: 1960879331
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_17: 544517230
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_18: -1865524250
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_19: 804995404
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_2: -4755994
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_20: 1261580572
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_21: 1997681020
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_22: -1140990451
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_23: -902295549
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_24: -455504331
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_25: 1645498387
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_26: -645614320
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_27: 43306819
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_28: 429349525
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_29: 455351108
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_3: -2121375080
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_30: -585274021
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_31: 1674829774
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_32: -975180024
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_33: -1240748680
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_34: -886313516
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_35: -1876700143
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_36: 1340645754
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_37: 1701104630
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_38: 1647962622
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_39: -1885793526
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_4: 1174540484
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_40: 286953773
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_41: 708172417
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_42: 1001641093
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_43: -1204745627
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_44: 134145266
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_45: -347526744
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_46: -759125601
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_47: -1141999355
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_48: 1681394784
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_49: -1257238678
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_5: 2001572998
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_50: -1123435189
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_51: -1827061615
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_52: -1877029630
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_53: -1169926949
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_54: -2136000005
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_55: -2133455566
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_6: 1189706507
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_7: 1592294563
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_8: 2103596297
+      PC Computer - Balatro - Tarot Planet and Spectral Cards_9: -1641094126
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

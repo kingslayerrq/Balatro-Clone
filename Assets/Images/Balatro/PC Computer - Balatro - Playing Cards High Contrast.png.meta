@@ -1,0 +1,2672 @@
+fileFormatVersion: 2
+guid: b07c59aaa311e47abacb28be45ee1c91
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3486162692700052424
+    second: PC Computer - Balatro - Playing Cards High Contrast_0
+  - first:
+      213: 7518443715694423960
+    second: PC Computer - Balatro - Playing Cards High Contrast_1
+  - first:
+      213: -5803668163338204459
+    second: PC Computer - Balatro - Playing Cards High Contrast_2
+  - first:
+      213: 6574975796768746332
+    second: PC Computer - Balatro - Playing Cards High Contrast_3
+  - first:
+      213: -1563869086506387704
+    second: PC Computer - Balatro - Playing Cards High Contrast_4
+  - first:
+      213: -6606325328738020408
+    second: PC Computer - Balatro - Playing Cards High Contrast_5
+  - first:
+      213: -1258408571379125149
+    second: PC Computer - Balatro - Playing Cards High Contrast_6
+  - first:
+      213: 4296318315819769459
+    second: PC Computer - Balatro - Playing Cards High Contrast_7
+  - first:
+      213: -330705754836926967
+    second: PC Computer - Balatro - Playing Cards High Contrast_8
+  - first:
+      213: 573529134510059830
+    second: PC Computer - Balatro - Playing Cards High Contrast_9
+  - first:
+      213: 4973867811852949604
+    second: PC Computer - Balatro - Playing Cards High Contrast_10
+  - first:
+      213: -7663707304343799843
+    second: PC Computer - Balatro - Playing Cards High Contrast_11
+  - first:
+      213: -6025167448743877961
+    second: PC Computer - Balatro - Playing Cards High Contrast_12
+  - first:
+      213: -5855884555504136852
+    second: PC Computer - Balatro - Playing Cards High Contrast_13
+  - first:
+      213: 7490945736544865298
+    second: PC Computer - Balatro - Playing Cards High Contrast_14
+  - first:
+      213: -6769249985928051301
+    second: PC Computer - Balatro - Playing Cards High Contrast_15
+  - first:
+      213: -5227494488773945199
+    second: PC Computer - Balatro - Playing Cards High Contrast_16
+  - first:
+      213: -5941309119473439186
+    second: PC Computer - Balatro - Playing Cards High Contrast_17
+  - first:
+      213: 3290379236246871026
+    second: PC Computer - Balatro - Playing Cards High Contrast_18
+  - first:
+      213: 4562090766664531009
+    second: PC Computer - Balatro - Playing Cards High Contrast_19
+  - first:
+      213: -5374388673176338268
+    second: PC Computer - Balatro - Playing Cards High Contrast_20
+  - first:
+      213: -2871117063109391856
+    second: PC Computer - Balatro - Playing Cards High Contrast_21
+  - first:
+      213: -5888907599735697348
+    second: PC Computer - Balatro - Playing Cards High Contrast_22
+  - first:
+      213: -4232695575224806699
+    second: PC Computer - Balatro - Playing Cards High Contrast_23
+  - first:
+      213: 972049468961904366
+    second: PC Computer - Balatro - Playing Cards High Contrast_24
+  - first:
+      213: -2599587304040979952
+    second: PC Computer - Balatro - Playing Cards High Contrast_25
+  - first:
+      213: -8439972617084542322
+    second: PC Computer - Balatro - Playing Cards High Contrast_26
+  - first:
+      213: -184220950857426753
+    second: PC Computer - Balatro - Playing Cards High Contrast_27
+  - first:
+      213: -2588830222520905094
+    second: PC Computer - Balatro - Playing Cards High Contrast_28
+  - first:
+      213: 2911389654915557741
+    second: PC Computer - Balatro - Playing Cards High Contrast_29
+  - first:
+      213: 673825679599625265
+    second: PC Computer - Balatro - Playing Cards High Contrast_30
+  - first:
+      213: 2460551088221368373
+    second: PC Computer - Balatro - Playing Cards High Contrast_31
+  - first:
+      213: -5770907151640288950
+    second: PC Computer - Balatro - Playing Cards High Contrast_32
+  - first:
+      213: 2469597389190772995
+    second: PC Computer - Balatro - Playing Cards High Contrast_33
+  - first:
+      213: 5970770849443895344
+    second: PC Computer - Balatro - Playing Cards High Contrast_34
+  - first:
+      213: -7616656342065504356
+    second: PC Computer - Balatro - Playing Cards High Contrast_35
+  - first:
+      213: -8814231539982425233
+    second: PC Computer - Balatro - Playing Cards High Contrast_36
+  - first:
+      213: -8611755495676607601
+    second: PC Computer - Balatro - Playing Cards High Contrast_37
+  - first:
+      213: 7295254234618716876
+    second: PC Computer - Balatro - Playing Cards High Contrast_38
+  - first:
+      213: -9219410738531512080
+    second: PC Computer - Balatro - Playing Cards High Contrast_39
+  - first:
+      213: 579155441919169401
+    second: PC Computer - Balatro - Playing Cards High Contrast_40
+  - first:
+      213: 5660836753120567342
+    second: PC Computer - Balatro - Playing Cards High Contrast_41
+  - first:
+      213: -2090133998691849278
+    second: PC Computer - Balatro - Playing Cards High Contrast_42
+  - first:
+      213: -4668966200164465987
+    second: PC Computer - Balatro - Playing Cards High Contrast_43
+  - first:
+      213: -2949572221415675071
+    second: PC Computer - Balatro - Playing Cards High Contrast_44
+  - first:
+      213: -3745651491878433957
+    second: PC Computer - Balatro - Playing Cards High Contrast_45
+  - first:
+      213: 2679798450381306391
+    second: PC Computer - Balatro - Playing Cards High Contrast_46
+  - first:
+      213: -8617957551172947562
+    second: PC Computer - Balatro - Playing Cards High Contrast_47
+  - first:
+      213: -4127900949124703760
+    second: PC Computer - Balatro - Playing Cards High Contrast_48
+  - first:
+      213: -4228523136835955887
+    second: PC Computer - Balatro - Playing Cards High Contrast_49
+  - first:
+      213: -6106832256217249575
+    second: PC Computer - Balatro - Playing Cards High Contrast_50
+  - first:
+      213: 1802839981869459288
+    second: PC Computer - Balatro - Playing Cards High Contrast_51
+  - first:
+      213: 3239336337526359049
+    second: PC Computer - Balatro - Playing Cards High Contrast_52
+  - first:
+      213: -3308812732772998236
+    second: PC Computer - Balatro - Playing Cards High Contrast_53
+  - first:
+      213: -2693804174757918048
+    second: PC Computer - Balatro - Playing Cards High Contrast_54
+  - first:
+      213: -6917461601427172993
+    second: PC Computer - Balatro - Playing Cards High Contrast_55
+  - first:
+      213: 5119759258321623481
+    second: PC Computer - Balatro - Playing Cards High Contrast_56
+  - first:
+      213: 840705141640455076
+    second: PC Computer - Balatro - Playing Cards High Contrast_57
+  - first:
+      213: -8409010747423707888
+    second: PC Computer - Balatro - Playing Cards High Contrast_58
+  - first:
+      213: -4755597610623492687
+    second: PC Computer - Balatro - Playing Cards High Contrast_59
+  - first:
+      213: 3774730156766873468
+    second: PC Computer - Balatro - Playing Cards High Contrast_60
+  - first:
+      213: -8823433639043619828
+    second: PC Computer - Balatro - Playing Cards High Contrast_61
+  - first:
+      213: 9035207786663428240
+    second: PC Computer - Balatro - Playing Cards High Contrast_62
+  - first:
+      213: 807339452357997286
+    second: PC Computer - Balatro - Playing Cards High Contrast_63
+  - first:
+      213: 825180521616537278
+    second: PC Computer - Balatro - Playing Cards High Contrast_64
+  - first:
+      213: 608304879268836217
+    second: PC Computer - Balatro - Playing Cards High Contrast_65
+  - first:
+      213: 7435742996843754711
+    second: PC Computer - Balatro - Playing Cards High Contrast_66
+  - first:
+      213: 5645613692086597005
+    second: PC Computer - Balatro - Playing Cards High Contrast_67
+  - first:
+      213: 1632424334999650807
+    second: PC Computer - Balatro - Playing Cards High Contrast_68
+  - first:
+      213: 5430899602952205257
+    second: PC Computer - Balatro - Playing Cards High Contrast_69
+  - first:
+      213: -6973014777922751158
+    second: PC Computer - Balatro - Playing Cards High Contrast_70
+  - first:
+      213: 7022002159778826046
+    second: PC Computer - Balatro - Playing Cards High Contrast_71
+  - first:
+      213: 6155770350034559288
+    second: PC Computer - Balatro - Playing Cards High Contrast_72
+  - first:
+      213: -967856665957762479
+    second: PC Computer - Balatro - Playing Cards High Contrast_73
+  - first:
+      213: -7556398000571150694
+    second: PC Computer - Balatro - Playing Cards High Contrast_74
+  - first:
+      213: 1037463791850503102
+    second: PC Computer - Balatro - Playing Cards High Contrast_75
+  - first:
+      213: 4708165029349448235
+    second: PC Computer - Balatro - Playing Cards High Contrast_76
+  - first:
+      213: 1329885759666206055
+    second: PC Computer - Balatro - Playing Cards High Contrast_77
+  - first:
+      213: 4386846115623185645
+    second: PC Computer - Balatro - Playing Cards High Contrast_78
+  - first:
+      213: 5414303250021144549
+    second: PC Computer - Balatro - Playing Cards High Contrast_79
+  - first:
+      213: 4364569473311957668
+    second: PC Computer - Balatro - Playing Cards High Contrast_80
+  - first:
+      213: -2236771786688322910
+    second: PC Computer - Balatro - Playing Cards High Contrast_81
+  - first:
+      213: 5715226089743763203
+    second: PC Computer - Balatro - Playing Cards High Contrast_82
+  - first:
+      213: 2344878031370200859
+    second: PC Computer - Balatro - Playing Cards High Contrast_83
+  - first:
+      213: -7648621097595920118
+    second: PC Computer - Balatro - Playing Cards High Contrast_84
+  - first:
+      213: 604143079376518642
+    second: PC Computer - Balatro - Playing Cards High Contrast_85
+  - first:
+      213: -9018542126759719579
+    second: PC Computer - Balatro - Playing Cards High Contrast_86
+  - first:
+      213: 519888677606227751
+    second: PC Computer - Balatro - Playing Cards High Contrast_87
+  - first:
+      213: -2197164334395874677
+    second: PC Computer - Balatro - Playing Cards High Contrast_88
+  - first:
+      213: -5670511670272308763
+    second: PC Computer - Balatro - Playing Cards High Contrast_89
+  - first:
+      213: -3797464218783539740
+    second: PC Computer - Balatro - Playing Cards High Contrast_90
+  - first:
+      213: 927355470255392149
+    second: PC Computer - Balatro - Playing Cards High Contrast_91
+  - first:
+      213: -92532775459595050
+    second: PC Computer - Balatro - Playing Cards High Contrast_92
+  - first:
+      213: -2227918532360399738
+    second: PC Computer - Balatro - Playing Cards High Contrast_93
+  - first:
+      213: 8048715805083126365
+    second: PC Computer - Balatro - Playing Cards High Contrast_94
+  - first:
+      213: -5378349311001728799
+    second: PC Computer - Balatro - Playing Cards High Contrast_95
+  - first:
+      213: 5791850709280669356
+    second: PC Computer - Balatro - Playing Cards High Contrast_96
+  - first:
+      213: 2157249041972706291
+    second: PC Computer - Balatro - Playing Cards High Contrast_97
+  - first:
+      213: -2447614837760607790
+    second: PC Computer - Balatro - Playing Cards High Contrast_98
+  - first:
+      213: 7689821866110971756
+    second: PC Computer - Balatro - Playing Cards High Contrast_99
+  - first:
+      213: 8856189273321989584
+    second: PC Computer - Balatro - Playing Cards High Contrast_100
+  - first:
+      213: -112443346956259733
+    second: PC Computer - Balatro - Playing Cards High Contrast_101
+  - first:
+      213: 7703846150217269102
+    second: PC Computer - Balatro - Playing Cards High Contrast_102
+  - first:
+      213: -8227399153076420337
+    second: PC Computer - Balatro - Playing Cards High Contrast_103
+  - first:
+      213: -1989654883307286597
+    second: PC Computer - Balatro - Playing Cards High Contrast_104
+  - first:
+      213: -7004780448367002083
+    second: PC Computer - Balatro - Playing Cards High Contrast_105
+  - first:
+      213: -4682602979949882137
+    second: PC Computer - Balatro - Playing Cards High Contrast_106
+  - first:
+      213: -788724411736952781
+    second: PC Computer - Balatro - Playing Cards High Contrast_107
+  - first:
+      213: 5028764430475419840
+    second: PC Computer - Balatro - Playing Cards High Contrast_108
+  - first:
+      213: -6212692415352543841
+    second: PC Computer - Balatro - Playing Cards High Contrast_109
+  - first:
+      213: 7212145373689425790
+    second: PC Computer - Balatro - Playing Cards High Contrast_110
+  - first:
+      213: -591182908069087516
+    second: PC Computer - Balatro - Playing Cards High Contrast_111
+  - first:
+      213: 1702535374242112086
+    second: PC Computer - Balatro - Playing Cards High Contrast_112
+  - first:
+      213: 3507371451435413493
+    second: PC Computer - Balatro - Playing Cards High Contrast_113
+  - first:
+      213: 4072418032619614329
+    second: PC Computer - Balatro - Playing Cards High Contrast_114
+  - first:
+      213: -3027115892306735623
+    second: PC Computer - Balatro - Playing Cards High Contrast_115
+  - first:
+      213: -5038553918249740823
+    second: PC Computer - Balatro - Playing Cards High Contrast_116
+  - first:
+      213: -1335163113402347562
+    second: PC Computer - Balatro - Playing Cards High Contrast_117
+  - first:
+      213: -3862357697535840556
+    second: PC Computer - Balatro - Playing Cards High Contrast_118
+  - first:
+      213: -9024562226124870587
+    second: PC Computer - Balatro - Playing Cards High Contrast_119
+  - first:
+      213: 380929322062507737
+    second: PC Computer - Balatro - Playing Cards High Contrast_120
+  - first:
+      213: -8920775858182991910
+    second: PC Computer - Balatro - Playing Cards High Contrast_121
+  - first:
+      213: 7768655919871835446
+    second: PC Computer - Balatro - Playing Cards High Contrast_122
+  - first:
+      213: 8038120076214026738
+    second: PC Computer - Balatro - Playing Cards High Contrast_123
+  - first:
+      213: -5678593704866695192
+    second: PC Computer - Balatro - Playing Cards High Contrast_124
+  - first:
+      213: 3530001663801183036
+    second: PC Computer - Balatro - Playing Cards High Contrast_125
+  - first:
+      213: -2591788332702115305
+    second: PC Computer - Balatro - Playing Cards High Contrast_126
+  - first:
+      213: 7130326687803230658
+    second: PC Computer - Balatro - Playing Cards High Contrast_127
+  - first:
+      213: -5664309904750289238
+    second: PC Computer - Balatro - Playing Cards High Contrast_128
+  - first:
+      213: -8302040250638241368
+    second: PC Computer - Balatro - Playing Cards High Contrast_129
+  - first:
+      213: 416619760290997322
+    second: PC Computer - Balatro - Playing Cards High Contrast_130
+  - first:
+      213: -7158721711712088800
+    second: PC Computer - Balatro - Playing Cards High Contrast_131
+  - first:
+      213: 7271444080253652431
+    second: PC Computer - Balatro - Playing Cards High Contrast_132
+  - first:
+      213: -2730108121171540435
+    second: PC Computer - Balatro - Playing Cards High Contrast_133
+  - first:
+      213: 6265430931020848573
+    second: PC Computer - Balatro - Playing Cards High Contrast_134
+  - first:
+      213: 7498752180641380565
+    second: PC Computer - Balatro - Playing Cards High Contrast_135
+  - first:
+      213: -496028051205910248
+    second: PC Computer - Balatro - Playing Cards High Contrast_136
+  - first:
+      213: -2789060609357267746
+    second: PC Computer - Balatro - Playing Cards High Contrast_137
+  - first:
+      213: -8396754505305855770
+    second: PC Computer - Balatro - Playing Cards High Contrast_138
+  - first:
+      213: 8107069981435744120
+    second: PC Computer - Balatro - Playing Cards High Contrast_139
+  - first:
+      213: -7743389420364323944
+    second: PC Computer - Balatro - Playing Cards High Contrast_140
+  - first:
+      213: -5427594591480622442
+    second: PC Computer - Balatro - Playing Cards High Contrast_141
+  - first:
+      213: 2882033714734734913
+    second: PC Computer - Balatro - Playing Cards High Contrast_142
+  - first:
+      213: -6339934969006269162
+    second: PC Computer - Balatro - Playing Cards High Contrast_143
+  - first:
+      213: 3437234264574945277
+    second: PC Computer - Balatro - Playing Cards High Contrast_144
+  - first:
+      213: 5104427752701436666
+    second: PC Computer - Balatro - Playing Cards High Contrast_145
+  - first:
+      213: 946282566875590976
+    second: PC Computer - Balatro - Playing Cards High Contrast_146
+  - first:
+      213: 4349354593064787671
+    second: PC Computer - Balatro - Playing Cards High Contrast_147
+  - first:
+      213: -6206432887075074530
+    second: PC Computer - Balatro - Playing Cards High Contrast_148
+  - first:
+      213: 8553914458664780259
+    second: PC Computer - Balatro - Playing Cards High Contrast_149
+  - first:
+      213: 2356660643319737888
+    second: PC Computer - Balatro - Playing Cards High Contrast_150
+  - first:
+      213: -3022688329258666002
+    second: PC Computer - Balatro - Playing Cards High Contrast_151
+  - first:
+      213: -422148321065610878
+    second: PC Computer - Balatro - Playing Cards High Contrast_152
+  - first:
+      213: -2401829996540633188
+    second: PC Computer - Balatro - Playing Cards High Contrast_153
+  - first:
+      213: -253993491682017902
+    second: PC Computer - Balatro - Playing Cards High Contrast_154
+  - first:
+      213: 3725595035473623824
+    second: PC Computer - Balatro - Playing Cards High Contrast_155
+  - first:
+      213: 645637003393705584
+    second: PC Computer - Balatro - Playing Cards High Contrast_156
+  - first:
+      213: -1397061899393524157
+    second: PC Computer - Balatro - Playing Cards High Contrast_157
+  - first:
+      213: -2110642819962032201
+    second: PC Computer - Balatro - Playing Cards High Contrast_158
+  - first:
+      213: -1106407812057460725
+    second: PC Computer - Balatro - Playing Cards High Contrast_159
+  - first:
+      213: -7302114145647220276
+    second: PC Computer - Balatro - Playing Cards High Contrast_160
+  - first:
+      213: 967133094706937966
+    second: PC Computer - Balatro - Playing Cards High Contrast_161
+  - first:
+      213: 616576661722923050
+    second: PC Computer - Balatro - Playing Cards High Contrast_162
+  - first:
+      213: 3512556162038077164
+    second: PC Computer - Balatro - Playing Cards High Contrast_163
+  - first:
+      213: -794468817907133262
+    second: PC Computer - Balatro - Playing Cards High Contrast_164
+  - first:
+      213: 8469369494452814658
+    second: PC Computer - Balatro - Playing Cards High Contrast_165
+  - first:
+      213: 2654640947895516359
+    second: PC Computer - Balatro - Playing Cards High Contrast_166
+  - first:
+      213: 3061004594218368799
+    second: PC Computer - Balatro - Playing Cards High Contrast_167
+  - first:
+      213: 8083208073282015006
+    second: PC Computer - Balatro - Playing Cards High Contrast_168
+  - first:
+      213: -2245591441058739406
+    second: PC Computer - Balatro - Playing Cards High Contrast_169
+  - first:
+      213: 8035136556253070751
+    second: PC Computer - Balatro - Playing Cards High Contrast_170
+  - first:
+      213: 7842707887237874528
+    second: PC Computer - Balatro - Playing Cards High Contrast_171
+  - first:
+      213: 1474545146266353727
+    second: PC Computer - Balatro - Playing Cards High Contrast_172
+  - first:
+      213: -1283892879094587682
+    second: PC Computer - Balatro - Playing Cards High Contrast_173
+  - first:
+      213: -237679126514768227
+    second: PC Computer - Balatro - Playing Cards High Contrast_174
+  - first:
+      213: 6542255558142491803
+    second: PC Computer - Balatro - Playing Cards High Contrast_175
+  - first:
+      213: 8668244208735774839
+    second: PC Computer - Balatro - Playing Cards High Contrast_176
+  - first:
+      213: -5720886841348411260
+    second: PC Computer - Balatro - Playing Cards High Contrast_177
+  - first:
+      213: -1517464233668619474
+    second: PC Computer - Balatro - Playing Cards High Contrast_178
+  - first:
+      213: 2427791390661328726
+    second: PC Computer - Balatro - Playing Cards High Contrast_179
+  - first:
+      213: -9160181370247231836
+    second: PC Computer - Balatro - Playing Cards High Contrast_180
+  - first:
+      213: -6908585342981248424
+    second: PC Computer - Balatro - Playing Cards High Contrast_181
+  - first:
+      213: 7230868082712269551
+    second: PC Computer - Balatro - Playing Cards High Contrast_182
+  - first:
+      213: -6946145875016024805
+    second: PC Computer - Balatro - Playing Cards High Contrast_183
+  - first:
+      213: 7633290891487883148
+    second: PC Computer - Balatro - Playing Cards High Contrast_184
+  - first:
+      213: -5150151952211612485
+    second: PC Computer - Balatro - Playing Cards High Contrast_185
+  - first:
+      213: -5090974853475588101
+    second: PC Computer - Balatro - Playing Cards High Contrast_186
+  - first:
+      213: -3032638623718157538
+    second: PC Computer - Balatro - Playing Cards High Contrast_187
+  - first:
+      213: 4351622281502670663
+    second: PC Computer - Balatro - Playing Cards High Contrast_188
+  - first:
+      213: 3257113271456476654
+    second: PC Computer - Balatro - Playing Cards High Contrast_189
+  - first:
+      213: 615930585905584154
+    second: PC Computer - Balatro - Playing Cards High Contrast_190
+  - first:
+      213: 6731552141119551788
+    second: PC Computer - Balatro - Playing Cards High Contrast_191
+  - first:
+      213: -6988495669697903682
+    second: PC Computer - Balatro - Playing Cards High Contrast_192
+  - first:
+      213: -1171867078949961482
+    second: PC Computer - Balatro - Playing Cards High Contrast_193
+  - first:
+      213: -8620414666090431765
+    second: PC Computer - Balatro - Playing Cards High Contrast_194
+  - first:
+      213: 3818284732393296799
+    second: PC Computer - Balatro - Playing Cards High Contrast_195
+  - first:
+      213: -5637182097245569349
+    second: PC Computer - Balatro - Playing Cards High Contrast_196
+  - first:
+      213: -5316791316253931518
+    second: PC Computer - Balatro - Playing Cards High Contrast_197
+  - first:
+      213: 5395208416262701994
+    second: PC Computer - Balatro - Playing Cards High Contrast_198
+  - first:
+      213: 5255757153991724291
+    second: PC Computer - Balatro - Playing Cards High Contrast_199
+  - first:
+      213: -3748900252526660443
+    second: PC Computer - Balatro - Playing Cards High Contrast_200
+  - first:
+      213: 1816303990045587154
+    second: PC Computer - Balatro - Playing Cards High Contrast_201
+  - first:
+      213: 8946875933192172316
+    second: PC Computer - Balatro - Playing Cards High Contrast_202
+  - first:
+      213: 8467263440975691190
+    second: PC Computer - Balatro - Playing Cards High Contrast_203
+  - first:
+      213: -5529252615897043654
+    second: PC Computer - Balatro - Playing Cards High Contrast_204
+  - first:
+      213: 3634496764679868886
+    second: PC Computer - Balatro - Playing Cards High Contrast_205
+  - first:
+      213: 658340745282953035
+    second: PC Computer - Balatro - Playing Cards High Contrast_206
+  - first:
+      213: -3152365029150125018
+    second: PC Computer - Balatro - Playing Cards High Contrast_207
+  - first:
+      213: -6577868600341473967
+    second: PC Computer - Balatro - Playing Cards High Contrast_208
+  - first:
+      213: 7342808977456343750
+    second: PC Computer - Balatro - Playing Cards High Contrast_209
+  - first:
+      213: 145223305076519273
+    second: PC Computer - Balatro - Playing Cards High Contrast_210
+  - first:
+      213: -7173274592792761698
+    second: PC Computer - Balatro - Playing Cards High Contrast_211
+  - first:
+      213: 40291134152384158
+    second: PC Computer - Balatro - Playing Cards High Contrast_212
+  - first:
+      213: -8349803767331743945
+    second: PC Computer - Balatro - Playing Cards High Contrast_213
+  - first:
+      213: 8309624464251470172
+    second: PC Computer - Balatro - Playing Cards High Contrast_214
+  - first:
+      213: 1756195843351004917
+    second: PC Computer - Balatro - Playing Cards High Contrast_215
+  - first:
+      213: 1917718698401919444
+    second: PC Computer - Balatro - Playing Cards High Contrast_216
+  - first:
+      213: -796124377429276613
+    second: PC Computer - Balatro - Playing Cards High Contrast_217
+  - first:
+      213: 718812912719871875
+    second: PC Computer - Balatro - Playing Cards High Contrast_218
+  - first:
+      213: 968974376683474559
+    second: PC Computer - Balatro - Playing Cards High Contrast_219
+  - first:
+      213: 8624057197695321748
+    second: PC Computer - Balatro - Playing Cards High Contrast_220
+  - first:
+      213: 8081912249547691533
+    second: PC Computer - Balatro - Playing Cards High Contrast_221
+  - first:
+      213: 1344826772388588199
+    second: PC Computer - Balatro - Playing Cards High Contrast_222
+  - first:
+      213: -5939023645324602898
+    second: PC Computer - Balatro - Playing Cards High Contrast_223
+  - first:
+      213: 368156417187278339
+    second: PC Computer - Balatro - Playing Cards High Contrast_224
+  - first:
+      213: 5783167679017964086
+    second: PC Computer - Balatro - Playing Cards High Contrast_225
+  - first:
+      213: 6421316682826543141
+    second: PC Computer - Balatro - Playing Cards High Contrast_226
+  - first:
+      213: -3676561641513348970
+    second: PC Computer - Balatro - Playing Cards High Contrast_227
+  - first:
+      213: 1021967868696992860
+    second: PC Computer - Balatro - Playing Cards High Contrast_228
+  - first:
+      213: 2106663709585753005
+    second: PC Computer - Balatro - Playing Cards High Contrast_229
+  - first:
+      213: 2559914579181502707
+    second: PC Computer - Balatro - Playing Cards High Contrast_230
+  - first:
+      213: 6882467860472505492
+    second: PC Computer - Balatro - Playing Cards High Contrast_231
+  - first:
+      213: -2592478676842431753
+    second: PC Computer - Balatro - Playing Cards High Contrast_232
+  - first:
+      213: 4240291246091909492
+    second: PC Computer - Balatro - Playing Cards High Contrast_233
+  - first:
+      213: -7101501063979271983
+    second: PC Computer - Balatro - Playing Cards High Contrast_234
+  - first:
+      213: 1940385236662796427
+    second: PC Computer - Balatro - Playing Cards High Contrast_235
+  - first:
+      213: -101301084012616660
+    second: PC Computer - Balatro - Playing Cards High Contrast_236
+  - first:
+      213: 4715054281837788933
+    second: PC Computer - Balatro - Playing Cards High Contrast_237
+  - first:
+      213: -7258573735483517426
+    second: PC Computer - Balatro - Playing Cards High Contrast_238
+  - first:
+      213: 775590470494745314
+    second: PC Computer - Balatro - Playing Cards High Contrast_239
+  - first:
+      213: 2289635136183544959
+    second: PC Computer - Balatro - Playing Cards High Contrast_240
+  - first:
+      213: 9068288539896686721
+    second: PC Computer - Balatro - Playing Cards High Contrast_241
+  - first:
+      213: 1490057627550830092
+    second: PC Computer - Balatro - Playing Cards High Contrast_242
+  - first:
+      213: 3718153940666478682
+    second: PC Computer - Balatro - Playing Cards High Contrast_243
+  - first:
+      213: 6938181057980752745
+    second: PC Computer - Balatro - Playing Cards High Contrast_244
+  - first:
+      213: -2201122019597327597
+    second: PC Computer - Balatro - Playing Cards High Contrast_245
+  - first:
+      213: -6553964977513505836
+    second: PC Computer - Balatro - Playing Cards High Contrast_246
+  - first:
+      213: -7206661392596823711
+    second: PC Computer - Balatro - Playing Cards High Contrast_247
+  - first:
+      213: -7010000204106961071
+    second: PC Computer - Balatro - Playing Cards High Contrast_248
+  - first:
+      213: -3729819857652679815
+    second: PC Computer - Balatro - Playing Cards High Contrast_249
+  - first:
+      213: 2787796122854923662
+    second: PC Computer - Balatro - Playing Cards High Contrast_250
+  - first:
+      213: -8620811568509110284
+    second: PC Computer - Balatro - Playing Cards High Contrast_251
+  - first:
+      213: 671818532171731380
+    second: PC Computer - Balatro - Playing Cards High Contrast_252
+  - first:
+      213: -5519397704974999764
+    second: PC Computer - Balatro - Playing Cards High Contrast_253
+  - first:
+      213: 2632922497931927524
+    second: PC Computer - Balatro - Playing Cards High Contrast_254
+  - first:
+      213: 6654582904557019564
+    second: PC Computer - Balatro - Playing Cards High Contrast_255
+  - first:
+      213: 128347276480731728
+    second: PC Computer - Balatro - Playing Cards High Contrast_256
+  - first:
+      213: 4774990465233972504
+    second: PC Computer - Balatro - Playing Cards High Contrast_257
+  - first:
+      213: -8493008513703777917
+    second: PC Computer - Balatro - Playing Cards High Contrast_258
+  - first:
+      213: -5231851040019604203
+    second: PC Computer - Balatro - Playing Cards High Contrast_259
+  - first:
+      213: -4957931893310237099
+    second: PC Computer - Balatro - Playing Cards High Contrast_260
+  - first:
+      213: 9191035482756589446
+    second: PC Computer - Balatro - Playing Cards High Contrast_261
+  - first:
+      213: 3183556072569156637
+    second: PC Computer - Balatro - Playing Cards High Contrast_262
+  - first:
+      213: -7332013129067117360
+    second: PC Computer - Balatro - Playing Cards High Contrast_263
+  - first:
+      213: -1834260593639503586
+    second: PC Computer - Balatro - Playing Cards High Contrast_264
+  - first:
+      213: -8844800363294906758
+    second: PC Computer - Balatro - Playing Cards High Contrast_265
+  - first:
+      213: 5354941593486846410
+    second: PC Computer - Balatro - Playing Cards High Contrast_266
+  - first:
+      213: -8538295758244114445
+    second: PC Computer - Balatro - Playing Cards High Contrast_267
+  - first:
+      213: 4787043034470578414
+    second: PC Computer - Balatro - Playing Cards High Contrast_268
+  - first:
+      213: 8132953641759017982
+    second: PC Computer - Balatro - Playing Cards High Contrast_269
+  - first:
+      213: -2905100840811240544
+    second: PC Computer - Balatro - Playing Cards High Contrast_270
+  - first:
+      213: -2773581729478596840
+    second: PC Computer - Balatro - Playing Cards High Contrast_271
+  - first:
+      213: 5402473020183645816
+    second: PC Computer - Balatro - Playing Cards High Contrast_272
+  - first:
+      213: -8850231795629223747
+    second: PC Computer - Balatro - Playing Cards High Contrast_273
+  - first:
+      213: 513244420069607465
+    second: PC Computer - Balatro - Playing Cards High Contrast_274
+  - first:
+      213: 1272545289374015785
+    second: PC Computer - Balatro - Playing Cards High Contrast_275
+  - first:
+      213: 6259063748741463508
+    second: PC Computer - Balatro - Playing Cards High Contrast_276
+  - first:
+      213: 8320676571747690002
+    second: PC Computer - Balatro - Playing Cards High Contrast_277
+  - first:
+      213: -5617674254446423204
+    second: PC Computer - Balatro - Playing Cards High Contrast_278
+  - first:
+      213: 5660003168035479276
+    second: PC Computer - Balatro - Playing Cards High Contrast_279
+  - first:
+      213: 8039868307569663381
+    second: PC Computer - Balatro - Playing Cards High Contrast_280
+  - first:
+      213: 8362005585623421666
+    second: PC Computer - Balatro - Playing Cards High Contrast_281
+  - first:
+      213: 7172373284556588997
+    second: PC Computer - Balatro - Playing Cards High Contrast_282
+  - first:
+      213: -5408620574287515579
+    second: PC Computer - Balatro - Playing Cards High Contrast_283
+  - first:
+      213: 6416578059938070607
+    second: PC Computer - Balatro - Playing Cards High Contrast_284
+  - first:
+      213: -7310689253955748784
+    second: PC Computer - Balatro - Playing Cards High Contrast_285
+  - first:
+      213: 7598248108938088716
+    second: PC Computer - Balatro - Playing Cards High Contrast_286
+  - first:
+      213: -8496381647738920675
+    second: PC Computer - Balatro - Playing Cards High Contrast_287
+  - first:
+      213: 7009894283596670533
+    second: PC Computer - Balatro - Playing Cards High Contrast_288
+  - first:
+      213: -545213782410258187
+    second: PC Computer - Balatro - Playing Cards High Contrast_289
+  - first:
+      213: -2509510640271339667
+    second: PC Computer - Balatro - Playing Cards High Contrast_290
+  - first:
+      213: -5078587392130219127
+    second: PC Computer - Balatro - Playing Cards High Contrast_291
+  - first:
+      213: 6206184708660766417
+    second: PC Computer - Balatro - Playing Cards High Contrast_292
+  - first:
+      213: -8868440849978474071
+    second: PC Computer - Balatro - Playing Cards High Contrast_293
+  - first:
+      213: 5202415531665853315
+    second: PC Computer - Balatro - Playing Cards High Contrast_294
+  - first:
+      213: -3765265229848033156
+    second: PC Computer - Balatro - Playing Cards High Contrast_295
+  - first:
+      213: 6646713802048299212
+    second: PC Computer - Balatro - Playing Cards High Contrast_296
+  - first:
+      213: 6777748893350251039
+    second: PC Computer - Balatro - Playing Cards High Contrast_297
+  - first:
+      213: 2803867611808156962
+    second: PC Computer - Balatro - Playing Cards High Contrast_298
+  - first:
+      213: 2084309149440821882
+    second: PC Computer - Balatro - Playing Cards High Contrast_299
+  - first:
+      213: 9180843185242262532
+    second: PC Computer - Balatro - Playing Cards High Contrast_300
+  - first:
+      213: 5380153727801227363
+    second: PC Computer - Balatro - Playing Cards High Contrast_301
+  - first:
+      213: -4247178102007765553
+    second: PC Computer - Balatro - Playing Cards High Contrast_302
+  - first:
+      213: 8859498691128574834
+    second: PC Computer - Balatro - Playing Cards High Contrast_303
+  - first:
+      213: -3250576522336763525
+    second: PC Computer - Balatro - Playing Cards High Contrast_304
+  - first:
+      213: 215185821299163399
+    second: PC Computer - Balatro - Playing Cards High Contrast_305
+  - first:
+      213: -6820953682915443182
+    second: PC Computer - Balatro - Playing Cards High Contrast_306
+  - first:
+      213: 7687477784513195791
+    second: PC Computer - Balatro - Playing Cards High Contrast_307
+  - first:
+      213: 7768230081961022748
+    second: PC Computer - Balatro - Playing Cards High Contrast_308
+  - first:
+      213: 7050098191509549297
+    second: PC Computer - Balatro - Playing Cards High Contrast_309
+  - first:
+      213: 4192337088193276353
+    second: PC Computer - Balatro - Playing Cards High Contrast_310
+  - first:
+      213: -8109136910000192285
+    second: PC Computer - Balatro - Playing Cards High Contrast_311
+  - first:
+      213: 6936133042788669972
+    second: PC Computer - Balatro - Playing Cards High Contrast_312
+  - first:
+      213: -1810807120056540888
+    second: PC Computer - Balatro - Playing Cards High Contrast_313
+  - first:
+      213: -2700545885085919230
+    second: PC Computer - Balatro - Playing Cards High Contrast_314
+  - first:
+      213: 309516222808163576
+    second: PC Computer - Balatro - Playing Cards High Contrast_315
+  - first:
+      213: -7939172936820811084
+    second: PC Computer - Balatro - Playing Cards High Contrast_316
+  - first:
+      213: 6345751714339146740
+    second: PC Computer - Balatro - Playing Cards High Contrast_317
+  - first:
+      213: 7482351564833951952
+    second: PC Computer - Balatro - Playing Cards High Contrast_318
+  - first:
+      213: 8189195680772013661
+    second: PC Computer - Balatro - Playing Cards High Contrast_319
+  - first:
+      213: 5878844885342864175
+    second: PC Computer - Balatro - Playing Cards High Contrast_320
+  - first:
+      213: 204537170372477502
+    second: PC Computer - Balatro - Playing Cards High Contrast_321
+  - first:
+      213: -5058470819039522864
+    second: PC Computer - Balatro - Playing Cards High Contrast_322
+  - first:
+      213: 7737884599089304999
+    second: PC Computer - Balatro - Playing Cards High Contrast_323
+  - first:
+      213: 2492779631672219556
+    second: PC Computer - Balatro - Playing Cards High Contrast_324
+  - first:
+      213: 1671403733551443381
+    second: PC Computer - Balatro - Playing Cards High Contrast_325
+  - first:
+      213: 6882298803910409764
+    second: PC Computer - Balatro - Playing Cards High Contrast_326
+  - first:
+      213: 714198820277353423
+    second: PC Computer - Balatro - Playing Cards High Contrast_327
+  - first:
+      213: -2893137761440676750
+    second: PC Computer - Balatro - Playing Cards High Contrast_328
+  - first:
+      213: 7315235491941862044
+    second: PC Computer - Balatro - Playing Cards High Contrast_329
+  - first:
+      213: -2237891010798346012
+    second: PC Computer - Balatro - Playing Cards High Contrast_330
+  - first:
+      213: -3113182045701837351
+    second: PC Computer - Balatro - Playing Cards High Contrast_331
+  - first:
+      213: -6131490963761607991
+    second: PC Computer - Balatro - Playing Cards High Contrast_332
+  - first:
+      213: 8614830286594039562
+    second: PC Computer - Balatro - Playing Cards High Contrast_333
+  - first:
+      213: 8414872092059550698
+    second: PC Computer - Balatro - Playing Cards High Contrast_334
+  - first:
+      213: -2533635346001585394
+    second: PC Computer - Balatro - Playing Cards High Contrast_335
+  - first:
+      213: -1012210742438075392
+    second: PC Computer - Balatro - Playing Cards High Contrast_336
+  - first:
+      213: -1043528944247027842
+    second: PC Computer - Balatro - Playing Cards High Contrast_337
+  - first:
+      213: -8464379188807231933
+    second: PC Computer - Balatro - Playing Cards High Contrast_338
+  - first:
+      213: 404946764637709029
+    second: PC Computer - Balatro - Playing Cards High Contrast_339
+  - first:
+      213: 8604504992356842827
+    second: PC Computer - Balatro - Playing Cards High Contrast_340
+  - first:
+      213: 8326785840431600035
+    second: PC Computer - Balatro - Playing Cards High Contrast_341
+  - first:
+      213: -4426252160872954175
+    second: PC Computer - Balatro - Playing Cards High Contrast_342
+  - first:
+      213: 131979340876491942
+    second: PC Computer - Balatro - Playing Cards High Contrast_343
+  - first:
+      213: -1230729273745343142
+    second: PC Computer - Balatro - Playing Cards High Contrast_344
+  - first:
+      213: 7992501206475981204
+    second: PC Computer - Balatro - Playing Cards High Contrast_345
+  - first:
+      213: -61767103609046300
+    second: PC Computer - Balatro - Playing Cards High Contrast_346
+  - first:
+      213: -1529414835441922615
+    second: PC Computer - Balatro - Playing Cards High Contrast_347
+  - first:
+      213: -6619580955053705024
+    second: PC Computer - Balatro - Playing Cards High Contrast_348
+  - first:
+      213: -9101504470268550004
+    second: PC Computer - Balatro - Playing Cards High Contrast_349
+  - first:
+      213: -3198156513510001671
+    second: PC Computer - Balatro - Playing Cards High Contrast_350
+  - first:
+      213: 8062683656555481283
+    second: PC Computer - Balatro - Playing Cards High Contrast_351
+  - first:
+      213: 4969670804652207495
+    second: PC Computer - Balatro - Playing Cards High Contrast_352
+  - first:
+      213: 242725076004611257
+    second: PC Computer - Balatro - Playing Cards High Contrast_353
+  - first:
+      213: -1041671754798237579
+    second: PC Computer - Balatro - Playing Cards High Contrast_354
+  - first:
+      213: -813541743187306864
+    second: PC Computer - Balatro - Playing Cards High Contrast_355
+  - first:
+      213: 5731556388245132409
+    second: PC Computer - Balatro - Playing Cards High Contrast_356
+  - first:
+      213: -5997305164642170276
+    second: PC Computer - Balatro - Playing Cards High Contrast_357
+  - first:
+      213: -4630801134742119396
+    second: PC Computer - Balatro - Playing Cards High Contrast_358
+  - first:
+      213: 189480654251355658
+    second: PC Computer - Balatro - Playing Cards High Contrast_359
+  - first:
+      213: -6360603474055268865
+    second: PC Computer - Balatro - Playing Cards High Contrast_360
+  - first:
+      213: -7601862688447670269
+    second: PC Computer - Balatro - Playing Cards High Contrast_361
+  - first:
+      213: -7542836719914180332
+    second: PC Computer - Balatro - Playing Cards High Contrast_362
+  - first:
+      213: -4268531772618740163
+    second: PC Computer - Balatro - Playing Cards High Contrast_363
+  - first:
+      213: -4485554934701892693
+    second: PC Computer - Balatro - Playing Cards High Contrast_364
+  - first:
+      213: -4309542579473413144
+    second: PC Computer - Balatro - Playing Cards High Contrast_365
+  - first:
+      213: -6280016365370771903
+    second: PC Computer - Balatro - Playing Cards High Contrast_366
+  - first:
+      213: -3806329985853839576
+    second: PC Computer - Balatro - Playing Cards High Contrast_367
+  - first:
+      213: 169040066364825469
+    second: PC Computer - Balatro - Playing Cards High Contrast_368
+  - first:
+      213: -1306830274543042630
+    second: PC Computer - Balatro - Playing Cards High Contrast_369
+  - first:
+      213: 7031805218896944428
+    second: PC Computer - Balatro - Playing Cards High Contrast_370
+  - first:
+      213: -7915188993340029094
+    second: PC Computer - Balatro - Playing Cards High Contrast_371
+  - first:
+      213: -6825630380973560635
+    second: PC Computer - Balatro - Playing Cards High Contrast_372
+  - first:
+      213: -5000297992062023296
+    second: PC Computer - Balatro - Playing Cards High Contrast_373
+  - first:
+      213: 1758972756178485575
+    second: PC Computer - Balatro - Playing Cards High Contrast_374
+  - first:
+      213: 7608918955652265177
+    second: PC Computer - Balatro - Playing Cards High Contrast_375
+  - first:
+      213: 5412755801328999504
+    second: PC Computer - Balatro - Playing Cards High Contrast_376
+  - first:
+      213: 8165158950735772388
+    second: PC Computer - Balatro - Playing Cards High Contrast_377
+  - first:
+      213: -191982869373420405
+    second: PC Computer - Balatro - Playing Cards High Contrast_378
+  - first:
+      213: 6468436876225850075
+    second: PC Computer - Balatro - Playing Cards High Contrast_379
+  - first:
+      213: 9140905385698374853
+    second: PC Computer - Balatro - Playing Cards High Contrast_380
+  - first:
+      213: -2829022101367294794
+    second: PC Computer - Balatro - Playing Cards High Contrast_381
+  - first:
+      213: -7858485689890317986
+    second: PC Computer - Balatro - Playing Cards High Contrast_382
+  - first:
+      213: -7912004916152429833
+    second: PC Computer - Balatro - Playing Cards High Contrast_383
+  - first:
+      213: -1190070498175084988
+    second: PC Computer - Balatro - Playing Cards High Contrast_384
+  - first:
+      213: -7832879556162805894
+    second: PC Computer - Balatro - Playing Cards High Contrast_385
+  - first:
+      213: -5286730532183353648
+    second: PC Computer - Balatro - Playing Cards High Contrast_386
+  - first:
+      213: -3073282754164523363
+    second: PC Computer - Balatro - Playing Cards High Contrast_387
+  - first:
+      213: 5558239052646999804
+    second: PC Computer - Balatro - Playing Cards High Contrast_388
+  - first:
+      213: -8463865899463949282
+    second: PC Computer - Balatro - Playing Cards High Contrast_389
+  - first:
+      213: -6483138780538283789
+    second: PC Computer - Balatro - Playing Cards High Contrast_390
+  - first:
+      213: -8393231465479443633
+    second: PC Computer - Balatro - Playing Cards High Contrast_391
+  - first:
+      213: -387280710930629371
+    second: PC Computer - Balatro - Playing Cards High Contrast_392
+  - first:
+      213: -61801181612364662
+    second: PC Computer - Balatro - Playing Cards High Contrast_393
+  - first:
+      213: 4540774675902677572
+    second: PC Computer - Balatro - Playing Cards High Contrast_394
+  - first:
+      213: -2488706307435420645
+    second: PC Computer - Balatro - Playing Cards High Contrast_395
+  - first:
+      213: 1541939025912603242
+    second: PC Computer - Balatro - Playing Cards High Contrast_396
+  - first:
+      213: 727379755667800197
+    second: PC Computer - Balatro - Playing Cards High Contrast_397
+  - first:
+      213: 665674631351722572
+    second: PC Computer - Balatro - Playing Cards High Contrast_398
+  - first:
+      213: -7171130277750985311
+    second: PC Computer - Balatro - Playing Cards High Contrast_399
+  - first:
+      213: -4876345135490363867
+    second: PC Computer - Balatro - Playing Cards High Contrast_400
+  - first:
+      213: 292529121961181730
+    second: PC Computer - Balatro - Playing Cards High Contrast_401
+  - first:
+      213: 1035601202684529795
+    second: PC Computer - Balatro - Playing Cards High Contrast_402
+  - first:
+      213: 3641658571154819866
+    second: PC Computer - Balatro - Playing Cards High Contrast_403
+  - first:
+      213: -730117414935404730
+    second: PC Computer - Balatro - Playing Cards High Contrast_404
+  - first:
+      213: 281596281867676313
+    second: PC Computer - Balatro - Playing Cards High Contrast_405
+  - first:
+      213: 2360913745149343304
+    second: PC Computer - Balatro - Playing Cards High Contrast_406
+  - first:
+      213: 6428799438780278102
+    second: PC Computer - Balatro - Playing Cards High Contrast_407
+  - first:
+      213: 7276321537103686034
+    second: PC Computer - Balatro - Playing Cards High Contrast_408
+  - first:
+      213: 6038200835460342305
+    second: PC Computer - Balatro - Playing Cards High Contrast_409
+  - first:
+      213: -6998056997951713477
+    second: PC Computer - Balatro - Playing Cards High Contrast_410
+  - first:
+      213: 6661514261263908451
+    second: PC Computer - Balatro - Playing Cards High Contrast_411
+  - first:
+      213: 2495607116291044482
+    second: PC Computer - Balatro - Playing Cards High Contrast_412
+  - first:
+      213: -1041061781832124839
+    second: PC Computer - Balatro - Playing Cards High Contrast_413
+  - first:
+      213: -5183697349865455919
+    second: PC Computer - Balatro - Playing Cards High Contrast_414
+  - first:
+      213: -2653319224179885753
+    second: PC Computer - Balatro - Playing Cards High Contrast_415
+  - first:
+      213: -5702074020365242313
+    second: PC Computer - Balatro - Playing Cards High Contrast_416
+  - first:
+      213: 1398296321390857649
+    second: PC Computer - Balatro - Playing Cards High Contrast_417
+  - first:
+      213: -8196823442524719065
+    second: PC Computer - Balatro - Playing Cards High Contrast_418
+  - first:
+      213: -8084658267479203469
+    second: PC Computer - Balatro - Playing Cards High Contrast_419
+  - first:
+      213: -2344650884939217737
+    second: PC Computer - Balatro - Playing Cards High Contrast_420
+  - first:
+      213: -8078296785553697697
+    second: PC Computer - Balatro - Playing Cards High Contrast_421
+  - first:
+      213: 2569742172288295584
+    second: PC Computer - Balatro - Playing Cards High Contrast_422
+  - first:
+      213: 3571371290413949882
+    second: PC Computer - Balatro - Playing Cards High Contrast_423
+  - first:
+      213: 4599518440681442963
+    second: PC Computer - Balatro - Playing Cards High Contrast_424
+  - first:
+      213: -9072165003838551126
+    second: PC Computer - Balatro - Playing Cards High Contrast_425
+  - first:
+      213: -7836898254217524871
+    second: PC Computer - Balatro - Playing Cards High Contrast_426
+  - first:
+      213: -7810842909877023152
+    second: PC Computer - Balatro - Playing Cards High Contrast_427
+  - first:
+      213: -804414507201001363
+    second: PC Computer - Balatro - Playing Cards High Contrast_428
+  - first:
+      213: 4711769191130010870
+    second: PC Computer - Balatro - Playing Cards High Contrast_429
+  - first:
+      213: 1548577233813906175
+    second: PC Computer - Balatro - Playing Cards High Contrast_430
+  - first:
+      213: -4230683363884673019
+    second: PC Computer - Balatro - Playing Cards High Contrast_431
+  - first:
+      213: 6364524622688421203
+    second: PC Computer - Balatro - Playing Cards High Contrast_432
+  - first:
+      213: -2732840697857503573
+    second: PC Computer - Balatro - Playing Cards High Contrast_433
+  - first:
+      213: -5944266386423052500
+    second: PC Computer - Balatro - Playing Cards High Contrast_434
+  - first:
+      213: -7410136061401755770
+    second: PC Computer - Balatro - Playing Cards High Contrast_435
+  - first:
+      213: -4945300047896313784
+    second: PC Computer - Balatro - Playing Cards High Contrast_436
+  - first:
+      213: -1892204030153808547
+    second: PC Computer - Balatro - Playing Cards High Contrast_437
+  - first:
+      213: 5242979662444530204
+    second: PC Computer - Balatro - Playing Cards High Contrast_438
+  - first:
+      213: -2609601781332245149
+    second: PC Computer - Balatro - Playing Cards High Contrast_439
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: VisionOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 285
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2f4f281c2e2f46829946dac5466a4a0
+      internalID: 1379097631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 285
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca73654fd94b141d8b598061624fb98d
+      internalID: -1942197193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_2
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 285
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1526b726083164a95b52a74d381bfb51
+      internalID: 1854449503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_3
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 285
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83377b7f1a6754d8fa664cd8e0ece1fd
+      internalID: 742118796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_4
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 285
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b278967fb90c940bf9c3cbf11cdc01d0
+      internalID: -2117287490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_5
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 285
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58282a82d4f0d43b28ccec965c85bda7
+      internalID: -2088180925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_6
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 285
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dcf37f044b80465191f3ed486edea91
+      internalID: -1653388186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_7
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 285
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dd45d910771144a3bae0439bedf7404
+      internalID: -1795016460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_8
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 285
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdf680e09cd544d628068d31b5359b7f
+      internalID: -1157488437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_9
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 285
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5e00611af806483e9261456711ac084
+      internalID: -1357122152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_10
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 285
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a914e5ee5b72d4cc08663147dc40c5f3
+      internalID: -723853134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_11
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 285
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3e01c705a59e4600958f6756ee49b73
+      internalID: -371540356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_12
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 285
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4131218ecfa984f899c9d0e03894d5e7
+      internalID: -725235698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 190
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21e7fd830e2a044f0842c2dcce457b8c
+      internalID: 1245682166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_14
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 190
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d66e6be6cacb4854bd4fb157f550f0e
+      internalID: 1375591232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_15
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 190
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec73a58732c4042ab8c19501453ce2d7
+      internalID: -2072250426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_16
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 190
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21cc02b6b453e43d7ab417428ea0a6ff
+      internalID: -1624289942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_17
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 190
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea4b72205236a4d5c851fe1295aa1b96
+      internalID: -598740410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_18
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 190
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e32e6a1cc147b45bc9cdff855a637c3b
+      internalID: -1513048269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_19
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 190
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a60e3f19062964a2a976f54385ba07b5
+      internalID: 1391558616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_20
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 190
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00d43a931af9241f8b1ee8b4d0ba36de
+      internalID: -1405151844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_21
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 190
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a89f75b1f3e146bba20d127ca7150dc
+      internalID: -1194440135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_22
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 190
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01fbdd69ae365445c9e807421043b507
+      internalID: 1387690391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_23
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 190
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9789ddee5ad9744469e3e6b1ed006887
+      internalID: 167374912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_24
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 190
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5029175af4d02446883912943355e5d3
+      internalID: 1100771477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_25
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 190
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93ece9114bcf3450ea2de3675ef63696
+      internalID: 822472306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 95
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f142c220a8b34316814ce598280eb83
+      internalID: -158482462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_27
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 95
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29088a6df7b174800afe4ff2e06b0b8f
+      internalID: -65217549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_28
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 95
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70a319e1a7811474aa59d9d12deaf423
+      internalID: 328920073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_29
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 95
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c9be5083578e4cb9b2979301740c522
+      internalID: 2086049837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_30
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 95
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ec8f044f2544a2eb477b1ee85ab564
+      internalID: -2108229024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_31
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 95
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 740d7cfe5988049b4a21ba5baffb1d92
+      internalID: -1673022064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_32
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 95
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d2daf1e808de43d29bada6defb9a559
+      internalID: 1695528388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_33
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 95
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20967c0556dde4841acf927f7b57f22c
+      internalID: 831869341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_34
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 95
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4fcdcc33cd53485e88a0f28081287f2
+      internalID: 969099196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_35
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 95
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5321b7ea265584c36aaa13e2eb98756c
+      internalID: -1561525021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_36
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 95
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49230ebf454c749d5a2f120a11bb2813
+      internalID: -1330396640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_37
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 95
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4225ff9a77a44b5db2e0872cf0baab9
+      internalID: 1278185150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_38
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 95
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d64826f7a796b4e45a9a9e995303725c
+      internalID: -261629313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5dd068215a45476bbfc2db5b400f7cc
+      internalID: -2037201871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_40
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 0
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 700b25428b29d45f9af255e6b7b19de8
+      internalID: -1438800339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_41
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 0
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04c677012a1144024ac064c5278d56b3
+      internalID: -1559394252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_42
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 0
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbc58f1e4381f4f229751aaa25dccfaf
+      internalID: 891515243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_43
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 0
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ccc24e0b26b4302bda1103760cd724
+      internalID: 1553999346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_44
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 0
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a9e3851bd3e04264a685cc30a5bf7b1
+      internalID: 1702762250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_45
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 0
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f39af6d2c18ae44d78f2e8c279db8f93
+      internalID: -1016582653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_46
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 0
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df58547665e8c47d09e51485a9a62807
+      internalID: 1157999021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_47
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 0
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 178d96a99e5814bc1a1f9ccc86e0a68b
+      internalID: 1821736393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_48
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 0
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a275016871c3742b7bf0cada05c8afc4
+      internalID: -1816324962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_49
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 0
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da61d1b672ca94fdb9cab7c0733dc4cd
+      internalID: 1377176350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_50
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 0
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81a0c322fef8f4b9785a91042c2b83b7
+      internalID: 1300180798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Playing Cards High Contrast_51
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 0
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbd1977501ddd49579d63a31597ba54c
+      internalID: -670504081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 46e5c7dfe43ab4d2a91836049eb3917a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PC Computer - Balatro - Playing Cards High Contrast_0: 1379097631
+      PC Computer - Balatro - Playing Cards High Contrast_1: -1942197193
+      PC Computer - Balatro - Playing Cards High Contrast_10: -723853134
+      PC Computer - Balatro - Playing Cards High Contrast_11: -371540356
+      PC Computer - Balatro - Playing Cards High Contrast_12: -725235698
+      PC Computer - Balatro - Playing Cards High Contrast_13: 1245682166
+      PC Computer - Balatro - Playing Cards High Contrast_14: 1375591232
+      PC Computer - Balatro - Playing Cards High Contrast_15: -2072250426
+      PC Computer - Balatro - Playing Cards High Contrast_16: -1624289942
+      PC Computer - Balatro - Playing Cards High Contrast_17: -598740410
+      PC Computer - Balatro - Playing Cards High Contrast_18: -1513048269
+      PC Computer - Balatro - Playing Cards High Contrast_19: 1391558616
+      PC Computer - Balatro - Playing Cards High Contrast_2: 1854449503
+      PC Computer - Balatro - Playing Cards High Contrast_20: -1405151844
+      PC Computer - Balatro - Playing Cards High Contrast_21: -1194440135
+      PC Computer - Balatro - Playing Cards High Contrast_22: 1387690391
+      PC Computer - Balatro - Playing Cards High Contrast_23: 167374912
+      PC Computer - Balatro - Playing Cards High Contrast_24: 1100771477
+      PC Computer - Balatro - Playing Cards High Contrast_25: 822472306
+      PC Computer - Balatro - Playing Cards High Contrast_26: -158482462
+      PC Computer - Balatro - Playing Cards High Contrast_27: -65217549
+      PC Computer - Balatro - Playing Cards High Contrast_28: 328920073
+      PC Computer - Balatro - Playing Cards High Contrast_29: 2086049837
+      PC Computer - Balatro - Playing Cards High Contrast_3: 742118796
+      PC Computer - Balatro - Playing Cards High Contrast_30: -2108229024
+      PC Computer - Balatro - Playing Cards High Contrast_31: -1673022064
+      PC Computer - Balatro - Playing Cards High Contrast_32: 1695528388
+      PC Computer - Balatro - Playing Cards High Contrast_33: 831869341
+      PC Computer - Balatro - Playing Cards High Contrast_34: 969099196
+      PC Computer - Balatro - Playing Cards High Contrast_35: -1561525021
+      PC Computer - Balatro - Playing Cards High Contrast_36: -1330396640
+      PC Computer - Balatro - Playing Cards High Contrast_37: 1278185150
+      PC Computer - Balatro - Playing Cards High Contrast_38: -261629313
+      PC Computer - Balatro - Playing Cards High Contrast_39: -2037201871
+      PC Computer - Balatro - Playing Cards High Contrast_4: -2117287490
+      PC Computer - Balatro - Playing Cards High Contrast_40: -1438800339
+      PC Computer - Balatro - Playing Cards High Contrast_41: -1559394252
+      PC Computer - Balatro - Playing Cards High Contrast_42: 891515243
+      PC Computer - Balatro - Playing Cards High Contrast_43: 1553999346
+      PC Computer - Balatro - Playing Cards High Contrast_44: 1702762250
+      PC Computer - Balatro - Playing Cards High Contrast_45: -1016582653
+      PC Computer - Balatro - Playing Cards High Contrast_46: 1157999021
+      PC Computer - Balatro - Playing Cards High Contrast_47: 1821736393
+      PC Computer - Balatro - Playing Cards High Contrast_48: -1816324962
+      PC Computer - Balatro - Playing Cards High Contrast_49: 1377176350
+      PC Computer - Balatro - Playing Cards High Contrast_5: -2088180925
+      PC Computer - Balatro - Playing Cards High Contrast_50: 1300180798
+      PC Computer - Balatro - Playing Cards High Contrast_51: -670504081
+      PC Computer - Balatro - Playing Cards High Contrast_6: -1653388186
+      PC Computer - Balatro - Playing Cards High Contrast_7: -1795016460
+      PC Computer - Balatro - Playing Cards High Contrast_8: -1157488437
+      PC Computer - Balatro - Playing Cards High Contrast_9: -1357122152
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

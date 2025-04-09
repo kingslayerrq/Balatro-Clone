@@ -11,6 +11,8 @@ public class RunManager : MonoBehaviour
     public static RunManager Instance;
     private AnteManager _anteManager;
     private DeckPanel _deckPanel;
+    
+    public int CurrentSeed { get; private set; }
 
     private int _curAnteLvl = 0;
     private int _curRoundLvl = 0;
@@ -113,7 +115,15 @@ public class RunManager : MonoBehaviour
     
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
         
     }
 
@@ -129,6 +139,8 @@ public class RunManager : MonoBehaviour
     /// </summary>
     public void Init()
     {
+        SetRandomSeed();
+        Debug.Log($"Seed for this run {CurrentSeed}");
         // Load Base HandType values
         LoadBaseHandTypes();
         // Load Deck
@@ -197,7 +209,7 @@ public class RunManager : MonoBehaviour
  
             card.baseCardParameters = cardConfig;
             card.Init();
-            
+            card.cardData.edition = ExtensionMethods.GetWeightedRandomEdition();
             
             // Add card
             _cardsDeck.Add(card);
@@ -206,6 +218,7 @@ public class RunManager : MonoBehaviour
             Card.cardStatusUpdateEvent?.Invoke(card, CardState.CardStatus.InCreation);
         }
     }
+    
     private void LoadBaseHandTypes()
     {
         HighCard = highCardConfig.Create();
@@ -261,5 +274,17 @@ public class RunManager : MonoBehaviour
         }
     }
     
+    
+    private void SetSeed(int seed)
+    {
+        CurrentSeed = seed;
+        Random.InitState(seed);
+    }
+    
+    private void SetRandomSeed()
+    {
+        int seed = System.Environment.TickCount;
+        SetSeed(seed);
+    }
     
 }

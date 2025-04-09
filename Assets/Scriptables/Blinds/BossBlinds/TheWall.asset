@@ -14,6 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blindName: The Wall
   description: Extra Large Blind
+  type: 2
+  blindSprites:
+  - {fileID: 2090117177, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: -373914343, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 645402039, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 197733405, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 54274957, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 1989207121, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 1396754084, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: -836688130, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 1280318264, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 797370796, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 2012144482, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 987971164, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 1950439469, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: -8362644, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 592635630, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: -1036607448, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 1377739453, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: -89936471, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 793241955, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: -1279430001, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 1292301397, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  blindColor: {r: 0.5411765, g: 0.34901962, b: 0.64705884, a: 1}
   baseChipGoal: 600
   reward: 10
   actionConfigsOnEnter:

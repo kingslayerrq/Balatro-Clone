@@ -14,5 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blindName: Big Blind
   description: 
+  type: 1
+  blindSprites:
+  - {fileID: -228490635, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 566040838, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: -395224081, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 372776638, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 1638338606, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: -1622543437, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 1508177625, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: -1175386160, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: -951698744, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 1711521203, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: -1406177969, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: -986474498, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 85074086, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 34224147, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 716527310, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: -127967462, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 787277161, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: -1909299432, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 2124447491, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: -926187087, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  - {fileID: 633524422, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
+  blindColor: {r: 0.8784314, g: 0.63529414, b: 0.22745098, a: 1}
   baseChipGoal: 450
   reward: 6

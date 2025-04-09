@@ -1,6 +1,10 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
+
 
 public class RoundVisualizer : MonoBehaviour
 {
@@ -8,10 +12,15 @@ public class RoundVisualizer : MonoBehaviour
 
     private RoundManager _roundManager;
     private RunManager _runManager;
+
+    [Header("Settings")]
+    [SerializeField] private float colorTransition = 0.15f;
     
     [Header("UI to Visualize")] 
     [SerializeField] private TextMeshProUGUI blindName;
     [SerializeField] private TextMeshProUGUI blindDescription;
+    [SerializeField] private UIImageAnimation blindImageAnimation;
+    
     
     [SerializeField] private TextMeshProUGUI blindChipGoal;
     [SerializeField] private TextMeshProUGUI blindReward;
@@ -23,6 +32,14 @@ public class RoundVisualizer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI anteLvlReqToWin;
     [SerializeField] private TextMeshProUGUI roundLvl;
     [SerializeField] private TextMeshProUGUI roundScore;
+
+    [SerializeField] private Image bgColor;
+    [SerializeField] private Image blindNamePanelColor;
+    [SerializeField] private Image blindDetailPanelColor;
+    [SerializeField] private Outline sidebarOutlineColor;
+    [SerializeField] private Color sidebarOrigColor;
+    [SerializeField] private Camera camera;
+    [SerializeField] private Color cameraOrigColor;
     
     private int _prevHandCount;
     private int _prevDiscardCount;
@@ -45,6 +62,16 @@ public class RoundVisualizer : MonoBehaviour
             _roundManager.roundSetupVisualEvent.AddListener(SetupVisual);
         }
         _runManager = RunManager.Instance;
+
+        if (camera)
+        {
+            cameraOrigColor = camera.backgroundColor;
+        }
+
+        if (sidebarOutlineColor)
+        {
+            sidebarOrigColor = sidebarOutlineColor.effectColor;
+        }
     }
 
     private void Update()
@@ -115,7 +142,28 @@ public class RoundVisualizer : MonoBehaviour
         anteLvl.text = _runManager.CurAnteLvl.FormatInt();
         anteLvlReqToWin.text = " / " + _runManager.AnteLvlReqToWin.FormatInt();
         roundLvl.text = _runManager.CurRoundLvl.FormatInt();
+
+        blindImageAnimation.sprites = round.blind.blindSprites;
+        blindImageAnimation.isSet = true;
+
+        blindNamePanelColor.DOColor(round.blind.blindColor, colorTransition);
+        sidebarOutlineColor.DOColor(round.blind.blindColor, colorTransition);
+        
+        // Create a new color with the same RGB values but different alpha
+        Color newColor = round.blind.blindColor;
+        newColor.a = 50/255f;
+        blindDetailPanelColor.DOColor(newColor, colorTransition);
+
+        // Turn off camera color during boss
+        // Change Background Color during boss
+        if (round.blind.type == Enums.BlindType.BossBlind)
+        {
+            bgColor.DOColor(round.blind.blindColor, colorTransition);
+            camera.DOColor(new Color(0, 0, 0, 0), colorTransition);
+        }
     }
+
+    
     // Update methods for each field
     public void UpdateBlindName(string name)
     {

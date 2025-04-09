@@ -21,6 +21,8 @@ public class BossBlindConfig : BaseBlindParameters
             blindName = blindName,
             description = description,
             type = type,
+            blindSprites = blindSprites,
+            blindColor = blindColor,
             baseChipGoal = baseChipGoal,
             reward = reward,
             config = this,

@@ -1,0 +1,1040 @@
+fileFormatVersion: 2
+guid: e1cae0be51b724dc58f622f34e9f0ddb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6559117308899183097
+    second: PC Computer - Balatro - Vouchers_0
+  - first:
+      213: 5246667100521555931
+    second: PC Computer - Balatro - Vouchers_1
+  - first:
+      213: -8184185066471445986
+    second: PC Computer - Balatro - Vouchers_2
+  - first:
+      213: -2579465305531321002
+    second: PC Computer - Balatro - Vouchers_3
+  - first:
+      213: -433488250925067486
+    second: PC Computer - Balatro - Vouchers_4
+  - first:
+      213: 4879380335914009903
+    second: PC Computer - Balatro - Vouchers_5
+  - first:
+      213: 2806130056328969612
+    second: PC Computer - Balatro - Vouchers_6
+  - first:
+      213: -8984056165326041642
+    second: PC Computer - Balatro - Vouchers_7
+  - first:
+      213: 1197036724048341204
+    second: PC Computer - Balatro - Vouchers_8
+  - first:
+      213: 2673622117008800035
+    second: PC Computer - Balatro - Vouchers_9
+  - first:
+      213: -4726279732966504097
+    second: PC Computer - Balatro - Vouchers_10
+  - first:
+      213: 705898142213605714
+    second: PC Computer - Balatro - Vouchers_11
+  - first:
+      213: -5277990347059025646
+    second: PC Computer - Balatro - Vouchers_12
+  - first:
+      213: -5930828514707727560
+    second: PC Computer - Balatro - Vouchers_13
+  - first:
+      213: 4592794424662412862
+    second: PC Computer - Balatro - Vouchers_14
+  - first:
+      213: 4509048761096123426
+    second: PC Computer - Balatro - Vouchers_15
+  - first:
+      213: 6189017518528099305
+    second: PC Computer - Balatro - Vouchers_16
+  - first:
+      213: -5317219493970491453
+    second: PC Computer - Balatro - Vouchers_17
+  - first:
+      213: -1258830085816552479
+    second: PC Computer - Balatro - Vouchers_18
+  - first:
+      213: -6440198977127560847
+    second: PC Computer - Balatro - Vouchers_19
+  - first:
+      213: 7904570356382310686
+    second: PC Computer - Balatro - Vouchers_20
+  - first:
+      213: -6895194240273667200
+    second: PC Computer - Balatro - Vouchers_21
+  - first:
+      213: 5508904609753017899
+    second: PC Computer - Balatro - Vouchers_22
+  - first:
+      213: -1447658437913237414
+    second: PC Computer - Balatro - Vouchers_23
+  - first:
+      213: -400833679664942426
+    second: PC Computer - Balatro - Vouchers_24
+  - first:
+      213: -5276204690649670540
+    second: PC Computer - Balatro - Vouchers_25
+  - first:
+      213: -8666718575588794315
+    second: PC Computer - Balatro - Vouchers_26
+  - first:
+      213: 265690558166838845
+    second: PC Computer - Balatro - Vouchers_27
+  - first:
+      213: -7784156236513307442
+    second: PC Computer - Balatro - Vouchers_28
+  - first:
+      213: 7016931882506841383
+    second: PC Computer - Balatro - Vouchers_29
+  - first:
+      213: -5660531483071917860
+    second: PC Computer - Balatro - Vouchers_30
+  - first:
+      213: 5358649405364281721
+    second: PC Computer - Balatro - Vouchers_31
+  - first:
+      213: -5856443339852631154
+    second: PC Computer - Balatro - Vouchers_32
+  - first:
+      213: 6330198507828254018
+    second: PC Computer - Balatro - Vouchers_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: VisionOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 286
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7483173600ba4decb11447427d73555
+      internalID: -309278242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_1
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 286
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1461f7c2a8534535aacc095d17f92d0
+      internalID: 178885743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_2
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 286
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d0bac3c20653476a9b9668c64646df4
+      internalID: -1484149332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_3
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 286
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38ed07f7b8b55486f9f5aa189171add3
+      internalID: -186697122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_4
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 286
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a91240caa5e9452781ae8dfd4ac91be
+      internalID: 50727967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_5
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 286
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3336f14785c24f5e9393f48a4fd2abc
+      internalID: 1371657400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_6
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 286
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a832e210d9dbc4ae3bfa49ef51c0d33c
+      internalID: -1040966987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_7
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 286
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9954edffb6a1b4fe1940a1f63110a5cb
+      internalID: -1365993848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_8
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 191
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40838c1b71de14ab4aa977fb250f4296
+      internalID: 396049237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_9
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 191
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 835fce7be46534f7d9f33a11525020d2
+      internalID: -283102334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_10
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 191
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d516216f32c64bbb9c4d7ca4d1c6c63
+      internalID: -1891966644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_11
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 191
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 969660a6bac404ab5b3cd13eddfda29a
+      internalID: 630688746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_12
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 191
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e6879a58b276407c8ea913c4a7793af
+      internalID: -758498715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_13
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 191
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0022889e5ef82414e855fa658c20808b
+      internalID: -1604165973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_14
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 191
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae75870ef183147ce9a7fc6ecfb525fb
+      internalID: 112719975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_15
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 191
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46ff5eae034994d639bbbf4753276907
+      internalID: 750389806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_16
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 96
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da75e0ed71fdc42b497a196de71a5962
+      internalID: -992541612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_17
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 96
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec79ce0c760ea43bebad1a002ae702c2
+      internalID: -637923163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_18
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 96
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b379a3a6085745d4946b482d8a94602
+      internalID: -1757052965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_19
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 96
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 022096d6b9746412a95614f8081ebfd7
+      internalID: -552391519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_20
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 96
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bcba0fe9c26540d7983d055b3adc1ce
+      internalID: 157773484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_21
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 96
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5cc03a7acd65400e8b15f70c69ab943
+      internalID: -781108858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_22
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 96
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9522ffa3091a04bc09c31fe95c73f776
+      internalID: -613065784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_23
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 96
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea99f762e5ddd45fdac681f2d7689bcd
+      internalID: -710601092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_24
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 96
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5032a7f96e87472085115ecba25bf1a
+      internalID: 2140121549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_25
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75dec48ee86f240329b86a832c03b8f2
+      internalID: -1057873451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_26
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 1
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cb7948ea74724342bf1628434ddd6a9
+      internalID: 1776893947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_27
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 1
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 080ec1d4c928548598798925139d149b
+      internalID: -1201802736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_28
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 1
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d19221a257c418294b2d3eca917990
+      internalID: -1642664246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_29
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69c6f540530c7402da9bf3e556e086d2
+      internalID: -1997646849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_30
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 1
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d31c5c8bb45d416794c173d8827ee14
+      internalID: -1484867577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_31
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 1
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8672388871d84f90a09032eec496421
+      internalID: 309602538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_32
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 1
+        width: 59
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d363bfbcf3d8640d099623fa33711cb0
+      internalID: 450642901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Vouchers_33
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 1
+        width: 63
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e57cbb5f07f8e40118b698ed21ee63c1
+      internalID: 578012193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: bf84b96e38b6142b8a143a986ca25c4a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PC Computer - Balatro - Vouchers_0: -309278242
+      PC Computer - Balatro - Vouchers_1: 178885743
+      PC Computer - Balatro - Vouchers_10: -1891966644
+      PC Computer - Balatro - Vouchers_11: 630688746
+      PC Computer - Balatro - Vouchers_12: -758498715
+      PC Computer - Balatro - Vouchers_13: -1604165973
+      PC Computer - Balatro - Vouchers_14: 112719975
+      PC Computer - Balatro - Vouchers_15: 750389806
+      PC Computer - Balatro - Vouchers_16: -992541612
+      PC Computer - Balatro - Vouchers_17: -637923163
+      PC Computer - Balatro - Vouchers_18: -1757052965
+      PC Computer - Balatro - Vouchers_19: -552391519
+      PC Computer - Balatro - Vouchers_2: -1484149332
+      PC Computer - Balatro - Vouchers_20: 157773484
+      PC Computer - Balatro - Vouchers_21: -781108858
+      PC Computer - Balatro - Vouchers_22: -613065784
+      PC Computer - Balatro - Vouchers_23: -710601092
+      PC Computer - Balatro - Vouchers_24: 2140121549
+      PC Computer - Balatro - Vouchers_25: -1057873451
+      PC Computer - Balatro - Vouchers_26: 1776893947
+      PC Computer - Balatro - Vouchers_27: -1201802736
+      PC Computer - Balatro - Vouchers_28: -1642664246
+      PC Computer - Balatro - Vouchers_29: -1997646849
+      PC Computer - Balatro - Vouchers_3: -186697122
+      PC Computer - Balatro - Vouchers_30: -1484867577
+      PC Computer - Balatro - Vouchers_31: 309602538
+      PC Computer - Balatro - Vouchers_32: 450642901
+      PC Computer - Balatro - Vouchers_33: 578012193
+      PC Computer - Balatro - Vouchers_4: 50727967
+      PC Computer - Balatro - Vouchers_5: 1371657400
+      PC Computer - Balatro - Vouchers_6: -1040966987
+      PC Computer - Balatro - Vouchers_7: -1365993848
+      PC Computer - Balatro - Vouchers_8: 396049237
+      PC Computer - Balatro - Vouchers_9: -283102334
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

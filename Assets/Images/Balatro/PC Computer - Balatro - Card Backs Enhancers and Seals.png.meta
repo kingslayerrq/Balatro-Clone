@@ -1,0 +1,1066 @@
+fileFormatVersion: 2
+guid: 86b797727d7f1407489a401a27f602bc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 90146808529298546
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_0
+  - first:
+      213: 780527304906841372
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_1
+  - first:
+      213: -6576864615603146700
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_2
+  - first:
+      213: -7488648314566923025
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_3
+  - first:
+      213: 403683097813054996
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_4
+  - first:
+      213: -1695779144585305339
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_5
+  - first:
+      213: 1327058621609682767
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_6
+  - first:
+      213: -4073807466342598206
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_7
+  - first:
+      213: -296221819721975987
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_8
+  - first:
+      213: 8995757041148596832
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_9
+  - first:
+      213: 3285384340493232014
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_10
+  - first:
+      213: 3602886183997732150
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_11
+  - first:
+      213: -2958776594382127051
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_12
+  - first:
+      213: 3073535822789513185
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_13
+  - first:
+      213: -6111055379367987409
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_14
+  - first:
+      213: -5952057316217831645
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_15
+  - first:
+      213: 4932555836899303995
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_16
+  - first:
+      213: 1265360668704119244
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_17
+  - first:
+      213: 5842470962818287236
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_18
+  - first:
+      213: 2428278473964416763
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_19
+  - first:
+      213: 420720928055340276
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_20
+  - first:
+      213: -6910952698868731565
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_21
+  - first:
+      213: -6549260367453440036
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_22
+  - first:
+      213: -9117964053657561158
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_23
+  - first:
+      213: -5512830783521596239
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_24
+  - first:
+      213: 5296999013489818020
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_25
+  - first:
+      213: 9120761630312344680
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_26
+  - first:
+      213: -3657905757111779621
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_27
+  - first:
+      213: -3728196566457886055
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_28
+  - first:
+      213: -5893283692538761540
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_29
+  - first:
+      213: -5408754005799799892
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_30
+  - first:
+      213: 814988052987655363
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_31
+  - first:
+      213: 5880075537128670861
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_32
+  - first:
+      213: -757639712059867693
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_33
+  - first:
+      213: 905747072551412531
+    second: PC Computer - Balatro - Card Backs Enhancers and Seals_34
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: VisionOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 381
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90233a39cbe1b4edea6229bb56e4645b
+      internalID: -140640710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 381
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b399ee698deb141dcb88eae1e6572342
+      internalID: -1589044363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_2
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 433
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e32a44d7264d243e38fbab190dac2f94
+      internalID: -989456933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_3
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 381
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4349dea5a195426da8c20cc30ce350d
+      internalID: -340636188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_4
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 380
+        width: 69
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bd72a509cd864c0984c21b5e11cfc4a
+      internalID: 1473721570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_5
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 381
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 479b8bf7ca0d444f58b3e4246781bee2
+      internalID: -283993665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_6
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 381
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51295ad247c0b4c2fa23ead8a88c0db4
+      internalID: -2090841156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_7
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 305
+        width: 33
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a7e0af2ca7054decb02e49cb548cdd1
+      internalID: -1264242207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_8
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 286
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef8fff30adc4c4ea8909238944b1f804
+      internalID: 1703246016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_9
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 286
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c47087ce8f4614e7f818254c230e497a
+      internalID: -28246227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_10
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 286
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fca47598f345a49b8a9ccbc390410040
+      internalID: -2128797859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_11
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 285
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 004d5d7837fa343529d7295582b23618
+      internalID: -518293847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_12
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 286
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 355eb917249164840bcaae175fc01474
+      internalID: 517757752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_13
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 286
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a74704ace6244e7db13203a5a1a3ee5
+      internalID: 1056337999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_14
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 191
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 777bcaf8088b041d98a6f63da284fcc3
+      internalID: -1054881308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_15
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 191
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6435c5da75864f7f81380677521ae28
+      internalID: -371799808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_16
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 191
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a685cdc3c4cc846c19fb9fe44dac61c5
+      internalID: -2037729713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_17
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 191
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65ea0c16cfbf74e8ca3e7bae21ab9fbf
+      internalID: -100713844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_18
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 191
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75e3b92a17c9b4d14ac16c468c5776ea
+      internalID: -27564746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_19
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 191
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44ebe3fcdc25a45e88972f77f8fdc8e0
+      internalID: 381755526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_20
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 191
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 321435db2c5d340cb81a7b1e0b231ad0
+      internalID: -725856014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_21
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 96
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be4c3470d9b734e4b9b55d5b2d63a2ae
+      internalID: -2105386033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_22
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 96
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e00a25f3d08d74bd7b8f52d4eecfdbbe
+      internalID: -341940922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_23
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 96
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87a961ce43804424e8f316df1ba49137
+      internalID: -2029197893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_24
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 95
+        width: 71
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba256fd92c5d4e53b1e04999af3c729
+      internalID: 1483717432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_25
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 96
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57e756d9c1ea944279966921b7e68ebd
+      internalID: 1012884093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_26
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 114
+        width: 43
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 235adf4ae392c41ecb5bd3a6859efee2
+      internalID: -1493962784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_27
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 127
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8735aaff18e7d460d82fcfc06fa8caeb
+      internalID: -34301218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_28
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63897a1e9e11b489a81038588912447b
+      internalID: -1152894219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_29
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 1
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08b8578ebff1341d89e4e79304691736
+      internalID: 1153377339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_30
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cf692da0f67c49c8b3d0f5d447d9646
+      internalID: -195111519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_31
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 1
+        width: 69
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 177c511a3a44544548db0d2840a150a4
+      internalID: -928055906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_32
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 53
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1627e3f2c99d54548a2927ad27a80aba
+      internalID: 1533985507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_33
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 53
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4232e9d131b4c456685b9fb3b531ed43
+      internalID: -433410142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Balatro - Card Backs Enhancers and Seals_34
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 53
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7727c62f57cea4be8aa943012d0d42c1
+      internalID: -291411676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4a32663c19a654bf4acd9ae2190eae83
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PC Computer - Balatro - Card Backs Enhancers and Seals_0: -140640710
+      PC Computer - Balatro - Card Backs Enhancers and Seals_1: -1589044363
+      PC Computer - Balatro - Card Backs Enhancers and Seals_10: -2128797859
+      PC Computer - Balatro - Card Backs Enhancers and Seals_11: -518293847
+      PC Computer - Balatro - Card Backs Enhancers and Seals_12: 517757752
+      PC Computer - Balatro - Card Backs Enhancers and Seals_13: 1056337999
+      PC Computer - Balatro - Card Backs Enhancers and Seals_14: -1054881308
+      PC Computer - Balatro - Card Backs Enhancers and Seals_15: -371799808
+      PC Computer - Balatro - Card Backs Enhancers and Seals_16: -2037729713
+      PC Computer - Balatro - Card Backs Enhancers and Seals_17: -100713844
+      PC Computer - Balatro - Card Backs Enhancers and Seals_18: -27564746
+      PC Computer - Balatro - Card Backs Enhancers and Seals_19: 381755526
+      PC Computer - Balatro - Card Backs Enhancers and Seals_2: -989456933
+      PC Computer - Balatro - Card Backs Enhancers and Seals_20: -725856014
+      PC Computer - Balatro - Card Backs Enhancers and Seals_21: -2105386033
+      PC Computer - Balatro - Card Backs Enhancers and Seals_22: -341940922
+      PC Computer - Balatro - Card Backs Enhancers and Seals_23: -2029197893
+      PC Computer - Balatro - Card Backs Enhancers and Seals_24: 1483717432
+      PC Computer - Balatro - Card Backs Enhancers and Seals_25: 1012884093
+      PC Computer - Balatro - Card Backs Enhancers and Seals_26: -1493962784
+      PC Computer - Balatro - Card Backs Enhancers and Seals_27: -34301218
+      PC Computer - Balatro - Card Backs Enhancers and Seals_28: -1152894219
+      PC Computer - Balatro - Card Backs Enhancers and Seals_29: 1153377339
+      PC Computer - Balatro - Card Backs Enhancers and Seals_3: -340636188
+      PC Computer - Balatro - Card Backs Enhancers and Seals_30: -195111519
+      PC Computer - Balatro - Card Backs Enhancers and Seals_31: -928055906
+      PC Computer - Balatro - Card Backs Enhancers and Seals_32: 1533985507
+      PC Computer - Balatro - Card Backs Enhancers and Seals_33: -433410142
+      PC Computer - Balatro - Card Backs Enhancers and Seals_34: -291411676
+      PC Computer - Balatro - Card Backs Enhancers and Seals_4: 1473721570
+      PC Computer - Balatro - Card Backs Enhancers and Seals_5: -283993665
+      PC Computer - Balatro - Card Backs Enhancers and Seals_6: -2090841156
+      PC Computer - Balatro - Card Backs Enhancers and Seals_7: -1264242207
+      PC Computer - Balatro - Card Backs Enhancers and Seals_8: 1703246016
+      PC Computer - Balatro - Card Backs Enhancers and Seals_9: -28246227
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

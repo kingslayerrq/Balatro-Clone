@@ -59,10 +59,35 @@ public static class ExtensionMethods
         
         return sb.ToString();
     }
+    
+    /// <summary>
+    /// Format amount of reward into $ symbols
+    /// </summary>
+    /// <param name="num"></param>
+    /// <returns></returns>
     public static string FormatRewardMoney(this int num)
     {
         int count = num > Constants.MAX_REWARD_COUNT ? Constants.MAX_REWARD_COUNT : num;
         string s = "$";
         return Repeat(s, count);
+    }
+    
+    /// <summary>
+    /// Get a random Edition modifier
+    /// TODO: Chance config for each run
+    /// </summary>
+    /// <returns></returns>
+    public static Enums.Edition GetWeightedRandomEdition()
+    {
+        float random = UnityEngine.Random.value;
+        
+        if (random < 0.5f)
+            return Enums.Edition.Regular;
+        else if (random < 0.6f)
+            return Enums.Edition.Polychrome;
+        else if (random < 0.7f)
+            return Enums.Edition.Foil;
+        else
+            return Enums.Edition.Negative;
     }
 }

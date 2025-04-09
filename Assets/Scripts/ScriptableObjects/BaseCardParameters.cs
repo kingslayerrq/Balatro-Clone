@@ -24,6 +24,11 @@ public class BaseCardParameters : ScriptableObject
     public float baseMult = 1f;
 
     public Sprite sprite;
+
+    [Tooltip("Card Base (subject to change when enhanced)")]
+    public Sprite cardBaseSprite;
+
+    public Sprite cardBackSprite;
     
     [Tooltip("How many times the card gets triggered in a poker hand. Default is 1")]
     public int triggerCounts = 1;

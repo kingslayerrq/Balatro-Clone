@@ -35,7 +35,7 @@ public class ScoreCalculator : MonoBehaviour
     [HideInInspector] public UnityEvent<float> UpdateChipsVisualEvent = new UnityEvent<float>();
     [HideInInspector] public UnityEvent<float> UpdateMultsVisualEvent = new UnityEvent<float>();
     [HideInInspector] public UnityEvent<float> UpdateScoreVisualEvent = new UnityEvent<float>();
-    [HideInInspector] public UnityEvent<float> OnScoreEndEvent = new UnityEvent<float>();
+    //[HideInInspector] public UnityEvent<float> OnScoreEndEvent = new UnityEvent<float>();
     [HideInInspector] public UnityEvent<Card> OnCardUsedEvent = new UnityEvent<Card>();
     private void Awake()
     {
@@ -62,7 +62,9 @@ public class ScoreCalculator : MonoBehaviour
 
         if (_roundManager)
         {
-            _roundManager.scoreUpdateEndEvent.AddListener(CleanUpAfterScore);
+            _roundManager.updateRoundStateEvent.AddListener(ScoreStateHandler);
+            _roundManager.updateRoundStateEvent.AddListener(CleanUpAfterScore);
+            //_roundManager.scoreUpdateEndEvent.AddListener(CleanUpAfterScore);
         }
 
         
@@ -92,6 +94,13 @@ public class ScoreCalculator : MonoBehaviour
         } 
     }
 
+    private void ScoreStateHandler(RoundManager.State state)
+    {
+        if (state != RoundManager.State.Score) return;
+        
+        CalculateScore(_playedCardPanel.cardsInSelection);
+        
+    }
     private void CalculateScore(List<Card> cards)
     {
         // TODO: Apply Jokers
@@ -111,17 +120,23 @@ public class ScoreCalculator : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(0.5f);
 
-        yield return StartCoroutine(RecycleCards(cards));
+        //_roundManager.updateRoundStateEvent?.Invoke(RoundManager.State.OnScored);
+        // yield return StartCoroutine(RecycleCards(cards));
 
 
     }
 
-    private void CleanUpAfterScore(Round round)
+    private void CleanUpAfterScore(RoundManager.State state)
     {
-        if (round != _roundManager.curRound) return;
+        if (state != RoundManager.State.OnScored) return;
         StartCoroutine(RecycleCards(_playedCardPanel.cardsInSelection));
     }
 
+    /// <summary>
+    /// push down the used cards and put them into usedcard panel
+    /// </summary>
+    /// <param name="cards"></param>
+    /// <returns></returns>
     private IEnumerator RecycleCards(List<Card> cards)
     {
         var cardsCopy = cards.ToArray();
@@ -146,7 +161,7 @@ public class ScoreCalculator : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.1f);
         }
         
-        OnScoreEndEvent?.Invoke(curScore);
+        //OnScoreEndEvent?.Invoke(curScore);
         
         
         curScore = 0;

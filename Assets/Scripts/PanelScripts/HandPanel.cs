@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class HandPanel : Panel
 {
     public static HandPanel Instance;
+    private RoundManager _roundManager;
     
     [SerializeField] private float playCardGap = 0.5f;
     
@@ -20,8 +21,8 @@ public class HandPanel : Panel
     [Header("Hand Panel Specific Events")]
     [HideInInspector] public UnityEvent<List<Card>> onCardSelectionChangedEvent = new UnityEvent<List<Card>>();
     [HideInInspector] public UnityEvent<Card, Panel> playCardEvent = new UnityEvent<Card, Panel>();
-    [HideInInspector] 
-    [Tooltip("Events to trigger after all cards has been played")] public UnityEvent<Panel> handPlayedEvent = new UnityEvent<Panel>();
+    //[HideInInspector] 
+    //[Tooltip("Events to trigger after all cards has been played")]// public UnityEvent<Panel> handPlayedEvent = new UnityEvent<Panel>();
     [HideInInspector] 
     [Tooltip("Events to trigger as the played button is pressed")] public UnityEvent<Panel> playHandEvent = new UnityEvent<Panel>();
     protected override void Awake()
@@ -34,7 +35,13 @@ public class HandPanel : Panel
         
     }
 
-    
+    protected override void Start()
+    {
+        base.Start();
+        _roundManager = RoundManager.Instance;
+       
+    }
+
 
     #region Hand Panel Button Func
     
@@ -44,6 +51,8 @@ public class HandPanel : Panel
     /// </summary>
     public void PlayHand()
     {
+        if (_roundManager.curState != RoundManager.State.Play) return;
+        HandAnalyzer.Instance.FinalizeHandType();
         StartCoroutine(PlayCardCoroutine());
 
         IEnumerator PlayCardCoroutine()
@@ -66,7 +75,8 @@ public class HandPanel : Panel
             playHandButton.interactable = false;
             
             // trigger event after all cards has been played
-            handPlayedEvent?.Invoke(PlayedCardPanel.Instance);
+            _roundManager.updateRoundStateEvent?.Invoke(RoundManager.State.OnPlayed);
+            //handPlayedEvent?.Invoke(PlayedCardPanel.Instance);
         }
     }
     

@@ -10,6 +10,7 @@ public class HandAnalyzer : MonoBehaviour
     public static HandAnalyzer Instance;
     
     private HandPanel _handPanel;
+    private RoundManager _roundManager;
     
     [Header("For Scoring")]
     [Tooltip("The Hand Type that will be used for scoring (Updated when Played)")]
@@ -51,11 +52,12 @@ public class HandAnalyzer : MonoBehaviour
     {
         _handPanel = HandPanel.Instance;
 
-        if (_handPanel != null)
+        if (_handPanel)
         {
             _handPanel.onCardSelectionChangedEvent.AddListener(AnalyzeHand);
-            _handPanel.handPlayedEvent.AddListener(FinalizeHandType);
         }
+        _roundManager = RoundManager.Instance;
+        
   
     }
 
@@ -323,11 +325,14 @@ public class HandAnalyzer : MonoBehaviour
 
     /// <summary>
     /// Update the Scoring Hand Type
-    /// Called upon Hand Played Event
+    /// Called during play state
     /// </summary>
-    /// <param name="panel"></param>
-    private void FinalizeHandType(Panel panel)
+    /// <param name="state"></param>
+    public void FinalizeHandType()
     {
+        if (_roundManager.curState != RoundManager.State.Play) return;
+        
+        Debug.LogWarning("Finalizing");
         scoringHandType = curHand;
         
         IdentifyScoringCards(cardsInSelectionRef, scoringHandType);

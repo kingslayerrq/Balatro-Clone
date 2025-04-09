@@ -30,7 +30,9 @@ public class CardData : MonoBehaviour, IComparable
     public float chips;
     public float mults;
     public int triggerCounts;
-    public Sprite sprite;
+    public Sprite rnsSprite;
+    [Tooltip("Base background of card, subject to enhancement changes")]
+    public Sprite baseSprite;
     public List<CardActionConfig> cardActionConfigs;
     public List<BaseActionConfig.BaseAction> cardActions = new List<BaseActionConfig.BaseAction>();
     
@@ -57,7 +59,8 @@ public class CardData : MonoBehaviour, IComparable
         chips = cardParam.baseChip;
         mults = cardParam.baseMult;
         triggerCounts = cardParam.triggerCounts;
-        sprite = cardParam.sprite;
+        rnsSprite = cardParam.sprite;
+        baseSprite = cardParam.cardBaseSprite;
         cardActionConfigs = cardParam.cardActionConfigs;
         
         description = $"+ {rank} chips";

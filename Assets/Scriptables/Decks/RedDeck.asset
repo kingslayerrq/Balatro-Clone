@@ -68,4 +68,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b99512082610b43af9c7df588960d3c9, type: 2}
   hands: 4
   discards: 3
-  deckSprite: {fileID: -862568776401569309, guid: d8865f19a586448529356c89ab1f88e8, type: 3}
+  money: 0
+  deckSprite: {fileID: -140640710, guid: 86b797727d7f1407489a401a27f602bc, type: 3}

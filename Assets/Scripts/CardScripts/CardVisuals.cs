@@ -25,6 +25,7 @@ public class CardVisuals : MonoBehaviour
     [Tooltip("Separate parent obj from actual card")]
     [SerializeField] private Transform tiltParent;
     [SerializeField] private Transform shakeParent;
+    public Image cardBaseImage;
     public Image cardImage;
     public Color originalColor;
     public Transform cardShadow;
@@ -310,6 +311,7 @@ public class CardVisuals : MonoBehaviour
         {
             case CardState.CardStatus.InCreation:
                 allowTilt = false;
+                SetCardBaseImage(parentCard.cardData.baseSprite);
                 SetCardImage(RunManager.Instance.Deck.deckSprite);
                 HideEdition();
                 cardImage.enabled = false;
@@ -318,6 +320,7 @@ public class CardVisuals : MonoBehaviour
             case CardState.CardStatus.InDeck:
                 cardImage.enabled = true;
                 allowTilt = false;
+                SetCardBaseImage(parentCard.cardData.baseSprite);
                 SetCardImage(RunManager.Instance.Deck.deckSprite);
                 HideEdition();
                 Card.reparentPanelEvent?.Invoke(parentCard, DrawPanel.Instance);
@@ -325,12 +328,14 @@ public class CardVisuals : MonoBehaviour
             case CardState.CardStatus.InHand:
                 cardImage.enabled = true;
                 allowTilt = true;
-                SetCardImage(parentCard.cardData.sprite);
+                SetCardBaseImage(parentCard.cardData.baseSprite);
+                SetCardImage(parentCard.cardData.rnsSprite);
                 ShowEdition();
                 Card.reparentPanelEvent?.Invoke(parentCard, HandPanel.Instance);
                 break;
             case CardState.CardStatus.InUsed:
                 allowTilt = true;
+                SetCardBaseImage(parentCard.cardData.baseSprite);
                 SetCardImage(RunManager.Instance.Deck.deckSprite);
                 HideEdition();
                 Card.reparentPanelEvent?.Invoke(parentCard, UsedPanel.Instance);
@@ -338,7 +343,8 @@ public class CardVisuals : MonoBehaviour
             case CardState.CardStatus.InPlayed:
                 cardImage.enabled = true;
                 allowTilt = true;
-                SetCardImage(parentCard.cardData.sprite);
+                SetCardBaseImage(parentCard.cardData.baseSprite);
+                SetCardImage(parentCard.cardData.rnsSprite);
                 ShowEdition();
                 Card.reparentPanelEvent?.Invoke(parentCard, PlayedCardPanel.Instance);
                 break;
@@ -363,6 +369,11 @@ public class CardVisuals : MonoBehaviour
     {
         if (cardImage.sprite == sprite) return;
         cardImage.sprite = sprite;
+    }
+    private void SetCardBaseImage(Sprite sprite)
+    {
+        if (cardBaseImage.sprite == sprite) return;
+        cardBaseImage.sprite = sprite;
     }
     public void Swap(float dir = 1)
     {
