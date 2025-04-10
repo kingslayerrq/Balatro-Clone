@@ -43,7 +43,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _EDITION: 0
-    - _poly_brightness: 0.7
+    - _poly_brightness: 0.76
     - _poly_frequency: 1
     - _poly_power: 0.2
     m_Colors:

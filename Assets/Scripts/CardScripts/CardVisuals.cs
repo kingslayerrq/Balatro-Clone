@@ -20,7 +20,9 @@ public class CardVisuals : MonoBehaviour
     [Header("References")] 
     private RunManager _runManager;
 
-    [SerializeField] private ShaderCode cardShader;
+    [Header("Shader Material")]
+    [SerializeField] private ShaderCode cardBaseShader;
+    [SerializeField] private ShaderCode cardRnsShader;
     
     [Tooltip("Separate parent obj from actual card")]
     [SerializeField] private Transform tiltParent;
@@ -356,14 +358,16 @@ public class CardVisuals : MonoBehaviour
 
     private void ShowEdition()
     {
-        if (cardShader == null || parentCard == null) return;
+        if (cardBaseShader == null || parentCard == null) return;
         
-        cardShader.SetEdition((int)parentCard.cardData.edition);
+        cardBaseShader.SetEdition((int)parentCard.cardData.edition);
+        cardRnsShader.SetEdition((int)parentCard.cardData.edition);
     }
 
     private void HideEdition()
     {
-        if (cardShader) cardShader.SetEdition(0);
+        if (cardBaseShader) cardBaseShader.SetEdition(0);
+        if (cardRnsShader) cardRnsShader.SetEdition(0);
     }
     private void SetCardImage(Sprite sprite)
     {

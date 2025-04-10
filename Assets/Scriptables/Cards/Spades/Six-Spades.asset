@@ -19,8 +19,8 @@ MonoBehaviour:
   seal: 4
   baseChip: 6
   baseMult: 1
-  sprite: {fileID: -1937684421, guid: cb6a794036047431db04fce0bc166b9e, type: 3}
-  cardBaseSprite: {fileID: -1589044363, guid: 86b797727d7f1407489a401a27f602bc, type: 3}
+  sprite: {fileID: 21300000, guid: 96deddfbaad084c0d8fd311f32410d6a, type: 3}
+  cardBaseSprite: {fileID: 21300000, guid: 7ccb9201a807744ed8c091869706ed64, type: 3}
   cardBackSprite: {fileID: 0}
   triggerCounts: 1
   cardActionConfigs:

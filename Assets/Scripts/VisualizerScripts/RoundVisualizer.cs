@@ -36,7 +36,8 @@ public class RoundVisualizer : MonoBehaviour
     [SerializeField] private Image bgColor;
     [SerializeField] private Image blindNamePanelColor;
     [SerializeField] private Image blindDetailPanelColor;
-    [SerializeField] private Outline sidebarOutlineColor;
+    [SerializeField] private Image sidebarLeftOutlineColor;
+    [SerializeField] private Image sidebarRightOutlineColor;
     [SerializeField] private Color sidebarOrigColor;
     [SerializeField] private Camera camera;
     [SerializeField] private Color cameraOrigColor;
@@ -68,9 +69,9 @@ public class RoundVisualizer : MonoBehaviour
             cameraOrigColor = camera.backgroundColor;
         }
 
-        if (sidebarOutlineColor)
+        if (sidebarLeftOutlineColor && sidebarRightOutlineColor)
         {
-            sidebarOrigColor = sidebarOutlineColor.effectColor;
+            sidebarOrigColor = sidebarLeftOutlineColor.color;
         }
     }
 
@@ -147,7 +148,8 @@ public class RoundVisualizer : MonoBehaviour
         blindImageAnimation.isSet = true;
 
         blindNamePanelColor.DOColor(round.blind.blindColor, colorTransition);
-        sidebarOutlineColor.DOColor(round.blind.blindColor, colorTransition);
+        sidebarLeftOutlineColor.DOColor(round.blind.blindColor, colorTransition);
+        sidebarRightOutlineColor.DOColor(round.blind.blindColor, colorTransition);
         
         // Create a new color with the same RGB values but different alpha
         Color newColor = round.blind.blindColor;

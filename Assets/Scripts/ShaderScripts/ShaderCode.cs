@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 public class ShaderCode : MonoBehaviour
 {
@@ -9,33 +10,62 @@ public class ShaderCode : MonoBehaviour
     Image image;
     Material m;
     CardVisuals visual;
-
-    private void Awake()
-    {
-        image = GetComponent<Image>();
-        m = new Material(image.material);
-        image.material = m;
-        visual = GetComponentInParent<CardVisuals>();
-        
-
-        for (int i = 0; i < image.material.enabledKeywords.Length; i++)
-        {
-            image.material.DisableKeyword(image.material.enabledKeywords[i]);
-        }
-    }
+    private Sprite _prevSprite;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         
+        image = GetComponent<Image>();
         
-        // SetEdition(0);
+        if (image == null)
+        {
+            Debug.LogError("No Image component found on GameObject: " + gameObject.name);
+            return; // Exit early if no image component
+        }
+        
+    
+        // Create a unique material instance for each card
+        if (image.material != null)
+        {
+            // Use Instantiate instead of new Material to create a proper unique instance
+            m = Instantiate(image.material);
+            image.material = m;
+        
+            // Apply the sprite's texture
+            if (image.sprite != null)
+            {
+                _prevSprite = image.sprite;
+                ApplySpriteToMaterial(image.sprite, m);
+                
+            }
+        }
+        
+        visual = GetComponentInParent<CardVisuals>();
+        
+
+        for (int i = 0; i < Constants.CARD_EDITIONS.Length; i++)
+        {
+            string keyword = "_EDITION_" + Constants.CARD_EDITIONS[i];
+            if (m.IsKeywordEnabled(keyword))
+            {
+                m.DisableKeyword(keyword);
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        // Update Material texture
+        if (_prevSprite != null && _prevSprite != image.sprite)
+        {
+            _prevSprite = image.sprite;
+            ApplySpriteToMaterial(image.sprite, m);
+            
+        }
         // Get the current rotation as a quaternion
         Quaternion currentRotation = transform.parent.localRotation;
 
@@ -91,11 +121,38 @@ public class ShaderCode : MonoBehaviour
         
         // Then enable the selected one
         string newKeyword = "_EDITION_" + Constants.CARD_EDITIONS[index];
-        // Debug.Log($"Enabling keyword: {newKeyword}");
+        Debug.Log($"{this.name} Enabling keyword: {newKeyword}");
         image.material.EnableKeyword(newKeyword);
         
     
         // Force material update
+        image.SetMaterialDirty();
+    }
+
+    private void ApplySpriteToMaterial(Sprite sprite, Material material)
+    {
+        if (sprite == null || material == null) return;
+    
+        // Store current enabled edition keyword before changing texture
+        string currentEdition = null;
+        for (int i = 0; i < Constants.CARD_EDITIONS.Length; i++)
+        {
+            string keyword = "_EDITION_" + Constants.CARD_EDITIONS[i];
+            if (material.IsKeywordEnabled(keyword))
+            {
+                currentEdition = keyword;
+                break;
+            }
+        }
+        // Set the main texture to the sprite's texture
+        material.mainTexture = sprite.texture;
+        
+        // Re-enable the edition keyword if one was active
+        if (currentEdition != null)
+        {
+            material.EnableKeyword(currentEdition);
+        }
+        
         image.SetMaterialDirty();
     }
 }
