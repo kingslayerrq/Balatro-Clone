@@ -121,7 +121,7 @@ public class ShaderCode : MonoBehaviour
         
         // Then enable the selected one
         string newKeyword = "_EDITION_" + Constants.CARD_EDITIONS[index];
-        Debug.Log($"{this.name} Enabling keyword: {newKeyword}");
+        
         image.material.EnableKeyword(newKeyword);
         
     

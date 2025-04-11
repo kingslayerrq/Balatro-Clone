@@ -15,20 +15,28 @@ public class RoundManager : MonoBehaviour
     private HandPanel _handPanel;
     private UsedPanel _usedPanel;
     private DrawPanel _drawPanel;
+    private HandTypeVisualizer _handTypeVisualizer;
     
     public State curState = State.None ;
     [Tooltip("Scored by this hand")]
     [SerializeField] private float handScore = 0;
     public Round curRound = null;
- 
-    
 
+
+    [Header("Settings")] 
+    [Tooltip("Wait time between discard -> draw")]
+    [SerializeField] private float drawActionGapAfterDiscard = 0.5f;
+    [Tooltip("Gap between drawing each card")]
+    [SerializeField] private float drawCardGap = 0.1f;
+    [Tooltip("Gap between discarding each card")]
+    [SerializeField] private float discardCardGap = 0.1f;
     
     [HideInInspector] public UnityEvent<State> updateRoundStateEvent = new UnityEvent<State>();
     [HideInInspector] public UnityEvent<Card> loadCardEvent = new UnityEvent<Card>();
     [HideInInspector] public UnityEvent<Card> drawCardEvent = new UnityEvent<Card>();
     [HideInInspector] public UnityEvent<Card> discardCardEvent = new UnityEvent<Card>();
     [HideInInspector] public UnityEvent<Round> roundSetupVisualEvent = new UnityEvent<Round>();
+    [HideInInspector] public UnityEvent<Round> discardEndEvent = new UnityEvent<Round>();
     [HideInInspector] public UnityEvent<Round, bool> roundEndEvent = new UnityEvent<Round, bool>();
     [HideInInspector] public UnityEvent<Round> scoreUpdateEndEvent = new UnityEvent<Round>();
     
@@ -45,10 +53,13 @@ public class RoundManager : MonoBehaviour
         _handPanel = HandPanel.Instance;
         _usedPanel = UsedPanel.Instance;
         _drawPanel = DrawPanel.Instance;
+        _handTypeVisualizer = HandTypeVisualizer.Instance;
 
+        if (_handTypeVisualizer)
+        {
+            _handTypeVisualizer.UpdateRoundScoreEvent.AddListener(RegisterHandScore);
+        }
         
-
-        HandTypeVisualizer.Instance.UpdateRoundScoreEvent.AddListener(RegisterHandScore);
         
         updateRoundStateEvent.AddListener(HandleStateUpdate);
         
@@ -70,6 +81,7 @@ public class RoundManager : MonoBehaviour
                 StartCoroutine(HandleDrawState());
                 break;
             case State.Discard:
+                HandleDiscard();
                 break;
             case State.Play:
                 break;
@@ -141,8 +153,6 @@ public class RoundManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         
-        
-        Debug.LogWarning(_drawPanel.cardsInPanel[0]);
         curRound.chipGoal = curRound.blind.baseChipGoal * _runManager.CurAnteLvl *
                             Constants.BASE_BLIND_CHIPGOAL[curRound.blind.type];
         roundSetupVisualEvent?.Invoke(curRound);
@@ -150,12 +160,23 @@ public class RoundManager : MonoBehaviour
         updateRoundStateEvent?.Invoke(State.Draw);
     }
 
-    
+    private void HandleDiscard()
+    {
+        curRound.discards -= 1;
+        
+        StartCoroutine(OnDiscard());
+        IEnumerator OnDiscard()
+        {
+            yield return StartCoroutine(Discard(_handPanel.cardsInSelection, _usedPanel.cardsInPanel));
+            discardEndEvent?.Invoke(curRound);
+            yield return new WaitForSecondsRealtime(drawActionGapAfterDiscard);
+            updateRoundStateEvent?.Invoke(State.Draw);
+        }
+    }
 
     private void OnPlayed()
     {
         curRound.hands -= 1;
-        
     }
     /// <summary>
     /// Add hand score to round score
@@ -248,34 +269,29 @@ public class RoundManager : MonoBehaviour
         foreach (var card in drawn)
         {
             drawCardEvent?.Invoke(card);
-            yield return new WaitForSecondsRealtime(.1f);
+            yield return new WaitForSecondsRealtime(drawCardGap);
 
         }
         from.RemoveRange(from.Count - count, count);
     }
 
     /// <summary>
-    /// Discard X amount then draw to fill hands
+    /// Discard X amount 
     /// </summary>
     /// <param name="selection"></param>
     /// <param name="to"></param>
-    public void Discard(List<Card> selection, List<Card> to)
+    public IEnumerator Discard(List<Card> selection, List<Card> to)
     {
-        if (selection == null) return;
+        if (selection == null) yield break;
         
         foreach (var card in selection)
         {
-            discardCardEvent.Invoke(card);
+            discardCardEvent?.Invoke(card);
+            yield return new WaitForSecondsRealtime(discardCardGap);
         }
 
         to.AddRange(selection);
         
-        selection.Clear();
-
-        // Draw to fill hands
-        var drawAmount = this.curRound.handSize - _handPanel.cardsInPanel.Count;
-        
-        Draw(drawAmount, _drawPanel.cardsInPanel, _handPanel.cardsInPanel);
     }
 
     public enum State

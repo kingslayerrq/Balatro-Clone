@@ -11,16 +11,19 @@ public class HandPanel : Panel
 {
     public static HandPanel Instance;
     private RoundManager _roundManager;
+    private UsedPanel _usedPanel;
     
     [SerializeField] private float playCardGap = 0.5f;
     
     [SerializeField] private Button playHandButton;
+    [SerializeField] private Button discardButton;
     [SerializeField] private Button sortRankButton;
     [SerializeField] private Button sortSuitButton;
     
     [Header("Hand Panel Specific Events")]
     [HideInInspector] public UnityEvent<List<Card>> onCardSelectionChangedEvent = new UnityEvent<List<Card>>();
     [HideInInspector] public UnityEvent<Card, Panel> playCardEvent = new UnityEvent<Card, Panel>();
+    
     //[HideInInspector] 
     //[Tooltip("Events to trigger after all cards has been played")]// public UnityEvent<Panel> handPlayedEvent = new UnityEvent<Panel>();
     [HideInInspector] 
@@ -39,6 +42,12 @@ public class HandPanel : Panel
     {
         base.Start();
         _roundManager = RoundManager.Instance;
+        _usedPanel = UsedPanel.Instance;
+
+        if (_roundManager)
+        {
+            _roundManager.discardEndEvent.AddListener(OnDiscardEnd);
+        }
        
     }
 
@@ -63,12 +72,12 @@ public class HandPanel : Panel
             
             foreach (var card in cardsInSelection)
             {
-                playCardEvent.Invoke(card, PlayedCardPanel.Instance);
+                playCardEvent?.Invoke(card, PlayedCardPanel.Instance);
                 cardsInPanel.Remove(card);
             
                 yield return new WaitForSecondsRealtime(playCardGap);
             }
-            // clear hand
+            // clear selection
             cardsInSelection.Clear();
             numOfSelection = 0;
             
@@ -79,12 +88,17 @@ public class HandPanel : Panel
             //handPlayedEvent?.Invoke(PlayedCardPanel.Instance);
         }
     }
-    
+
+    public void DiscardSelected()
+    {
+        if (_roundManager.curState != RoundManager.State.Play) return;
+        // Sort the card based on their x position
+        cardsInSelection.Sort(((card1, card2) => card1.transform.position.x.CompareTo(card2.transform.position.x)));
+        _roundManager.updateRoundStateEvent?.Invoke(RoundManager.State.Discard);
+    }
     public void SortByRank()
     {
-        // Debug.Log("Prev Sort by Rank: " + cardsInPanel);
         cardsInPanel.Sort((card1, card2) => card1.GetComponent<CardData>().SortByRank(card2.GetComponent<CardData>()));
-        // Debug.Log("After Sort by Rank: " + cardsInPanel);
         for (int i = 0; i < cardsInPanel.Count; i++)
         {
             cardsInPanel[i].transform.parent.SetSiblingIndex(i);
@@ -94,9 +108,7 @@ public class HandPanel : Panel
 
     public void SortBySuit()
     {
-        // Debug.Log("Prev Sort by Suit: " + cardsInPanel);
         cardsInPanel.Sort((card1, card2) => card1.GetComponent<CardData>().SortBySuit(card2.GetComponent<CardData>()));
-        // Debug.Log("After Sort by Suit: " + cardsInPanel);
         for (int i = 0; i < cardsInPanel.Count; i++)
         {
             cardsInPanel[i].transform.parent.SetSiblingIndex(i);
@@ -106,11 +118,30 @@ public class HandPanel : Panel
 
     #endregion
 
+    /// <summary>
+    /// When Round Manager finishes discarding, handpanel should clean up card lists
+    /// </summary>
+    /// <param name="round"></param>
+    private void OnDiscardEnd(Round round)
+    {
+        if (round != _roundManager.curRound) return;
 
+        foreach (var card in cardsInSelection)
+        {
+            cardsInPanel.Remove(card);
+        }
+        cardsInSelection.Clear();
+        
+        // Update buttons
+        numOfSelection = 0;
+        discardButton.interactable = false;
+        playHandButton.interactable = false;
+    }
     protected override void SelectCard(Card card, bool isSelected, Panel panel)
     {
         base.SelectCard(card, isSelected, panel);
-        playHandButton.interactable = numOfSelection > 0 ? true : false;
+        playHandButton.interactable = (numOfSelection > 0 && _roundManager.curRound.hands > 0) ? true : false;
+        discardButton.interactable = (numOfSelection > 0 && _roundManager.curRound.discards > 0) ? true : false;
         
         // TODO: Check what triggered this after hand played
         // Trigger Card Analyzer ONLY when triggered in hand

@@ -34,13 +34,16 @@ public class RoundVisualizer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI roundScore;
 
     [SerializeField] private Image bgColor;
+    private Color _bgOrigColor;
     [SerializeField] private Image blindNamePanelColor;
+    private Color _blindNamePanelOrigColor;
     [SerializeField] private Image blindDetailPanelColor;
+    private Color _blindDetailPanelOrigColor;
     [SerializeField] private Image sidebarLeftOutlineColor;
     [SerializeField] private Image sidebarRightOutlineColor;
-    [SerializeField] private Color sidebarOrigColor;
+    private Color _sidebarOrigColor;
     [SerializeField] private Camera camera;
-    [SerializeField] private Color cameraOrigColor;
+    private Color _cameraOrigColor;
     
     private int _prevHandCount;
     private int _prevDiscardCount;
@@ -61,18 +64,37 @@ public class RoundVisualizer : MonoBehaviour
         if (_roundManager)
         {
             _roundManager.roundSetupVisualEvent.AddListener(SetupVisual);
+            _roundManager.roundEndEvent.AddListener(HandleRoundEnd);
         }
         _runManager = RunManager.Instance;
 
-        if (camera)
-        {
-            cameraOrigColor = camera.backgroundColor;
-        }
+        #region Original Color Outside of Rounds
 
-        if (sidebarLeftOutlineColor && sidebarRightOutlineColor)
-        {
-            sidebarOrigColor = sidebarLeftOutlineColor.color;
-        }
+            if (camera)
+            {
+                _cameraOrigColor = camera.backgroundColor;
+            }
+
+            if (bgColor)
+            {
+                _bgOrigColor = bgColor.color;
+            }
+
+            if (blindNamePanelColor)
+            {
+                _blindNamePanelOrigColor = blindNamePanelColor.color;
+            }
+
+            if (blindDetailPanelColor)
+            {
+                _blindDetailPanelOrigColor = blindDetailPanelColor.color;
+            }
+
+            if (sidebarLeftOutlineColor && sidebarRightOutlineColor)
+            {
+                _sidebarOrigColor = sidebarLeftOutlineColor.color;
+            }
+        #endregion
     }
 
     private void Update()
@@ -165,6 +187,37 @@ public class RoundVisualizer : MonoBehaviour
         }
     }
 
+    private void HandleRoundEnd(Round round, bool isComplete)
+    {
+        CleanUpVisual(round);
+    }
+    public void CleanUpVisual(Round round)
+    {
+        blindName.text = "";
+        blindDescription.text = "";
+        blindChipGoal.text = "";
+        blindReward.text = " ";
+        handCount.text = _runManager.Hands.FormatInt();
+        discardCount.text = _runManager.Discards.FormatInt();
+        money.text = _runManager.Money.FormatInt();
+        anteLvl.text = _runManager.CurAnteLvl.FormatInt();
+        anteLvlReqToWin.text = " / " + _runManager.AnteLvlReqToWin.FormatInt();
+        roundLvl.text = _runManager.CurRoundLvl.FormatInt();
+        
+        blindImageAnimation.sprites = null;
+        blindImageAnimation.isSet = false;
+        
+        // Revert Colors
+        blindNamePanelColor.DOColor(_blindNamePanelOrigColor, colorTransition);
+        sidebarLeftOutlineColor.DOColor(_sidebarOrigColor, colorTransition);
+        sidebarRightOutlineColor.DOColor(_sidebarOrigColor, colorTransition);
+        blindDetailPanelColor.DOColor(_blindDetailPanelOrigColor, colorTransition);
+        if (round.blind.type == Enums.BlindType.BossBlind)
+        {
+            bgColor.DOColor(_bgOrigColor, colorTransition);
+            camera.DOColor(_cameraOrigColor, colorTransition);
+        }
+    }
     
     // Update methods for each field
     public void UpdateBlindName(string name)

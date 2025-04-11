@@ -68,7 +68,7 @@ public class CardVisuals : MonoBehaviour
     [SerializeField] private float hoverTransition = 0.15f;
 
     [Header("Swap Parameters")] 
-    [SerializeField] private bool swapAnimations = true;
+    public bool swapAnimations = true;
     [SerializeField] private float swapRotationAngle = 20f;
     [SerializeField] private float swapTransition = 0.2f;
     [SerializeField] private int swapVibrato = 5;
