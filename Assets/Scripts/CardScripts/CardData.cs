@@ -63,7 +63,7 @@ public class CardData : MonoBehaviour, IComparable
         baseSprite = cardParam.cardBaseSprite;
         cardActionConfigs = cardParam.cardActionConfigs;
         
-        description = $"+ {rank} chips";
+        description = $"<color=#0097FE>+{rank}</color> chips";
         foreach (var config in cardActionConfigs)
         {
             // Instantiate Actions

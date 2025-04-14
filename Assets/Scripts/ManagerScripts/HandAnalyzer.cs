@@ -124,6 +124,7 @@ public class HandAnalyzer : MonoBehaviour
     {
         ResetDictionaries();
         
+        
         // TODO: Apply Jokers
         int count = cards.Count;
         if (count < 1)

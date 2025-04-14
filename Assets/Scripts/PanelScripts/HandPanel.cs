@@ -20,6 +20,7 @@ public class HandPanel : Panel
     [SerializeField] private Button sortRankButton;
     [SerializeField] private Button sortSuitButton;
     
+    
     [Header("Hand Panel Specific Events")]
     [HideInInspector] public UnityEvent<List<Card>> onCardSelectionChangedEvent = new UnityEvent<List<Card>>();
     [HideInInspector] public UnityEvent<Card, Panel> playCardEvent = new UnityEvent<Card, Panel>();
@@ -51,6 +52,31 @@ public class HandPanel : Panel
        
     }
 
+    protected override void UpdateSelectedCards()
+    {
+        // Check if the lists have different counts or if selection has changed
+        bool selectionChanged = prevCardsInSelection.Count != cardsInSelection.Count;
+    
+        // If counts are the same, check if the contents are different
+        if (!selectionChanged && cardsInSelection.Count > 0)
+        {
+            // Compare each card to see if selection has changed
+            for (int i = 0; i < cardsInSelection.Count; i++)
+            {
+                if (!prevCardsInSelection.Contains(cardsInSelection[i]))
+                {
+                    selectionChanged = true;
+                    break;
+                }
+            }
+        }
+
+        if (!selectionChanged) return;
+        // Create a new list to avoid reference issues
+        prevCardsInSelection = new List<Card>(cardsInSelection);
+        var copy = new List<Card>(cardsInSelection);
+        onCardSelectionChangedEvent?.Invoke(copy);
+    }
 
     #region Hand Panel Button Func
     
@@ -144,10 +170,8 @@ public class HandPanel : Panel
         discardButton.interactable = (numOfSelection > 0 && _roundManager.curRound.discards > 0) ? true : false;
         
         // TODO: Check what triggered this after hand played
-        // Trigger Card Analyzer ONLY when triggered in hand
-        if (card.curPanel == this)
-        { 
-            onCardSelectionChangedEvent?.Invoke(cardsInSelection);
-        }
+
     }
+    
+    
 }

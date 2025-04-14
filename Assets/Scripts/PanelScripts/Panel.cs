@@ -25,8 +25,9 @@ public abstract class Panel: MonoBehaviour
     
     [Header("Panel Info")]
     private RectTransform _rect;
-    public List<Card> cardsInPanel;
-    public List<Card> cardsInSelection;
+    public List<Card> cardsInPanel = new List<Card>();
+    public List<Card> cardsInSelection = new List<Card>();
+    [SerializeField] protected List<Card> prevCardsInSelection = new List<Card>();
     public int numOfSelection = 0;
     [Tooltip("Is there 2 cards swapping?")]
     private bool _isSwapping = false;
@@ -98,8 +99,14 @@ public abstract class Panel: MonoBehaviour
                 }
             }
         }
+        UpdateSelectedCards();
+        
     }
 
+    protected virtual void UpdateSelectedCards()
+    {
+        
+    }
     // Reparent instead of changing sibling index directly
     protected virtual void Swap(int ind)
     {

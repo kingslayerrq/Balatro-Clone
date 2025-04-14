@@ -34,8 +34,9 @@ public class RoundManager : MonoBehaviour
     [HideInInspector] public UnityEvent<State> updateRoundStateEvent = new UnityEvent<State>();
     [HideInInspector] public UnityEvent<Card> loadCardEvent = new UnityEvent<Card>();
     [HideInInspector] public UnityEvent<Card> drawCardEvent = new UnityEvent<Card>();
-    [HideInInspector] public UnityEvent<Card> discardCardEvent = new UnityEvent<Card>();
     [HideInInspector] public UnityEvent<Round> roundSetupVisualEvent = new UnityEvent<Round>();
+    [HideInInspector] public UnityEvent<Round> discardStartEvent = new UnityEvent<Round>();
+    [HideInInspector] public UnityEvent<Card> discardCardEvent = new UnityEvent<Card>();
     [HideInInspector] public UnityEvent<Round> discardEndEvent = new UnityEvent<Round>();
     [HideInInspector] public UnityEvent<Round, bool> roundEndEvent = new UnityEvent<Round, bool>();
     [HideInInspector] public UnityEvent<Round> scoreUpdateEndEvent = new UnityEvent<Round>();
@@ -167,6 +168,7 @@ public class RoundManager : MonoBehaviour
         StartCoroutine(OnDiscard());
         IEnumerator OnDiscard()
         {
+            discardStartEvent?.Invoke(curRound);
             yield return StartCoroutine(Discard(_handPanel.cardsInSelection, _usedPanel.cardsInPanel));
             discardEndEvent?.Invoke(curRound);
             yield return new WaitForSecondsRealtime(drawActionGapAfterDiscard);
