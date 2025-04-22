@@ -111,7 +111,6 @@ public class HandPanel : Panel
             
             // trigger event after all cards has been played
             _roundManager.updateRoundStateEvent?.Invoke(RoundManager.State.OnPlayed);
-            //handPlayedEvent?.Invoke(PlayedCardPanel.Instance);
         }
     }
 

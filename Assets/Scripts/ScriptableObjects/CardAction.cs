@@ -7,7 +7,7 @@ public class CardActionConfig : BaseActionConfig
     public override void Execute(Card card, List<Card> allCards, ScoreCalculator calculator)
     {
         calculator.curChips += card.cardData.chips;
-        Debug.LogWarning("Adding chips" + card);
+        Debug.LogWarning("triggering" + card);
     }
 
     public override BaseAction Create()

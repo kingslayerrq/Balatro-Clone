@@ -209,7 +209,7 @@ public class RunManager : MonoBehaviour
  
             card.baseCardParameters = cardConfig;
             card.Init();
-            card.cardData.edition = ExtensionMethods.GetWeightedRandomEdition();
+            
             
             // Add card
             _cardsDeck.Add(card);

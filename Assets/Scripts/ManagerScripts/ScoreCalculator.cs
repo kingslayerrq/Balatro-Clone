@@ -21,10 +21,10 @@ public class ScoreCalculator : MonoBehaviour
 
     [SerializeField] private float cardScoringGap = 0.2f;
 
-    
+    public Enums.BasePokerHandType curHandType = Enums.BasePokerHandType.None;
     public float curChips = 0;
     public float curMults = 0;
-    private float curScore = 0;
+    public float curScore = 0;
     private float _lastChips = 0;
     private float _lastMults = 0;
     private float _lastScore = 0;
@@ -64,7 +64,6 @@ public class ScoreCalculator : MonoBehaviour
         {
             _roundManager.updateRoundStateEvent.AddListener(ScoreStateHandler);
             _roundManager.updateRoundStateEvent.AddListener(CleanUpAfterScore);
-            //_roundManager.scoreUpdateEndEvent.AddListener(CleanUpAfterScore);
         }
 
         
@@ -97,7 +96,6 @@ public class ScoreCalculator : MonoBehaviour
     private void ScoreStateHandler(RoundManager.State state)
     {
         if (state != RoundManager.State.Score) return;
-        
         CalculateScore(_playedCardPanel.cardsInSelection);
         
     }

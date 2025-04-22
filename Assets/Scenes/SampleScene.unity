@@ -781,10 +781,13 @@ MonoBehaviour:
   drawCardEvent:
     m_PersistentCalls:
       m_Calls: []
-  discardCardEvent:
+  roundSetupVisualEvent:
     m_PersistentCalls:
       m_Calls: []
-  roundSetupVisualEvent:
+  discardStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  discardCardEvent:
     m_PersistentCalls:
       m_Calls: []
   discardEndEvent:
@@ -1060,6 +1063,7 @@ MonoBehaviour:
   cardReturnTransition: 0.15
   cardsInPanel: []
   cardsInSelection: []
+  prevCardsInSelection: []
   numOfSelection: 0
   hoverCard: {fileID: 0}
   highlightedCard: {fileID: 0}
@@ -1371,6 +1375,7 @@ MonoBehaviour:
   cardReturnTransition: 0.15
   cardsInPanel: []
   cardsInSelection: []
+  prevCardsInSelection: []
   numOfSelection: 0
   hoverCard: {fileID: 0}
   highlightedCard: {fileID: 0}
@@ -1782,6 +1787,7 @@ GameObject:
   - component: {fileID: 195810106}
   - component: {fileID: 195810108}
   - component: {fileID: 195810107}
+  - component: {fileID: 195810109}
   m_Layer: 5
   m_Name: HandText
   m_TagString: Untagged
@@ -1828,7 +1834,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: <wave amplitude=10 uniformity=0.5>handtype</wave>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c744a792b3004464e9603ebe1dadabad, type: 2}
   m_sharedMaterial: {fileID: 2198774305542707105, guid: c744a792b3004464e9603ebe1dadabad, type: 2}
@@ -1907,6 +1913,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195810105}
   m_CullTransparentMesh: 1
+--- !u!114 &195810109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195810105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64cc8a40f9848a54c94bf232155b0b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  database: {fileID: 11400000, guid: f0a33761ff6919d4a9979ee36980a29d, type: 2}
+  context:
+    scaleAnimations: 1
+    scaleUniformly: 1
+    useScaledTime: 1
+    tmpAnimator: {fileID: 195810109}
+  updateFrom: 0
+  animateOnStart: 1
+  animationsOverride: 0
+  defaultAnimationsStrings: []
+  defaultShowAnimationsStrings: []
+  defaultHideAnimationsStrings: []
+  excludedCharacters: 
+  excludedCharactersShow: 
+  excludedCharactersHide: 
+  excludePunctuation: 0
+  excludePunctuationShow: 0
+  excludePunctuationHide: 0
+  sceneKeywordDatabase: {fileID: 0}
+  keywordDatabase: {fileID: 0}
+  sceneAnimations:
+    _serializedList: []
+  sceneShowAnimations:
+    _serializedList: []
+  sceneHideAnimations:
+    _serializedList: []
+  preview: 0
+  useDefaultDatabase: 1
+  useDefaultKeywordDatabase: 0
+  initDatabase: 1
+  previewUpdatesPerSecond: 60
+  previewTimeScale: 1
 --- !u!1 &221281817
 GameObject:
   m_ObjectHideFlags: 0
@@ -3482,6 +3532,7 @@ GameObject:
   - component: {fileID: 455984186}
   - component: {fileID: 455984188}
   - component: {fileID: 455984187}
+  - component: {fileID: 455984189}
   m_Layer: 5
   m_Name: MoneyText
   m_TagString: Untagged
@@ -3607,6 +3658,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455984185}
   m_CullTransparentMesh: 1
+--- !u!114 &455984189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455984185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64cc8a40f9848a54c94bf232155b0b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  database: {fileID: 11400000, guid: f0a33761ff6919d4a9979ee36980a29d, type: 2}
+  context:
+    scaleAnimations: 1
+    scaleUniformly: 1
+    useScaledTime: 1
+    tmpAnimator: {fileID: 455984189}
+  updateFrom: 0
+  animateOnStart: 1
+  animationsOverride: 0
+  defaultAnimationsStrings: []
+  defaultShowAnimationsStrings: []
+  defaultHideAnimationsStrings: []
+  excludedCharacters: 
+  excludedCharactersShow: 
+  excludedCharactersHide: 
+  excludePunctuation: 0
+  excludePunctuationShow: 0
+  excludePunctuationHide: 0
+  sceneKeywordDatabase: {fileID: 0}
+  keywordDatabase: {fileID: 0}
+  sceneAnimations:
+    _serializedList: []
+  sceneShowAnimations:
+    _serializedList: []
+  sceneHideAnimations:
+    _serializedList: []
+  preview: 0
+  useDefaultDatabase: 1
+  useDefaultKeywordDatabase: 0
+  initDatabase: 1
+  previewUpdatesPerSecond: 60
+  previewTimeScale: 1
 --- !u!1 &461212805
 GameObject:
   m_ObjectHideFlags: 0
@@ -4709,6 +4804,7 @@ MonoBehaviour:
   cardReturnTransition: 0.15
   cardsInPanel: []
   cardsInSelection: []
+  prevCardsInSelection: []
   numOfSelection: 0
   hoverCard: {fileID: 0}
   highlightedCard: {fileID: 0}
@@ -5632,6 +5728,7 @@ MonoBehaviour:
   cardReturnTransition: 0.15
   cardsInPanel: []
   cardsInSelection: []
+  prevCardsInSelection: []
   numOfSelection: 0
   hoverCard: {fileID: 0}
   highlightedCard: {fileID: 0}
@@ -5801,6 +5898,7 @@ MonoBehaviour:
   cardReturnTransition: 0.15
   cardsInPanel: []
   cardsInSelection: []
+  prevCardsInSelection: []
   numOfSelection: 0
   hoverCard: {fileID: 0}
   highlightedCard: {fileID: 0}
@@ -7851,6 +7949,7 @@ MonoBehaviour:
   cardReturnTransition: 0.15
   cardsInPanel: []
   cardsInSelection: []
+  prevCardsInSelection: []
   numOfSelection: 0
   hoverCard: {fileID: 0}
   highlightedCard: {fileID: 0}
@@ -7872,8 +7971,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardScoringGap: 0.2
+  curHandType: 0
   curChips: 0
   curMults: 0
+  curScore: 0
   UpdateHandTypeVisualEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -12267,6 +12368,7 @@ MonoBehaviour:
   cardReturnTransition: 0.15
   cardsInPanel: []
   cardsInSelection: []
+  prevCardsInSelection: []
   numOfSelection: 0
   hoverCard: {fileID: 0}
   highlightedCard: {fileID: 0}

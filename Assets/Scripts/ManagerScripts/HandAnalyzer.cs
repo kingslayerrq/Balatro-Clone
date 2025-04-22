@@ -122,8 +122,10 @@ public class HandAnalyzer : MonoBehaviour
     /// <param name="cards"></param>
     private void AnalyzeHand(List<Card> cards)
     {
-        ResetDictionaries();
         
+        if (_roundManager.curState != RoundManager.State.Play) return;
+        
+        ResetDictionaries();
         
         // TODO: Apply Jokers
         int count = cards.Count;
@@ -242,7 +244,7 @@ public class HandAnalyzer : MonoBehaviour
             curHand = handTypesContained.Count > 0 ? handTypesContained.Max() : Enums.BasePokerHandType.None;
         }
 
-        //Debug.LogWarning("Cur Hand Type: " + curHand);
+        // Debug.LogWarning("Cur Hand Type: " + curHand);
         UpdateHandTypeEvent?.Invoke(curHand);
     }
 
@@ -335,7 +337,7 @@ public class HandAnalyzer : MonoBehaviour
         
         Debug.LogWarning("Finalizing");
         scoringHandType = curHand;
-        
+        ScoreCalculator.Instance.curHandType = scoringHandType;
         IdentifyScoringCards(cardsInSelectionRef, scoringHandType);
 
     }

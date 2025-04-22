@@ -220,86 +220,89 @@ public class RoundVisualizer : MonoBehaviour
     }
     
     // Update methods for each field
-    public void UpdateBlindName(string name)
-    {
-        if (blindName != null)
-            blindName.text = name;
-    }
-    
-    public void UpdateBlindDescription(string description)
-    {
-        if (blindDescription != null)
-            blindDescription.text = description;
-    }
-    
-    public void UpdateBlindChipGoal(float goal)
-    {
-        if (blindChipGoal != null)
-            blindChipGoal.text = goal.FormatFloat();
-    }
-    
-    public void UpdateRoundScore(float score)
-    {
-        if (roundScore != null)
-            roundScore.text = score.FormatFloat();
-    }
-    
-    public void UpdateBlindReward(int reward)
-    {
-        if (blindReward != null)
-            blindReward.text = " " + reward.FormatRewardMoney();
-    }
-    
-    public void UpdateHandCount(int count)
-    {
-        if (handCount != null)
-            handCount.text = count.FormatInt();
-    }
-    
-    public void UpdateDiscardCount(int count)
-    {
-        if (discardCount != null)
-            discardCount.text = count.FormatInt();
-    }
-    
-    public void UpdateMoney(int amount)
-    {
-        if (money != null)
-            money.text = amount.FormatInt();
-    }
-    
-    public void UpdateAnteLvl(int level)
-    {
-        if (anteLvl != null)
-            anteLvl.text = level.FormatInt();
-    }
-    
-    public void UpdateAnteLvlReqToWin(int req)
-    {
-        if (anteLvlReqToWin != null)
-            anteLvlReqToWin.text = " / " + req.FormatInt();
-    }
-    
-    public void UpdateRoundLvl(int level)
-    {
-        if (roundLvl != null)
-            roundLvl.text = level.FormatInt();
-    }
-    
-    // Method to update all round-specific values
-    public void UpdateRoundInfo(Round round)
-    {
-        if (round == null) return;
-        
-        UpdateHandCount(round.hands);
-        UpdateDiscardCount(round.discards);
-        UpdateBlindChipGoal(round.chipGoal);
-        
-        if (round.blind != null)
+    #region Update Visuals
+        public void UpdateBlindName(string name)
         {
-            UpdateBlindName(round.blind.blindName);
-            UpdateBlindDescription(round.blind.description);
-            UpdateBlindReward(round.blind.reward);
+            if (blindName != null)
+                blindName.text = name;
         }
-    }
+        
+        public void UpdateBlindDescription(string description)
+        {
+            if (blindDescription != null)
+                blindDescription.text = description;
+        }
+        
+        public void UpdateBlindChipGoal(float goal)
+        {
+            if (blindChipGoal != null)
+                blindChipGoal.text = goal.FormatFloat();
+        }
+        
+        public void UpdateRoundScore(float score)
+        {
+            if (roundScore != null)
+                roundScore.text = score.FormatFloat();
+        }
+        
+        public void UpdateBlindReward(int reward)
+        {
+            if (blindReward != null)
+                blindReward.text = " " + reward.FormatRewardMoney();
+        }
+        
+        public void UpdateHandCount(int count)
+        {
+            if (handCount != null)
+                handCount.text = count.FormatInt();
+        }
+        
+        public void UpdateDiscardCount(int count)
+        {
+            if (discardCount != null)
+                discardCount.text = count.FormatInt();
+        }
+        
+        public void UpdateMoney(int amount)
+        {
+            if (money != null)
+                money.text = amount.FormatInt();
+
+        }
+        
+        public void UpdateAnteLvl(int level)
+        {
+            if (anteLvl != null)
+                anteLvl.text = level.FormatInt();
+        }
+        
+        public void UpdateAnteLvlReqToWin(int req)
+        {
+            if (anteLvlReqToWin != null)
+                anteLvlReqToWin.text = " / " + req.FormatInt();
+        }
+        
+        public void UpdateRoundLvl(int level)
+        {
+            if (roundLvl != null)
+                roundLvl.text = level.FormatInt();
+        }
+        
+        // Method to update all round-specific values
+        public void UpdateRoundInfo(Round round)
+        {
+            if (round == null) return;
+            
+            UpdateHandCount(round.hands);
+            UpdateDiscardCount(round.discards);
+            UpdateBlindChipGoal(round.chipGoal);
+            
+            if (round.blind != null)
+            {
+                UpdateBlindName(round.blind.blindName);
+                UpdateBlindDescription(round.blind.description);
+                UpdateBlindReward(round.blind.reward);
+            }
+        }
+    #endregion
 }
