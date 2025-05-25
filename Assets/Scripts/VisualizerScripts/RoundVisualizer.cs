@@ -161,7 +161,7 @@ public class RoundVisualizer : MonoBehaviour
         blindReward.text = " " + round.blind.reward.FormatRewardMoney();
         handCount.text = round.hands.FormatInt();
         discardCount.text = round.discards.FormatInt();
-        money.text = _runManager.Money.FormatInt();
+        money.text = "$" + _runManager.Money.FormatInt();
         anteLvl.text = _runManager.CurAnteLvl.FormatInt();
         anteLvlReqToWin.text = " / " + _runManager.AnteLvlReqToWin.FormatInt();
         roundLvl.text = _runManager.CurRoundLvl.FormatInt();
@@ -266,7 +266,7 @@ public class RoundVisualizer : MonoBehaviour
         public void UpdateMoney(int amount)
         {
             if (money != null)
-                money.text = amount.FormatInt();
+                money.text = "$" + amount.FormatInt();
 
         }
         

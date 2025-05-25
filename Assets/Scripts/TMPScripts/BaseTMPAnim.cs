@@ -88,7 +88,7 @@ public abstract class BaseTMPAnim : MonoBehaviour
         sb.Append('>').Append(content).Append("</wave>");
         var cur = sb.ToString();
         _tmp.SetText(cur);
-        Debug.Log($"Updating to {cur}");
+        // Debug.Log($"Updating to {cur}");
         currText = cur;
         
         // update 
