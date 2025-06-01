@@ -26,6 +26,23 @@ public static class ExtensionMethods
             return num.ToString("N2");
         }
     }
+    /// <summary>
+    /// Format doubles into string
+    /// </summary>
+    /// <param name="num">The double value to format</param>
+    /// <returns>Formatted string</returns>
+    public static string FormatDouble(this double num)
+    {
+        if (Math.Abs(num - Math.Floor(num)) < Constants.TOLERANCE)
+        {
+            return ((long)num).ToString("N0"); // Use long to avoid overflow from casting large doubles to int
+        }
+        else
+        {
+            return num.ToString("N2");
+        }
+    }
+
 
     /// <summary>
     /// Format ints into string

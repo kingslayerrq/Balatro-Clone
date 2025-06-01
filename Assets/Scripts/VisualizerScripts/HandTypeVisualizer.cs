@@ -21,7 +21,7 @@ public class HandTypeVisualizer : MonoBehaviour
     [SerializeField] private GameObject handTypeLvlObj;
     [SerializeField] private GameObject handScoreObj;
 
-    [HideInInspector] public UnityEvent<float> UpdateRoundScoreEvent = new UnityEvent<float>();
+    [HideInInspector] public UnityEvent<double> UpdateRoundScoreEvent = new UnityEvent<double>();
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -51,17 +51,17 @@ public class HandTypeVisualizer : MonoBehaviour
 
     }
 
-    private void UpdateChipsPanelVisuals(float chips)
+    private void UpdateChipsPanelVisuals(double chips)
     {
-        handTypeBaseChips.text = chips.FormatFloat();
+        handTypeBaseChips.text = chips.FormatDouble();
     }
 
-    private void UpdateMultsPanelVisuals(float mults)
+    private void UpdateMultsPanelVisuals(double mults)
     {
-        handTypeBaseMults.text = mults.FormatFloat();
+        handTypeBaseMults.text = mults.FormatDouble();
     }
 
-    private void UpdateHandScorePanelVisualWrapper(float score)
+    private void UpdateHandScorePanelVisualWrapper(double score)
     {
         if (score == 0) return;
         if (!_roundManager || _roundManager.curState != RoundManager.State.Score) return;
@@ -74,13 +74,13 @@ public class HandTypeVisualizer : MonoBehaviour
     /// </summary>
     /// <param name="score"></param>
     /// <returns></returns>
-    private IEnumerator UpdateScorePanelVisuals(float score)
+    private IEnumerator UpdateScorePanelVisuals(double score)
     {
         if (handTypeObj == null || handTypeLvlObj == null) yield break;
         handTypeLvlObj.SetActive(false);
         handTypeObj.SetActive(false);
         handScoreObj.SetActive(true);
-        handScore.text = score.FormatFloat();
+        handScore.text = score.FormatDouble();
         yield return new WaitForSecondsRealtime(1f);
         handScoreObj.SetActive(false);
         UpdateRoundScoreEvent?.Invoke(score);

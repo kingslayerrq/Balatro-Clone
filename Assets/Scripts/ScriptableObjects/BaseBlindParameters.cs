@@ -15,7 +15,7 @@ public abstract class BaseBlindParameters : ScriptableObject
 
     public Color blindColor;
     
-    public float baseChipGoal;
+    public float baseChipGoalMultiplier;
     
     public int reward;
 
@@ -29,7 +29,7 @@ public abstract class BaseBlindParameters : ScriptableObject
         public Sprite[] blindSprites;
         public Color blindColor;
         public Enums.BlindType type;
-        public float baseChipGoal;
+        public float baseChipGoalMultiplier;
         public int reward;
         public BaseBlindParameters config;
     }

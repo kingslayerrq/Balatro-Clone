@@ -50,8 +50,8 @@ public class RoundVisualizer : MonoBehaviour
     private int _prevMoney;
     private int _prevAnteLvl;
     private int _prevRoundLvl;
-    private float _prevChipGoal;
-    private float _prevScore;
+    private double _prevChipGoal;
+    private double _prevScore;
     
     private void Awake()
     {
@@ -157,7 +157,7 @@ public class RoundVisualizer : MonoBehaviour
     {
         blindName.text = round.blind.blindName;
         blindDescription.text = round.blind.description;
-        blindChipGoal.text = round.chipGoal.FormatFloat();
+        blindChipGoal.text = round.chipGoal.FormatDouble();
         blindReward.text = " " + round.blind.reward.FormatRewardMoney();
         handCount.text = round.hands.FormatInt();
         discardCount.text = round.discards.FormatInt();
@@ -233,16 +233,16 @@ public class RoundVisualizer : MonoBehaviour
                 blindDescription.text = description;
         }
         
-        public void UpdateBlindChipGoal(float goal)
+        public void UpdateBlindChipGoal(double goal)
         {
             if (blindChipGoal != null)
-                blindChipGoal.text = goal.FormatFloat();
+                blindChipGoal.text = goal.FormatDouble();
         }
         
-        public void UpdateRoundScore(float score)
+        public void UpdateRoundScore(double score)
         {
             if (roundScore != null)
-                roundScore.text = score.FormatFloat();
+                roundScore.text = score.FormatDouble();
         }
         
         public void UpdateBlindReward(int reward)

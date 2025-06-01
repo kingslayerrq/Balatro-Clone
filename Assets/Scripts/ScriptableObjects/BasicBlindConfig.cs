@@ -13,7 +13,7 @@ public class BasicBlindConfig : BaseBlindParameters
             blindSprites = blindSprites,
             blindColor = blindColor,
             type = type,
-            baseChipGoal = baseChipGoal,
+            baseChipGoalMultiplier = baseChipGoalMultiplier,
             reward = reward,
             config = this,
         };

@@ -22,19 +22,19 @@ public class ScoreCalculator : MonoBehaviour
     [SerializeField] private float cardScoringGap = 0.2f;
 
     public Enums.BasePokerHandType curHandType = Enums.BasePokerHandType.None;
-    public float curChips = 0;
-    public float curMults = 0;
-    public float curScore = 0;
-    private float _lastChips = 0;
-    private float _lastMults = 0;
-    private float _lastScore = 0;
+    public double curChips = 0;
+    public double curMults = 0;
+    public double curScore = 0;
+    private double _lastChips = 0;
+    private double _lastMults = 0;
+    private double _lastScore = 0;
 
     [HideInInspector]
     public UnityEvent<HandTypeConfig.HandType> UpdateHandTypeVisualEvent = new UnityEvent<HandTypeConfig.HandType>();
 
-    [HideInInspector] public UnityEvent<float> UpdateChipsVisualEvent = new UnityEvent<float>();
-    [HideInInspector] public UnityEvent<float> UpdateMultsVisualEvent = new UnityEvent<float>();
-    [HideInInspector] public UnityEvent<float> UpdateScoreVisualEvent = new UnityEvent<float>();
+    [HideInInspector] public UnityEvent<double> UpdateChipsVisualEvent = new UnityEvent<double>();
+    [HideInInspector] public UnityEvent<double> UpdateMultsVisualEvent = new UnityEvent<double>();
+    [HideInInspector] public UnityEvent<double> UpdateScoreVisualEvent = new UnityEvent<double>();
     //[HideInInspector] public UnityEvent<float> OnScoreEndEvent = new UnityEvent<float>();
     [HideInInspector] public UnityEvent<Card> OnCardUsedEvent = new UnityEvent<Card>();
     private void Awake()

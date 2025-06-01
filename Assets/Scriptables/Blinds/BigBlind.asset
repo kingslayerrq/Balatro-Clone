@@ -38,5 +38,5 @@ MonoBehaviour:
   - {fileID: -926187087, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
   - {fileID: 633524422, guid: 9e163ee9ce0814eada19765d4b1beff7, type: 3}
   blindColor: {r: 0.8784314, g: 0.63529414, b: 0.22745098, a: 1}
-  baseChipGoal: 450
+  baseChipGoalMultiplier: 1.5
   reward: 6

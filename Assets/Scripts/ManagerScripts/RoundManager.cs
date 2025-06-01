@@ -19,7 +19,7 @@ public class RoundManager : MonoBehaviour
     
     public State curState = State.None ;
     [Tooltip("Scored by this hand")]
-    [SerializeField] private float handScore = 0;
+    [SerializeField] private double handScore = 0;
     public Round curRound = null;
 
 
@@ -154,8 +154,8 @@ public class RoundManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         
-        curRound.chipGoal = curRound.blind.baseChipGoal * _runManager.CurAnteLvl *
-                            Constants.BASE_BLIND_CHIPGOAL[curRound.blind.type];
+        curRound.chipGoal = curRound.blind.baseChipGoalMultiplier * 
+                            Constants.BASE_ANTE_CHIPGOAL[_runManager.CurAnteLvl];
         roundSetupVisualEvent?.Invoke(curRound);
         yield return new WaitForSecondsRealtime(0.5f);
         updateRoundStateEvent?.Invoke(State.Draw);
@@ -184,7 +184,7 @@ public class RoundManager : MonoBehaviour
     /// Add hand score to round score
     /// </summary>
     /// <param name="score"></param>
-    private void RegisterHandScore(float score)
+    private void RegisterHandScore(double score)
     {
         handScore = score;
         // Update round score
@@ -324,8 +324,8 @@ public class Round
     public int handSize;
     public int hands;
     public int discards;
-    public float chipGoal;
-    public float roundScore = 0;
+    public double chipGoal;
+    public double roundScore = 0;
     
     public List<Card> cardsDeckRound;
 

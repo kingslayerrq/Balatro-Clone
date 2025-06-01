@@ -6,7 +6,7 @@ public class TheWallActionConfig : BlindActionConfig
 {
     public override void Execute(Round round, RoundManager.State state)
     {
-        round.blind.baseChipGoal += 10000;
+        round.blind.baseChipGoalMultiplier += 10000;
         Debug.LogWarning("The wall is doing something!");
     }
 

@@ -23,7 +23,7 @@ public class BossBlindConfig : BaseBlindParameters
             type = type,
             blindSprites = blindSprites,
             blindColor = blindColor,
-            baseChipGoal = baseChipGoal,
+            baseChipGoalMultiplier = baseChipGoalMultiplier,
             reward = reward,
             config = this,
             actionConfigsOnEnter = actionConfigsOnEnter,

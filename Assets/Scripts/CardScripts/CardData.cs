@@ -27,8 +27,8 @@ public class CardData : MonoBehaviour, IComparable
     public int rank;
     public Enums.Edition edition;
     public Enums.Seal seal;
-    public float chips;
-    public float mults;
+    public double chips;
+    public double mults;
     public int triggerCounts;
     public Sprite rnsSprite;
     [Tooltip("Base background of card, subject to enhancement changes")]
