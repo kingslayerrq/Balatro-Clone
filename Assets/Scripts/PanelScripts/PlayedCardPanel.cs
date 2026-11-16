@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(ScoreCalculator))]
-public class PlayedCardPanel : Panel
+public class PlayedCardPanel : SingletonPanel<PlayedCardPanel>
 {
-    public static PlayedCardPanel Instance;
-
     [Tooltip("Gap between each scoring card popping up")]
     [SerializeField] private float checkCardGap = 0.1f;
     [Tooltip("Seconds in real time before calculating score")]
@@ -15,21 +13,6 @@ public class PlayedCardPanel : Panel
     [SerializeField] private float recycleCardGap = 0.1f;
     [Tooltip("Pause between lowering the scoring cards and removing the played cards")]
     [SerializeField] private float recyclePause = 0.5f;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
-
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        if (Instance == this) Instance = null;
-    }
 
     /// <summary>
     /// Pop up the cards that will score, one by one, then pause before scoring starts

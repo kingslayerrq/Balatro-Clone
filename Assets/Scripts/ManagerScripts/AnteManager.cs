@@ -2,19 +2,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnteManager : MonoBehaviour
-{
-    public static AnteManager Instance;
-    private RunManager _runManager;
+public class AnteManager : Singleton<AnteManager>
+{    private RunManager _runManager;
     private RoundManager _roundManager;
 
     [SerializeField] private BaseBlindParameters smallBlindConfig;
     [SerializeField] private BaseBlindParameters bigBlindConfig;
-
-    private void Awake()
-    {
-        if (Instance == null) Instance = this;
-    }
 
     private void Start()
     {
@@ -24,11 +17,6 @@ public class AnteManager : MonoBehaviour
         {
             Debug.LogError("AnteManager: RunManager or RoundManager is missing from the scene", this);
         }
-    }
-
-    private void OnDestroy()
-    {
-        if (Instance == this) Instance = null;
     }
 
     /// <summary>

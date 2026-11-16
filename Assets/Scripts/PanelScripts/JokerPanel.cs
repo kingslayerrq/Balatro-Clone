@@ -1,14 +1,3 @@
-using UnityEngine;
-
-public class JokerPanel : Panel
+public class JokerPanel : SingletonPanel<JokerPanel>
 {
-    public static JokerPanel Instance;
-    protected override void Awake()
-    {
-        base.Awake();
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
 }

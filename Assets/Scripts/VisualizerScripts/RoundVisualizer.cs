@@ -6,10 +6,8 @@ using UnityEngine.UI;
 using DG.Tweening;
 
 
-public class RoundVisualizer : MonoBehaviour
+public class RoundVisualizer : Singleton<RoundVisualizer>
 {
-    public static RoundVisualizer Instance;
-
     private RoundManager _roundManager;
     private RunManager _runManager;
 
@@ -45,11 +43,6 @@ public class RoundVisualizer : MonoBehaviour
     [SerializeField] private Camera camera;
     private Color _cameraOrigColor;
     
-    private void Awake()
-    {
-        if (Instance == null) Instance = this;
-    }
-
     private void Start()
     {
         _roundManager = RoundManager.Instance;
@@ -96,8 +89,9 @@ public class RoundVisualizer : MonoBehaviour
         #endregion
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         if (_roundManager)
         {
             _roundManager.RoundSetup -= SetupVisual;
@@ -105,7 +99,6 @@ public class RoundVisualizer : MonoBehaviour
             _roundManager.RoundEnded -= HandleRoundEnd;
         }
         if (_runManager) _runManager.RunStatsChanged -= UpdateRunValues;
-        if (Instance == this) Instance = null;
     }
 
     /// <summary>

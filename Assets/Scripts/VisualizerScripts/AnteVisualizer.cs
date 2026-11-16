@@ -3,10 +3,8 @@ using UnityEngine;
 /// <summary>
 /// Shows one button per blind of the current ante and forwards the player's choice.
 /// </summary>
-public class AnteVisualizer : MonoBehaviour
+public class AnteVisualizer : Singleton<AnteVisualizer>
 {
-    public static AnteVisualizer Instance;
-
     private RunManager _runManager;
     private RoundManager _roundManager;
     private AnteManager _anteManager;
@@ -14,11 +12,6 @@ public class AnteVisualizer : MonoBehaviour
     [SerializeField] private RoundButton buttonPrefab;
     [SerializeField] private Transform buttonContainer;
     public RoundButton[] RoundButtons = new RoundButton[3];
-
-    private void Awake()
-    {
-        if (Instance == null) Instance = this;
-    }
 
     private void Start()
     {
@@ -34,8 +27,9 @@ public class AnteVisualizer : MonoBehaviour
         _runManager.AnteDisplayRequested += DisplayAnteRounds;
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         if (_runManager) _runManager.AnteDisplayRequested -= DisplayAnteRounds;
         foreach (var button in RoundButtons)
         {
@@ -43,7 +37,6 @@ public class AnteVisualizer : MonoBehaviour
             button.PlayClicked -= OnPlayClicked;
             button.SkipClicked -= OnSkipClicked;
         }
-        if (Instance == this) Instance = null;
     }
 
     public void BackBtn()

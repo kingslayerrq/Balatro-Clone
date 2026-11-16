@@ -5,10 +5,8 @@ using UnityEngine;
 /// Shows the current hand type, its chips x mults, and the final score of a played hand.
 /// Display only: nothing in the game flow waits on this component.
 /// </summary>
-public class HandTypeVisualizer : MonoBehaviour
+public class HandTypeVisualizer : Singleton<HandTypeVisualizer>
 {
-    public static HandTypeVisualizer Instance;
-
     private ScoreCalculator _scoreCalculator;
 
     [SerializeField] private TextMeshProUGUI handTypeName;
@@ -19,11 +17,6 @@ public class HandTypeVisualizer : MonoBehaviour
     [SerializeField] private GameObject handTypeObj;
     [SerializeField] private GameObject handTypeLvlObj;
     [SerializeField] private GameObject handScoreObj;
-
-    private void Awake()
-    {
-        if (Instance == null) Instance = this;
-    }
 
     private void Start()
     {
@@ -41,8 +34,9 @@ public class HandTypeVisualizer : MonoBehaviour
         _scoreCalculator.HandScoreHidden += HideHandScore;
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         if (_scoreCalculator)
         {
             _scoreCalculator.HandTypeChanged -= UpdateHandTypePanelVisuals;
@@ -51,7 +45,6 @@ public class HandTypeVisualizer : MonoBehaviour
             _scoreCalculator.HandScoreShown -= ShowHandScore;
             _scoreCalculator.HandScoreHidden -= HideHandScore;
         }
-        if (Instance == this) Instance = null;
     }
 
     private void UpdateHandTypePanelVisuals(HandTypeConfig.HandType handType)

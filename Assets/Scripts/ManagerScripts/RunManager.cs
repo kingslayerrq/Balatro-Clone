@@ -8,9 +8,8 @@ using Random = UnityEngine.Random;
 /// Owns everything that lasts for a whole run: the deck, money, hand type levels,
 /// and the progression through blinds and antes.
 /// </summary>
-public class RunManager : MonoBehaviour
+public class RunManager : Singleton<RunManager>
 {
-    public static RunManager Instance;
     private AnteManager _anteManager;
     private RoundManager _roundManager;
     private DeckPanel _deckPanel;
@@ -112,18 +111,6 @@ public class RunManager : MonoBehaviour
 
     #endregion
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void Start()
     {
         _deckPanel = DeckPanel.Instance;
@@ -139,10 +126,10 @@ public class RunManager : MonoBehaviour
         _roundManager.RoundEnded += OnRoundEnded;
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         if (_roundManager) _roundManager.RoundEnded -= OnRoundEnded;
-        if (Instance == this) Instance = null;
     }
 
     private void SetStat(ref int field, int value)
@@ -279,7 +266,9 @@ public class RunManager : MonoBehaviour
         _bossQueue.Clear();
         if (bossList == null) return;
 
-        foreach (var boss in bossList.OrderBy(x => Random.value))
+        var shuffled = new List<BossBlindConfig>(bossList);
+        shuffled.Shuffle();
+        foreach (var boss in shuffled)
         {
             _bossQueue.Enqueue(boss);
         }

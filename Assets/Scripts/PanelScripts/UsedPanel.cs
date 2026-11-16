@@ -1,12 +1,6 @@
-using UnityEngine;
-
-public class UsedPanel : Panel
+/// <summary>
+/// Cards discarded or already played this round
+/// </summary>
+public class UsedPanel : SingletonPanel<UsedPanel>
 {
-    public static UsedPanel Instance;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        if (Instance == null) Instance = this;
-    }
 }

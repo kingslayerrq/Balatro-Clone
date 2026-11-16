@@ -6,10 +6,8 @@ using UnityEngine;
 /// Scene-side wrapper around <see cref="HandEvaluator"/>: tracks the hand type of the
 /// cards currently selected in the hand panel.
 /// </summary>
-public class HandAnalyzer : MonoBehaviour
+public class HandAnalyzer : Singleton<HandAnalyzer>
 {
-    public static HandAnalyzer Instance;
-
     private HandPanel _handPanel;
     private RoundManager _roundManager;
 
@@ -21,11 +19,6 @@ public class HandAnalyzer : MonoBehaviour
 
     /// <summary>Raised when the hand type of the current selection is (re)evaluated.</summary>
     public event Action<Enums.BasePokerHandType> HandTypeChanged;
-
-    private void Awake()
-    {
-        if (Instance == null) Instance = this;
-    }
 
     private void Start()
     {
@@ -51,11 +44,11 @@ public class HandAnalyzer : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         if (_handPanel) _handPanel.SelectionChanged -= AnalyzeHand;
         if (_roundManager) _roundManager.StateChanged -= OnRoundStateChanged;
-        if (Instance == this) Instance = null;
     }
 
     /// <summary>

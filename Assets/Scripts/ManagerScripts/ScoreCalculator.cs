@@ -8,10 +8,8 @@ using UnityEngine;
 /// Raises events when values change; it never waits on a listener.
 /// </summary>
 [RequireComponent(typeof(ScoreVisualizer))]
-public class ScoreCalculator : MonoBehaviour
+public class ScoreCalculator : Singleton<ScoreCalculator>
 {
-    public static ScoreCalculator Instance;
-
     private RunManager _runManager;
     private HandAnalyzer _handAnalyzer;
 
@@ -57,11 +55,6 @@ public class ScoreCalculator : MonoBehaviour
     /// <summary>The final score has been on screen long enough.</summary>
     public event Action HandScoreHidden;
 
-    private void Awake()
-    {
-        if (Instance == null) Instance = this;
-    }
-
     private void Start()
     {
         _runManager = RunManager.Instance;
@@ -79,10 +72,10 @@ public class ScoreCalculator : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         if (_handAnalyzer) _handAnalyzer.HandTypeChanged -= SetHandType;
-        if (Instance == this) Instance = null;
     }
 
     /// <summary>

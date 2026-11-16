@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HandPanel : Panel
+public class HandPanel : SingletonPanel<HandPanel>
 {
-    public static HandPanel Instance;
     private RoundManager _roundManager;
 
     [Tooltip("Gap between each card moving to the played panel")]
@@ -22,16 +21,6 @@ public class HandPanel : Panel
     /// Raised whenever the selected cards change. The list is the live selection: do not modify or keep it.
     /// </summary>
     public event Action<IReadOnlyList<Card>> SelectionChanged;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-
-    }
 
     protected override void Start()
     {
@@ -54,7 +43,6 @@ public class HandPanel : Panel
     {
         base.OnDestroy();
         if (_roundManager) _roundManager.StateChanged -= OnRoundStateChanged;
-        if (Instance == this) Instance = null;
     }
 
     private void OnRoundStateChanged(RoundManager.State state)

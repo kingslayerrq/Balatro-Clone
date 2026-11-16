@@ -3,16 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 /// <summary>
 /// Runs a round (one blind) from start to finish in a single coroutine.
 /// It is the only class that changes the round state; everything else listens to
 /// <see cref="StateChanged"/> and asks for player actions through RequestPlay / RequestDiscard.
 /// </summary>
-public class RoundManager : MonoBehaviour
+public class RoundManager : Singleton<RoundManager>
 {
-    public static RoundManager Instance;
     private RunManager _runManager;
     private ScoreCalculator _scoreCalculator;
     private HandPanel _handPanel;
@@ -53,11 +51,6 @@ public class RoundManager : MonoBehaviour
     private PlayerAction _pendingAction = PlayerAction.None;
     private readonly List<Card> _scoringCards = new List<Card>();
 
-    private void Awake()
-    {
-        if (Instance == null) Instance = this;
-    }
-
     private void Start()
     {
         _runManager = RunManager.Instance;
@@ -73,11 +66,6 @@ public class RoundManager : MonoBehaviour
         {
             Debug.LogError("RoundManager: a manager or panel it depends on is missing from the scene", this);
         }
-    }
-
-    private void OnDestroy()
-    {
-        if (Instance == this) Instance = null;
     }
 
     #region Public API
@@ -193,7 +181,8 @@ public class RoundManager : MonoBehaviour
         curRound.discards = _runManager.Discards;
         curRound.roundScore = 0;
         curRound.cardsDeckRound = new List<Card>(_runManager.CardsDeckRun);
-        var startingDeck = curRound.cardsDeckRound.OrderBy(x => Random.value).ToList();
+        var startingDeck = new List<Card>(curRound.cardsDeckRound);
+        startingDeck.Shuffle();
 
         // load card into drawpile
         foreach (var card in startingDeck)

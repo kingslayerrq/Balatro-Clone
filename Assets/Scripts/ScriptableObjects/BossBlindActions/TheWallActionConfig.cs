@@ -1,7 +1,6 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BossBlindAction", menuName = "Scriptable Objects/BossBlindAction")]
+[CreateAssetMenu(fileName = "TheWallAction", menuName = "Scriptable Objects/Boss Blind Actions/The Wall")]
 public class TheWallActionConfig : BlindActionConfig
 {
     public override void Execute(Round round, RoundManager.State state)

@@ -27,13 +27,14 @@ public class CardScore : MonoBehaviour, IScorable
     {
         // already sorted by execution order when the card was created
         var cardActions = _cardData.cardActions;
+        var context = new ScoreContext(calculator, _card, scoringCards);
         for (int i = 0; i < _cardData.triggerCounts; i++)
         {
             foreach (var action in cardActions)
             {
                 yield return new WaitForSecondsRealtime(cardActions.Count > 1 ? scoreTriggerGap : 0);
                 _card.cardVisuals.OnScore();
-                action.Execute(_card, scoringCards, calculator);
+                action.Execute(context);
             }
 
             yield return new WaitForSecondsRealtime(scoreTriggerGap);

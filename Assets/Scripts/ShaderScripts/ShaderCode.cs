@@ -1,88 +1,96 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
+
+/// <summary>
+/// Drives the card shader of one Image: per-card material instance, edition keyword,
+/// and the tilt-based rotation the edition effects react to.
+/// </summary>
 public class ShaderCode : MonoBehaviour
 {
+    private static readonly int RotationId = Shader.PropertyToID("_Rotation");
+    // "_EDITION_REGULAR", ... built once instead of on every call
+    private static string[] _editionKeywords;
 
     Image image;
     Material m;
-    CardVisuals visual;
     private Sprite _prevSprite;
-    
+    private Vector2 _prevRotation = new Vector2(float.NaN, float.NaN);
+    // edition requested before Start created the material
+    private int _edition = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    private static string[] EditionKeywords
     {
-        
-        image = GetComponent<Image>();
-        
-        if (image == null)
+        get
         {
-            Debug.LogError("No Image component found on GameObject: " + gameObject.name);
-            return; // Exit early if no image component
-        }
-        
-    
-        // Create a unique material instance for each card
-        if (image.material != null)
-        {
-            // Use Instantiate instead of new Material to create a proper unique instance
-            m = Instantiate(image.material);
-            image.material = m;
-        
-            // Apply the sprite's texture
-            if (image.sprite != null)
+            if (_editionKeywords != null) return _editionKeywords;
+            _editionKeywords = new string[Constants.CARD_EDITIONS.Length];
+            for (int i = 0; i < _editionKeywords.Length; i++)
             {
-                _prevSprite = image.sprite;
-                ApplySpriteToMaterial(image.sprite, m);
-                
+                _editionKeywords[i] = "_EDITION_" + Constants.CARD_EDITIONS[i];
             }
-        }
-        
-        visual = GetComponentInParent<CardVisuals>();
-        
-
-        for (int i = 0; i < Constants.CARD_EDITIONS.Length; i++)
-        {
-            string keyword = "_EDITION_" + Constants.CARD_EDITIONS[i];
-            if (m.IsKeywordEnabled(keyword))
-            {
-                m.DisableKeyword(keyword);
-            }
+            return _editionKeywords;
         }
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        image = GetComponent<Image>();
+
+        if (image == null)
+        {
+            Debug.LogError("No Image component found on GameObject: " + gameObject.name);
+            enabled = false;
+            return;
+        }
+
+        if (image.material == null)
+        {
+            enabled = false;
+            return;
+        }
+
+        // Create a unique material instance for each card
+        m = Instantiate(image.material);
+        image.material = m;
+
+        // Apply the sprite's texture
+        if (image.sprite != null)
+        {
+            _prevSprite = image.sprite;
+            m.mainTexture = image.sprite.texture;
+        }
+
+        ApplyEdition();
+    }
+
+    private void OnDestroy()
+    {
+        // the instance created in Start is owned by this component
+        if (m != null) Destroy(m);
+    }
+
     void Update()
     {
-
         // Update Material texture
         if (_prevSprite != null && _prevSprite != image.sprite)
         {
             _prevSprite = image.sprite;
-            ApplySpriteToMaterial(image.sprite, m);
-            
+            if (_prevSprite != null) m.mainTexture = _prevSprite.texture;
+            image.SetMaterialDirty();
         }
-        // Get the current rotation as a quaternion
-        Quaternion currentRotation = transform.parent.localRotation;
 
-        // Convert the quaternion to Euler angles
-        Vector3 eulerAngles = currentRotation.eulerAngles;
+        Vector3 eulerAngles = transform.parent.localRotation.eulerAngles;
 
-        // Get the X-axis angle
-        float xAngle = eulerAngles.x;
-        float yAngle = eulerAngles.y;
+        // Keep the angles within the range of -90 to 90 degrees
+        float xAngle = ClampAngle(eulerAngles.x, -90f, 90f);
+        float yAngle = ClampAngle(eulerAngles.y, -90f, 90f);
 
-        // Ensure the X-axis angle stays within the range of -90 to 90 degrees
-        xAngle = ClampAngle(xAngle, -90f, 90f);
-        yAngle = ClampAngle(yAngle, -90f, 90);
-
-
-        m.SetVector("_Rotation", new Vector2(ExtensionMethods.Remap(xAngle,-20,20,-.5f,.5f), ExtensionMethods.Remap(yAngle, -20, 20, -.5f, .5f)));
-
+        var rotation = new Vector2(ExtensionMethods.Remap(xAngle, -20, 20, -.5f, .5f),
+            ExtensionMethods.Remap(yAngle, -20, 20, -.5f, .5f));
+        // cards lying still (deck, used pile) do not need a material update every frame
+        if (rotation == _prevRotation) return;
+        _prevRotation = rotation;
+        m.SetVector(RotationId, rotation);
     }
 
     // Method to clamp an angle between a minimum and maximum value
@@ -98,61 +106,24 @@ public class ShaderCode : MonoBehaviour
     /// <summary>
     /// Set the Edition for the card's shader
     /// </summary>
-    /// <param name="index"></param>
+    /// <param name="index">Index into Constants.CARD_EDITIONS</param>
     public void SetEdition(int index)
     {
-        if (image == null || image.material == null) 
-        {
-            return;
-        }
-    
-        // Debug.Log($"Setting edition to {Constants.CARD_EDITIONS[index]}");
-    
-        // First disable all edition keywords
-        for (int i = 0; i < Constants.CARD_EDITIONS.Length; i++)
-        {
-            string keyword = "_EDITION_" + Constants.CARD_EDITIONS[i];
-            if (image.material.IsKeywordEnabled(keyword))
-            {
-                // Debug.Log($"Disabling keyword: {keyword}");
-                image.material.DisableKeyword(keyword);
-            }
-        }
-        
-        // Then enable the selected one
-        string newKeyword = "_EDITION_" + Constants.CARD_EDITIONS[index];
-        
-        image.material.EnableKeyword(newKeyword);
-        
-    
-        // Force material update
-        image.SetMaterialDirty();
+        _edition = Mathf.Clamp(index, 0, EditionKeywords.Length - 1);
+        // before Start there is no material yet: Start applies the stored edition
+        if (m != null) ApplyEdition();
     }
 
-    private void ApplySpriteToMaterial(Sprite sprite, Material material)
+    private void ApplyEdition()
     {
-        if (sprite == null || material == null) return;
-    
-        // Store current enabled edition keyword before changing texture
-        string currentEdition = null;
-        for (int i = 0; i < Constants.CARD_EDITIONS.Length; i++)
+        var keywords = EditionKeywords;
+        for (int i = 0; i < keywords.Length; i++)
         {
-            string keyword = "_EDITION_" + Constants.CARD_EDITIONS[i];
-            if (material.IsKeywordEnabled(keyword))
-            {
-                currentEdition = keyword;
-                break;
-            }
+            if (i == _edition) m.EnableKeyword(keywords[i]);
+            else m.DisableKeyword(keywords[i]);
         }
-        // Set the main texture to the sprite's texture
-        material.mainTexture = sprite.texture;
-        
-        // Re-enable the edition keyword if one was active
-        if (currentEdition != null)
-        {
-            material.EnableKeyword(currentEdition);
-        }
-        
+
+        // Force material update
         image.SetMaterialDirty();
     }
 }
