@@ -1,129 +1,84 @@
-using System;
-using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
-using System.Collections.Generic;
 using System.Collections;
+using DG.Tweening;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using WaitForSecondsRealtime = UnityEngine.WaitForSecondsRealtime;
 
 [RequireComponent(typeof(CardData))]
 [RequireComponent(typeof(CardScore))]
-[RequireComponent(typeof(CardState))]
 public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler,
     IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
-    private RoundManager _roundManager;
-    
     #region Card Variables
 
     public BaseCardParameters baseCardParameters = null;
+    [Tooltip("Panel this card currently belongs to. Change it with MoveTo")]
     public Panel curPanel;
     private Canvas _canvas;
+    private GraphicRaycaster _raycaster;
     private Image _image;
+    private Camera _camera;
     public CardData cardData = null;
     public CardScore cardScore = null;
     public CardState.CardStatus status = CardState.CardStatus.InCreation;
 
-    [Header("References")] 
-    [SerializeField] private HandPanel handPanel;
-    [SerializeField] private JokerPanel jokerPanel;
-    [SerializeField] private ConsumablePanel consumablePanel;
-    [SerializeField] private PlayedCardPanel playedCardPanel;
-    [SerializeField] private DrawPanel drawPanel;
-    [SerializeField] private DiscardPanel discardPanel;
-    private ScoreCalculator _scoreCalculator;
-    
     [Header("Drag Debug")]
     private Vector2 _pointerOffset;
     public bool isDragging = false;
     public bool wasDragged = false;
-    
+
     [Header("Selected Settings")]
     public bool isSelected = false;
     public float selectedOffset = 50f;
     [SerializeField] private float selectTimerThreshold = 0.2f;
     private float _pointerDownTime;
-    private float _pointerUpTime;
 
-    [Header("Hover Settings")] 
+    [Header("Hover Settings")]
     public bool isHovering = false;
-    
+
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeedLimit = 50f;
-    
+
 
     [Header("Card Visuals")]
     public GameObject cvPrefab;
     public CardVisuals cardVisuals;
     public Transform cardVisualizer;
-    
-    [Header("Events")]
-    [HideInInspector] public static UnityEvent<Card, Panel> pointerEnterEvent = new UnityEvent<Card, Panel>();
-    [HideInInspector] public static UnityEvent<Card, Panel> pointerExitEvent = new UnityEvent<Card, Panel>();
-    [HideInInspector] public static UnityEvent<Card, bool, Panel> pointerUpEvent = new UnityEvent<Card, bool, Panel>();
-    [HideInInspector] public static UnityEvent<Card, Panel> pointerDownEvent = new UnityEvent<Card, Panel>();
-    [HideInInspector] public static UnityEvent<Card, Panel> beginDragEvent = new UnityEvent<Card, Panel>();
-    [HideInInspector] public static UnityEvent<Card, Panel> endDragEvent = new UnityEvent<Card, Panel>();
-    [HideInInspector] public static UnityEvent<Card, bool, Panel> selectEvent = new UnityEvent<Card, bool, Panel>();
-    [HideInInspector] public static UnityEvent<Card, Panel> reparentPanelEvent = new UnityEvent<Card, Panel>();
-    [HideInInspector] public static UnityEvent<Card> scoreEvent = new UnityEvent<Card>();
-    [HideInInspector]
-    public static UnityEvent<Card, CardState.CardStatus> cardStatusUpdateEvent = new UnityEvent<Card, CardState.CardStatus>();
+
+    /// <summary>
+    /// Is the card popped up in its slot (selected by the player or highlighted for scoring)
+    /// </summary>
+    public bool IsRaised => isSelected || (cardData != null && cardData.isScoring);
+
     #endregion
 
-    private void Start()
+    /// <summary>
+    /// Set up the card from its baseCardParameters and spawn its visual
+    /// </summary>
+    /// <param name="visualsRoot">Parent for the card's visual object</param>
+    public void Init(Transform visualsRoot)
     {
-        
-    }
+        if (baseCardParameters == null)
+        {
+            Debug.LogError($"{name}: baseCardParameters must be assigned before Init", this);
+            return;
+        }
 
-    public void Init()
-    {
-        _roundManager = RoundManager.Instance;
-        
-        if (baseCardParameters == null) return;
         curPanel = GetComponentInParent<Panel>();
         cardData = GetComponent<CardData>();
         cardScore = GetComponent<CardScore>();
-        cardVisualizer = FindFirstObjectByType<CardVisualizer>().transform;
-  
-        
-        // Initialize
-        if (cardData == null) return;
         cardData.Init();
-        this.name = cardData.id;
+        name = cardData.id;
+
         _canvas = GetComponentInParent<Canvas>();
+        _raycaster = _canvas.GetComponent<GraphicRaycaster>();
         _image = GetComponent<Image>();
-        cardVisuals = Instantiate(cvPrefab, cardVisualizer ? cardVisualizer : _canvas.transform).GetComponent<CardVisuals>();
+        _camera = Camera.main;
+
+        cardVisualizer = visualsRoot;
+        cardVisuals = Instantiate(cvPrefab, visualsRoot ? visualsRoot : _canvas.transform).GetComponent<CardVisuals>();
         cardVisuals.name = cardData.id;
         cardVisuals.Init(this);
-
-        // Get References
-        handPanel = HandPanel.Instance;
-        consumablePanel = ConsumablePanel.Instance;
-        jokerPanel = JokerPanel.Instance;
-        playedCardPanel = PlayedCardPanel.Instance;
-        drawPanel = DrawPanel.Instance;
-        _scoreCalculator = ScoreCalculator.Instance;
-        
-        
-        // Add Event handlers
-        if (handPanel)
-        {
-            handPanel.playCardEvent.AddListener(OnPlayed);
-        }
-
-        if (_scoreCalculator)
-        {
-            _scoreCalculator.OnCardUsedEvent.AddListener(OnUsed);
-        }
-
-        
-        cardData.onScoreCheckEvent.AddListener(ScoreCheckHandler);
-        _roundManager.loadCardEvent.AddListener(OnLoad);
-        _roundManager.drawCardEvent.AddListener(OnDrawn);
-        _roundManager.discardCardEvent.AddListener(OnDiscard);
-
     }
 
     private void Update()
@@ -131,7 +86,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         if (isDragging)
         {
             ClampPosition();
-            Vector2 targetPosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - _pointerOffset;
+            Vector2 targetPosition = (Vector2)_camera.ScreenToWorldPoint(Input.mousePosition) - _pointerOffset;
             Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
             Vector2 velocity = direction * Mathf.Min(moveSpeedLimit, Vector2.Distance(transform.position, targetPosition) / Time.deltaTime);
             transform.Translate(velocity * Time.deltaTime);
@@ -139,16 +94,73 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     }
 
     #region General Card Methods
-    
+
+    /// <summary>
+    /// The single way to move a card between panels.
+    /// Removes it from its current panel, adds it to the target and updates its status and visuals.
+    /// </summary>
+    public void MoveTo(Panel panel, CardState.CardStatus newStatus)
+    {
+        if (panel == null)
+        {
+            Debug.LogError($"{name}: cannot move to a null panel", this);
+            return;
+        }
+
+        if (isDragging) FinishDrag();
+        transform.DOKill();
+        if (curPanel != null) curPanel.Remove(this);
+
+        // selection and scoring flags never carry over to another panel
+        isSelected = false;
+        cardData.canScore = false;
+        cardData.isScoring = false;
+
+        status = newStatus;
+        panel.Add(this);
+        cardVisuals.OnStatusChanged(newStatus);
+    }
+
+    /// <summary>
+    /// Select / deselect the card in its current panel
+    /// </summary>
+    public void SetSelected(bool selected)
+    {
+        if (isSelected == selected) return;
+        isSelected = selected;
+        ApplyRaise(selected);
+        if (curPanel) curPanel.NotifyCardSelected(this, selected);
+    }
+
+    /// <summary>
+    /// Pop the card up as one of the scoring cards of a played hand (or put it back down).
+    /// Visual only: does not touch the panel's selection.
+    /// </summary>
+    public void SetScoringHighlight(bool highlighted)
+    {
+        if (cardData.isScoring == highlighted) return;
+        cardData.canScore = highlighted;
+        cardData.isScoring = highlighted;
+        ApplyRaise(highlighted);
+    }
+
+    private void ApplyRaise(bool raised)
+    {
+        transform.localPosition = raised
+            ? transform.localPosition + cardVisuals.transform.up * selectedOffset
+            : Vector3.zero;
+        cardVisuals.OnSelect(raised);
+    }
+
     private void ClampPosition()
     {
-        Vector2 screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        Vector2 screenBounds = _camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, _camera.transform.position.z));
         Vector3 clampedPosition = transform.position;
         clampedPosition.x = Mathf.Clamp(clampedPosition.x, -screenBounds.x, screenBounds.x);
         clampedPosition.y = Mathf.Clamp(clampedPosition.y, -screenBounds.y, screenBounds.y);
         transform.position = new Vector3(clampedPosition.x, clampedPosition.y, 0);
     }
-    
+
     /// <summary>
     /// Get the parent card slot's sibling index
     /// </summary>
@@ -169,51 +181,57 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void OnDrag(PointerEventData eventData)
     {
-        
+        // required by Unity for OnBeginDrag / OnEndDrag to fire
     }
-    
+
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!curPanel.allowDrag) return;
-        
-        beginDragEvent.Invoke(this, curPanel);
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (!curPanel || !curPanel.allowDrag) return;
+
+        curPanel.NotifyBeginDrag(this);
+        cardVisuals.OnBeginDrag();
+        Vector2 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
         _pointerOffset = mousePosition - (Vector2)transform.position;
         isDragging = true;
-        _canvas.GetComponent<GraphicRaycaster>().enabled = false;
+        _raycaster.enabled = false;
         _image.raycastTarget = false;
         wasDragged = true;
     }
-    
+
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (!curPanel.allowDrag) return;
-        
-        endDragEvent.Invoke(this, curPanel);
+        // nothing to end if the drag never started or was already cancelled by MoveTo
+        if (!isDragging) return;
+        FinishDrag();
+    }
+
+    private void FinishDrag()
+    {
         isDragging = false;
-        _canvas.GetComponent<GraphicRaycaster>().enabled = true;
+        _raycaster.enabled = true;
         _image.raycastTarget = true;
+        if (curPanel) curPanel.NotifyEndDrag(this);
+        cardVisuals.OnEndDrag();
 
         StartCoroutine(FrameWait());
-        
+
         IEnumerator FrameWait()
         {
             yield return new WaitForEndOfFrame();
             wasDragged = false;         // not updating wasDragged immediately
         }
-        
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        pointerEnterEvent.Invoke(this, curPanel);
+        cardVisuals.OnPointerEnter();
         isHovering = true;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        pointerExitEvent.Invoke(this, curPanel);
+        cardVisuals.OnPointerExit();
         isHovering = false;
     }
 
@@ -221,122 +239,33 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     {
         if (!curPanel || eventData.button != PointerEventData.InputButton.Left) return;
 
-        _pointerUpTime = Time.time;
-        
         // shortPress: selection
         // longPress: dragging
-        bool shortPress = (_pointerUpTime - _pointerDownTime) <= selectTimerThreshold;
-        pointerUpEvent.Invoke(this, shortPress, curPanel);
-        
+        bool shortPress = (Time.time - _pointerDownTime) <= selectTimerThreshold;
+        cardVisuals.OnPointerUp(shortPress);
+
         // cant select if at max selection count (eg: cannot select 6 cards in a poker hand)
         if (!isSelected && (curPanel.numOfSelection >= curPanel.maxSelectionSize)) return;
-        
+
         // Dont trigger selection if it was dragged
         if (shortPress && !wasDragged)
         {
-            isSelected = !isSelected;
-            selectEvent?.Invoke(this, isSelected, curPanel);
-            SelectTransformUpdate();
+            SetSelected(!isSelected);
         }
     }
 
-    public void SelectTransformUpdate()
-    {
-        if (isSelected)
-        {
-            this.transform.localPosition += cardVisuals.transform.up * selectedOffset;
-        }
-        else
-        {
-            this.transform.localPosition = Vector3.zero;
-        }
-    }
     public void OnPointerDown(PointerEventData eventData)
     {
         if (!curPanel || eventData.button != PointerEventData.InputButton.Left) return;
 
-        pointerDownEvent.Invoke(this, curPanel);
+        cardVisuals.OnPointerDown();
         _pointerDownTime = Time.time;
     }
-    
+
     #endregion
-
-    private void OnPlayed(Card card, Panel targetPanel)
-    {
-        // only respond if invoked on self
-        if (card != this) return;
-        
-
-        cardStatusUpdateEvent?.Invoke(this, CardState.CardStatus.InPlayed);
-            
-        //reparentPanelEvent?.Invoke(this, targetPanel);
-
-    }
-
-    /// <summary>
-    /// On Round starts load the deck from creation into Draw Pile
-    /// </summary>
-    /// <param name="card"></param>
-    private void OnLoad(Card card)
-    {
-        if (card != this) return;
-        
-        cardStatusUpdateEvent?.Invoke(this, CardState.CardStatus.InDeck);
-        
-        //reparentPanelEvent?.Invoke(this, drawPanel);
-    }
-
-    private void OnDrawn(Card card)
-    {
-        if (card != this) return;
-        
-        cardStatusUpdateEvent?.Invoke(this, CardState.CardStatus.InHand);
-        
-        //reparentPanelEvent?.Invoke(this, handPanel);
-    }
-
-    private void OnDiscard(Card card)
-    {
-        if (card != this) return;
-
-        cardStatusUpdateEvent?.Invoke(this, CardState.CardStatus.InUsed);
-        
-        //reparentPanelEvent?.Invoke(this, discardPanel);
-    }
-
-    private void OnUsed(Card card)
-    {
-        if (card != this) return;
-        
-        cardStatusUpdateEvent?.Invoke(this, CardState.CardStatus.InUsed);
-    }
-
-    // Update scoring card visuals
-    private void ScoreCheckHandler(Card card, bool canScore)
-    {
-        if (card != this) return;
-
-        if (card.cardData.canScore)
-        {
-            if (card.cardData.isScoring) return;
-            card.cardData.isScoring = true;
-            // trigger the select event
-            isSelected = true;
-            selectEvent?.Invoke(this, isSelected, curPanel);
-            SelectTransformUpdate();
-        }
-        else
-        {
-            // set to gray
-            Debug.Log("set to gray");
-            cardVisuals.cardImage.color = Color.Lerp(cardVisuals.originalColor, Color.gray, 1f);
-        }
-    }
 
     public override string ToString()
     {
-        string str = $"Card: {this.name} ";
-
-        return str;
+        return $"Card: {this.name} ";
     }
 }

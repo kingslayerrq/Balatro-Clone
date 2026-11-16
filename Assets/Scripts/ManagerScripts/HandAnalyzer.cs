@@ -1,10 +1,10 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 /// <summary>
 /// Scene-side wrapper around <see cref="HandEvaluator"/>: tracks the hand type of the
-/// current selection and, when a hand is played, which of the played cards score.
+/// cards currently selected in the hand panel.
 /// </summary>
 public class HandAnalyzer : MonoBehaviour
 {
@@ -13,20 +13,14 @@ public class HandAnalyzer : MonoBehaviour
     private HandPanel _handPanel;
     private RoundManager _roundManager;
 
-    [Header("For Scoring")]
-    [Tooltip("The Hand Type that will be used for scoring (Updated when Played)")]
-    public Enums.BasePokerHandType scoringHandType;
-    [Tooltip("List of Cards that will be used for scoring (Updated when Played)")]
-    public List<Card> scoringCards = new List<Card>();
-
     [Header("During Selection")]
     [Tooltip("The highest tier Hand Type of current selection")]
     public Enums.BasePokerHandType curHand = Enums.BasePokerHandType.None;
     [Tooltip("List of Hand Types included in the current selection")]
     public List<Enums.BasePokerHandType> handTypesContained = new List<Enums.BasePokerHandType>();
 
-
-    [HideInInspector] public UnityEvent<Enums.BasePokerHandType> UpdateHandTypeEvent = new UnityEvent<Enums.BasePokerHandType>();
+    /// <summary>Raised when the hand type of the current selection is (re)evaluated.</summary>
+    public event Action<Enums.BasePokerHandType> HandTypeChanged;
 
     private void Awake()
     {
@@ -36,12 +30,32 @@ public class HandAnalyzer : MonoBehaviour
     private void Start()
     {
         _handPanel = HandPanel.Instance;
+        _roundManager = RoundManager.Instance;
 
         if (_handPanel)
         {
-            _handPanel.onCardSelectionChangedEvent.AddListener(AnalyzeHand);
+            _handPanel.SelectionChanged += AnalyzeHand;
         }
-        _roundManager = RoundManager.Instance;
+        else
+        {
+            Debug.LogError("HandAnalyzer: no HandPanel in the scene", this);
+        }
+
+        if (_roundManager)
+        {
+            _roundManager.StateChanged += OnRoundStateChanged;
+        }
+        else
+        {
+            Debug.LogError("HandAnalyzer: no RoundManager in the scene", this);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (_handPanel) _handPanel.SelectionChanged -= AnalyzeHand;
+        if (_roundManager) _roundManager.StateChanged -= OnRoundStateChanged;
+        if (Instance == this) Instance = null;
     }
 
     /// <summary>
@@ -72,38 +86,38 @@ public class HandAnalyzer : MonoBehaviour
         return result;
     }
 
+    private void OnRoundStateChanged(RoundManager.State state)
+    {
+        switch (state)
+        {
+            case RoundManager.State.Draw:
+                // nothing is being considered while cards are drawn
+                SetHand(null);
+                break;
+            case RoundManager.State.Play:
+                // cards may already be selected when the player gets control
+                AnalyzeHand(_handPanel.cardsInSelection);
+                break;
+        }
+    }
+
     /// <summary>
     /// Register Hand Types included in current selection
     /// Update the best Hand Type included to current hand type
     /// </summary>
-    private void AnalyzeHand(List<Card> cards)
+    private void AnalyzeHand(IReadOnlyList<Card> cards)
     {
+        // only track the selection while the player is choosing; a hand being played keeps its type on screen
         if (_roundManager.curState != RoundManager.State.Play) return;
-
-        var result = Evaluate(cards);
-        curHand = result.Type;
-        handTypesContained.Clear();
-        handTypesContained.AddRange(result.ContainedTypes);
-
-        UpdateHandTypeEvent?.Invoke(curHand);
+        SetHand(Evaluate(cards));
     }
 
-    /// <summary>
-    /// Lock in the hand type and scoring cards of the hand being played.
-    /// Called when the play button is pressed.
-    /// </summary>
-    public void FinalizeHandType()
+    private void SetHand(HandResult result)
     {
-        if (_roundManager.curState != RoundManager.State.Play) return;
+        curHand = result?.Type ?? Enums.BasePokerHandType.None;
+        handTypesContained.Clear();
+        if (result != null) handTypesContained.AddRange(result.ContainedTypes);
 
-        // re-evaluate from the live selection instead of trusting the last selection-changed event
-        var result = Evaluate(_handPanel.cardsInSelection, scoringCards);
-        scoringHandType = result.Type;
-        ScoreCalculator.Instance.curHandType = scoringHandType;
-
-        foreach (var card in scoringCards)
-        {
-            card.cardData.canScore = true;
-        }
+        HandTypeChanged?.Invoke(curHand);
     }
 }

@@ -18,8 +18,6 @@ public class CardData : MonoBehaviour, IComparable
     [Tooltip("Whether the card is being highlighted and ready to be scored")]
     public bool isScoring = false;
     
-    [HideInInspector] public UnityEvent<Card, bool> onScoreCheckEvent = new UnityEvent<Card, bool>();
-    
     [Header("Card Data Parameters")]
     public string id;
     public string description;
@@ -69,6 +67,8 @@ public class CardData : MonoBehaviour, IComparable
             // Instantiate Actions
             cardActions.Add(config.Create());
         }
+        // lower execution order runs first; sorted once here instead of on every score
+        cardActions.Sort((a, b) => a.executionOrder.CompareTo(b.executionOrder));
     }
     
     

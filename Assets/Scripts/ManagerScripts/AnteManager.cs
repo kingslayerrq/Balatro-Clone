@@ -10,7 +10,7 @@ public class AnteManager : MonoBehaviour
 
     [SerializeField] private BaseBlindParameters smallBlindConfig;
     [SerializeField] private BaseBlindParameters bigBlindConfig;
-    
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -20,29 +20,42 @@ public class AnteManager : MonoBehaviour
     {
         _runManager = RunManager.Instance;
         _roundManager = RoundManager.Instance;
-        RoundButton.SelectRoundEvent.AddListener(SelectRound);
-        RoundButton.SkipRoundEvent.AddListener(SkipRound);
+        if (!_runManager || !_roundManager)
+        {
+            Debug.LogError("AnteManager: RunManager or RoundManager is missing from the scene", this);
+        }
     }
-    
 
-    private void SkipRound(Round round)
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
+    }
+
+    /// <summary>
+    /// The player chose to skip this blind
+    /// </summary>
+    public void SkipRound(Round round)
+    {
+        if (round == null || _runManager == null) return;
+        _runManager.SkipRound(round);
+    }
+
+    /// <summary>
+    /// The player chose to play this blind
+    /// </summary>
+    public void SelectRound(Round round)
     {
         if (round == null || _roundManager == null) return;
-        
-        Debug.LogWarning("Skipping");
-        _roundManager.SkipRound(round);
-    }
-    private void SelectRound(Round round)
-    {
-        if (round == null || _roundManager == null) return;
-
-        Debug.LogWarning("Starting");
         _roundManager.StartRound(round);
     }
 
     public Ante Create(int anteLvl, BaseBlindParameters bossBlindConfig)
     {
-        if (smallBlindConfig == null || bigBlindConfig == null) return null;
+        if (smallBlindConfig == null || bigBlindConfig == null || bossBlindConfig == null)
+        {
+            Debug.LogError("AnteManager: a blind config is missing, cannot create an ante", this);
+            return null;
+        }
         var roundList = new List<Round>
         {
             RoundManager.Create(smallBlindConfig),
@@ -55,14 +68,16 @@ public class AnteManager : MonoBehaviour
             rounds = roundList
         };
     }
-    
+
     [Serializable]
     public class Ante
     {
         public int lvl;
         public List<Round> rounds;
-        
+
+        /// <summary>
+        /// Index of the blind to play next (-1 once every blind is complete or skipped)
+        /// </summary>
+        public int CurrentRoundIndex => rounds.FindIndex(r => !r.isComplete && !r.isSkipped);
     }
-    
-    
 }
