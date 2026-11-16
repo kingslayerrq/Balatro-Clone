@@ -1,12 +1,6 @@
-using UnityEngine;
-
-public class DeckPanel : Panel
+/// <summary>
+/// Offscreen pile holding the run's deck outside of a round
+/// </summary>
+public class DeckPanel : SingletonPanel<DeckPanel>
 {
-   public static DeckPanel Instance;
-
-   protected override void Awake()
-   {
-      base.Awake();
-      if (Instance == null) Instance = this;
-   }
 }

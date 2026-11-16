@@ -1,12 +1,6 @@
-using UnityEngine;
-
-public class DrawPanel : Panel
+/// <summary>
+/// Draw pile of the round in progress
+/// </summary>
+public class DrawPanel : SingletonPanel<DrawPanel>
 {
-    public static DrawPanel Instance;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        if (Instance == null) Instance = this;
-    }
 }

@@ -1,21 +1,15 @@
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
-public class Constants
+public static class Constants
 {
-    [Tooltip("Tolerance when comparing floats")]
+    // Tolerance when comparing floats
     public const float TOLERANCE = 1e-6f;
 
-    [Tooltip("Max $ icon count")] public const int MAX_REWARD_COUNT = 10;
-    
-    // public static readonly Dictionary<Enums.BlindType, float> BASE_BLIND_CHIPGOAL = new Dictionary<Enums.BlindType, float>
-    // {
-    //     { Enums.BlindType.SmallBlind, 300 },
-    //     { Enums.BlindType.BigBlind, 450 },
-    //     { Enums.BlindType.BossBlind, 600 },
-    // };
-    
+    // Max $ icon count
+    public const int MAX_REWARD_COUNT = 10;
+
+    // Base chip goal per ante level; a blind multiplies it by its baseChipGoalMultiplier
     public static readonly Dictionary<int, double> BASE_ANTE_CHIPGOAL = new Dictionary<int, double>
     {
         {1, 300},
@@ -31,10 +25,20 @@ public class Constants
         {11, 7200000},
         {12, 300000000},
         {13, 47000000000},
-        {14, 2.9 * math.exp(13)},
-        {15, 7.7 * math.exp(16)},
-        {16, 8.6 * math.exp(20)}
+        {14, 2.9e13},
+        {15, 7.7e16},
+        {16, 8.6e20}
     };
+
+    public const int MAX_ANTE_WITH_CHIPGOAL = 16;
+
+    /// <summary>
+    /// Base chip goal of an ante. Antes past the table reuse the last entry.
+    /// </summary>
+    public static double GetAnteChipGoal(int anteLvl)
+    {
+        return BASE_ANTE_CHIPGOAL[Mathf.Clamp(anteLvl, 1, MAX_ANTE_WITH_CHIPGOAL)];
+    }
 
     public static readonly string[] CARD_EDITIONS = new string[]
     {

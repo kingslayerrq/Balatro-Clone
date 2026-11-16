@@ -1,10 +1,7 @@
 using System.Collections;
-using UnityEngine;
+using System.Collections.Generic;
 
 interface IScorable
 {
-    IEnumerator ScoreCoroutine();
-
+    IEnumerator ScoreCoroutine(List<Card> scoringCards, ScoreCalculator calculator);
 }
-
-

@@ -1,177 +1,125 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.Events;
 
+/// <summary>
+/// Holds the running chips x mults of the current hand and scores a played hand.
+/// Raises events when values change; it never waits on a listener.
+/// </summary>
 [RequireComponent(typeof(ScoreVisualizer))]
-public class ScoreCalculator : MonoBehaviour
+public class ScoreCalculator : Singleton<ScoreCalculator>
 {
-    public static ScoreCalculator Instance;
-    
-    
-    private JokerPanel _jokerPanel;
-    private PlayedCardPanel _playedCardPanel;
-    private HandPanel _handPanel;
     private RunManager _runManager;
-    private RoundManager _roundManager;
     private HandAnalyzer _handAnalyzer;
 
+    [Tooltip("Gap between each scoring card")]
     [SerializeField] private float cardScoringGap = 0.2f;
+    [Tooltip("How long the final hand score stays on screen before it is added to the round score")]
+    [SerializeField] private float scoreDisplayTime = 1f;
 
     public Enums.BasePokerHandType curHandType = Enums.BasePokerHandType.None;
-    public double curChips = 0;
-    public double curMults = 0;
-    public double curScore = 0;
-    private double _lastChips = 0;
-    private double _lastMults = 0;
-    private double _lastScore = 0;
+    private double _chips;
+    private double _mults;
 
-    [HideInInspector]
-    public UnityEvent<HandTypeConfig.HandType> UpdateHandTypeVisualEvent = new UnityEvent<HandTypeConfig.HandType>();
-
-    [HideInInspector] public UnityEvent<double> UpdateChipsVisualEvent = new UnityEvent<double>();
-    [HideInInspector] public UnityEvent<double> UpdateMultsVisualEvent = new UnityEvent<double>();
-    [HideInInspector] public UnityEvent<double> UpdateScoreVisualEvent = new UnityEvent<double>();
-    //[HideInInspector] public UnityEvent<float> OnScoreEndEvent = new UnityEvent<float>();
-    [HideInInspector] public UnityEvent<Card> OnCardUsedEvent = new UnityEvent<Card>();
-    private void Awake()
+    public double curChips
     {
-        if (Instance == null) Instance = this;
+        get => _chips;
+        set
+        {
+            if (_chips.Equals(value)) return;
+            _chips = value;
+            ChipsChanged?.Invoke(_chips);
+        }
     }
+
+    public double curMults
+    {
+        get => _mults;
+        set
+        {
+            if (_mults.Equals(value)) return;
+            _mults = value;
+            MultsChanged?.Invoke(_mults);
+        }
+    }
+
+    /// <summary>Score of the last scored hand (chips x mults). 0 while no hand is being resolved.</summary>
+    public double curScore { get; private set; }
+
+    public event Action<HandTypeConfig.HandType> HandTypeChanged;
+    public event Action<double> ChipsChanged;
+    public event Action<double> MultsChanged;
+    /// <summary>The final score of a hand is ready to be shown.</summary>
+    public event Action<double> HandScoreShown;
+    /// <summary>The final score has been on screen long enough.</summary>
+    public event Action HandScoreHidden;
 
     private void Start()
     {
-        _jokerPanel = JokerPanel.Instance;
-        _playedCardPanel = PlayedCardPanel.Instance;
         _runManager = RunManager.Instance;
-        _roundManager = RoundManager.Instance;
         _handAnalyzer = HandAnalyzer.Instance;
-    
-        
-        if (_handAnalyzer && _runManager)
-        {
-            _handAnalyzer.UpdateHandTypeEvent.AddListener(UpdateCalculatorByHandType);
-        }
-        if (_playedCardPanel)
-        {
-            _playedCardPanel.calculateScoringCardsEvent.AddListener(CalculateScore);
-        }
 
-        if (_roundManager)
-        {
-            _roundManager.updateRoundStateEvent.AddListener(ScoreStateHandler);
-            _roundManager.updateRoundStateEvent.AddListener(CleanUpAfterScore);
-        }
+        if (!_runManager) Debug.LogError("ScoreCalculator: no RunManager in the scene", this);
 
-        
+        if (_handAnalyzer)
+        {
+            _handAnalyzer.HandTypeChanged += SetHandType;
+        }
+        else
+        {
+            Debug.LogError("ScoreCalculator: no HandAnalyzer in the scene", this);
+        }
     }
 
-    private void Update()
+    protected override void OnDestroy()
     {
-        if (_lastChips != curChips)
-        {
-            _lastChips = curChips;
-            UpdateChipsVisualEvent?.Invoke(curChips);
-        }
-
-        if (_lastMults != curMults)
-        {
-            _lastMults = curMults;
-            UpdateMultsVisualEvent?.Invoke(curMults);
-        }
-
-        if (_lastScore != curScore)
-        {
-            _lastScore = curScore;
-            UpdateScoreVisualEvent?.Invoke(curScore);
-            
-            _handAnalyzer.curHand = Enums.BasePokerHandType.None;
-            _handAnalyzer.UpdateHandTypeEvent?.Invoke(_handAnalyzer.curHand);
-        } 
+        base.OnDestroy();
+        if (_handAnalyzer) _handAnalyzer.HandTypeChanged -= SetHandType;
     }
 
-    private void ScoreStateHandler(RoundManager.State state)
+    /// <summary>
+    /// Load the base chips / mults of a hand type (None clears them)
+    /// </summary>
+    public void SetHandType(Enums.BasePokerHandType handType)
     {
-        if (state != RoundManager.State.Score) return;
-        CalculateScore(_playedCardPanel.cardsInSelection);
-        
+        curHandType = handType;
+        var runHandType = _runManager.GetRunHandTypeInfo(handType);
+        curChips = runHandType.baseChips;
+        curMults = runHandType.baseMults;
+        HandTypeChanged?.Invoke(runHandType);
     }
-    private void CalculateScore(List<Card> cards)
+
+    /// <summary>
+    /// Score a played hand. When the coroutine ends, <see cref="curScore"/> holds the result.
+    /// </summary>
+    /// <param name="handType">Hand type being played</param>
+    /// <param name="scoringCards">Cards that score, in scoring order</param>
+    public IEnumerator ScoreHand(Enums.BasePokerHandType handType, List<Card> scoringCards)
     {
+        SetHandType(handType);
+
         // TODO: Apply Jokers
-        StartCoroutine(ScoreCards(cards));
-    }
-
-    private IEnumerator ScoreCards(List<Card> cards)
-    {
-        foreach (var card in cards)
+        foreach (var card in scoringCards)
         {
-            yield return StartCoroutine(card.cardScore.ScoreCoroutine());
+            yield return card.cardScore.ScoreCoroutine(scoringCards, this);
             yield return new WaitForSecondsRealtime(cardScoringGap);
         }
 
         curScore = curChips * curMults;
-        
 
-        yield return new WaitForSecondsRealtime(0.5f);
-
-        //_roundManager.updateRoundStateEvent?.Invoke(RoundManager.State.OnScored);
-        // yield return StartCoroutine(RecycleCards(cards));
-
-
-    }
-
-    private void CleanUpAfterScore(RoundManager.State state)
-    {
-        if (state != RoundManager.State.OnScored) return;
-        StartCoroutine(RecycleCards(_playedCardPanel.cardsInSelection));
+        // show the total, clear the hand type panel underneath it
+        HandScoreShown?.Invoke(curScore);
+        SetHandType(Enums.BasePokerHandType.None);
+        yield return new WaitForSecondsRealtime(scoreDisplayTime);
+        HandScoreHidden?.Invoke();
     }
 
     /// <summary>
-    /// push down the used cards and put them into usedcard panel
+    /// Called once the hand score has been added to the round
     /// </summary>
-    /// <param name="cards"></param>
-    /// <returns></returns>
-    private IEnumerator RecycleCards(List<Card> cards)
+    public void ResetScore()
     {
-        var cardsCopy = cards.ToArray();
-        foreach (var card in cardsCopy)
-        {
-            card.isSelected = false;
-            Card.selectEvent?.Invoke(card, card.isSelected, card.curPanel);
-            card.SelectTransformUpdate();
-            
-            yield return new WaitForSecondsRealtime(0.1f);
-        }
-
-        yield return new WaitForSecondsRealtime(0.5f);
-
-        var cardsInPanelCopy = _playedCardPanel.cardsInPanel.ToArray();
-        foreach (var card in cardsInPanelCopy)
-        {
-            
-            yield return new WaitForEndOfFrame();
-            OnCardUsedEvent?.Invoke(card);
-            _playedCardPanel.cardsInPanel.Remove(card);
-            yield return new WaitForSecondsRealtime(0.1f);
-        }
-        
-        //OnScoreEndEvent?.Invoke(curScore);
-        
-        
         curScore = 0;
-        _roundManager.updateRoundStateEvent?.Invoke(RoundManager.State.Evaluate);
-        
-    }
-    
-    private void UpdateCalculatorByHandType(Enums.BasePokerHandType handType)
-    {
-        var runHandType = _runManager.GetRunHandTypeInfo(handType);
-        curChips = runHandType.baseChips;
-        curMults = runHandType.baseMults;
-        UpdateHandTypeVisualEvent?.Invoke(runHandType);
     }
 }

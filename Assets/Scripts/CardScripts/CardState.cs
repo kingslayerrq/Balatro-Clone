@@ -1,20 +1,16 @@
-using System;
-using UnityEngine;
-
-public class CardState : MonoBehaviour
+public static class CardState
 {
-
     public enum CardStatus
     {
-        [Tooltip("Offscreen")]
+        // Offscreen, in the Deck Panel (run deck, outside of a round)
         InCreation,
-        [Tooltip("In Draw Panel")]
+        // In Draw Panel
         InDeck,
-        [Tooltip("In Hand Panel")]
+        // In Hand Panel
         InHand,
-        [Tooltip("In Played Panel for ready to be scored")]
+        // In Played Panel, ready to be scored
         InPlayed,
-        [Tooltip("Offscreen, just for reference")]
+        // In Used Panel (discarded or already played this round)
         InUsed
     }
 }

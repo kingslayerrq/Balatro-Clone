@@ -6,10 +6,8 @@ using UnityEngine.UI;
 using DG.Tweening;
 
 
-public class RoundVisualizer : MonoBehaviour
+public class RoundVisualizer : Singleton<RoundVisualizer>
 {
-    public static RoundVisualizer Instance;
-
     private RoundManager _roundManager;
     private RunManager _runManager;
 
@@ -45,28 +43,22 @@ public class RoundVisualizer : MonoBehaviour
     [SerializeField] private Camera camera;
     private Color _cameraOrigColor;
     
-    private int _prevHandCount;
-    private int _prevDiscardCount;
-    private int _prevMoney;
-    private int _prevAnteLvl;
-    private int _prevRoundLvl;
-    private double _prevChipGoal;
-    private double _prevScore;
-    
-    private void Awake()
-    {
-        if (Instance == null) Instance = this;
-    }
-
     private void Start()
     {
         _roundManager = RoundManager.Instance;
-        if (_roundManager)
-        {
-            _roundManager.roundSetupVisualEvent.AddListener(SetupVisual);
-            _roundManager.roundEndEvent.AddListener(HandleRoundEnd);
-        }
         _runManager = RunManager.Instance;
+        if (_roundManager && _runManager)
+        {
+            _roundManager.RoundSetup += SetupVisual;
+            _roundManager.RoundChanged += UpdateRoundValues;
+            _roundManager.RoundEnded += HandleRoundEnd;
+            _runManager.RunStatsChanged += UpdateRunValues;
+            UpdateRunValues();
+        }
+        else
+        {
+            Debug.LogError("RoundVisualizer: RoundManager or RunManager is missing from the scene", this);
+        }
 
         #region Original Color Outside of Rounds
 
@@ -97,64 +89,42 @@ public class RoundVisualizer : MonoBehaviour
         #endregion
     }
 
-    private void Update()
+    protected override void OnDestroy()
     {
-        // Only update UI when values change
-        if (_roundManager.curRound != null)
+        base.OnDestroy();
+        if (_roundManager)
         {
-            // Check for hand count changes
-            if (_prevHandCount != _roundManager.curRound.hands)
-            {
-                _prevHandCount = _roundManager.curRound.hands;
-                UpdateHandCount(_prevHandCount);
-            }
-        
-            // Check for discard count changes
-            if (_prevDiscardCount != _roundManager.curRound.discards)
-            {
-                _prevDiscardCount = _roundManager.curRound.discards;
-                UpdateDiscardCount(_prevDiscardCount);
-            }
-        
-            // Check for chip goal changes
-            if (_prevChipGoal != _roundManager.curRound.chipGoal)
-            {
-                _prevChipGoal = _roundManager.curRound.chipGoal;
-                UpdateBlindChipGoal(_prevChipGoal);
-            }
-            
-            // Check for score changes
-            if (_prevScore != _roundManager.curRound.roundScore)
-            {
-                _prevScore = _roundManager.curRound.roundScore;
-                UpdateRoundScore(_prevScore);
-            }
+            _roundManager.RoundSetup -= SetupVisual;
+            _roundManager.RoundChanged -= UpdateRoundValues;
+            _roundManager.RoundEnded -= HandleRoundEnd;
         }
-    
-        // Check for money changes
-        if (_prevMoney != _runManager.Money)
-        {
-            _prevMoney = _runManager.Money;
-            UpdateMoney(_prevMoney);
-        }
-    
-        // Check for ante level changes
-        if (_prevAnteLvl != _runManager.CurAnteLvl)
-        {
-            _prevAnteLvl = _runManager.CurAnteLvl;
-            UpdateAnteLvl(_prevAnteLvl);
-        }
-    
-        // Check for round level changes
-        if (_prevRoundLvl != _runManager.CurRoundLvl)
-        {
-            _prevRoundLvl = _runManager.CurRoundLvl;
-            UpdateRoundLvl(_prevRoundLvl);
-        }
+        if (_runManager) _runManager.RunStatsChanged -= UpdateRunValues;
+    }
+
+    /// <summary>
+    /// Hands, discards, goal or score of the round in progress changed
+    /// </summary>
+    private void UpdateRoundValues(Round round)
+    {
+        UpdateHandCount(round.hands);
+        UpdateDiscardCount(round.discards);
+        UpdateBlindChipGoal(round.chipGoal);
+        UpdateRoundScore(round.roundScore);
+    }
+
+    /// <summary>
+    /// Money, ante level or round level of the run changed
+    /// </summary>
+    private void UpdateRunValues()
+    {
+        UpdateMoney(_runManager.Money);
+        UpdateAnteLvl(_runManager.CurAnteLvl);
+        UpdateRoundLvl(_runManager.CurRoundLvl);
     }
 
     private void SetupVisual(Round round)
     {
+        UpdateRoundScore(round.roundScore);
         blindName.text = round.blind.blindName;
         blindDescription.text = round.blind.description;
         blindChipGoal.text = round.chipGoal.FormatDouble();
@@ -199,11 +169,9 @@ public class RoundVisualizer : MonoBehaviour
         blindReward.text = " ";
         handCount.text = _runManager.Hands.FormatInt();
         discardCount.text = _runManager.Discards.FormatInt();
-        money.text = _runManager.Money.FormatInt();
-        anteLvl.text = _runManager.CurAnteLvl.FormatInt();
         anteLvlReqToWin.text = " / " + _runManager.AnteLvlReqToWin.FormatInt();
-        roundLvl.text = _runManager.CurRoundLvl.FormatInt();
-        
+        UpdateRunValues();
+
         blindImageAnimation.sprites = null;
         blindImageAnimation.isSet = false;
         

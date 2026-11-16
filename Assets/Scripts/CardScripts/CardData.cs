@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 
 
 public class CardData : MonoBehaviour, IComparable
@@ -18,8 +16,6 @@ public class CardData : MonoBehaviour, IComparable
     [Tooltip("Whether the card is being highlighted and ready to be scored")]
     public bool isScoring = false;
     
-    [HideInInspector] public UnityEvent<Card, bool> onScoreCheckEvent = new UnityEvent<Card, bool>();
-    
     [Header("Card Data Parameters")]
     public string id;
     public string description;
@@ -34,7 +30,8 @@ public class CardData : MonoBehaviour, IComparable
     [Tooltip("Base background of card, subject to enhancement changes")]
     public Sprite baseSprite;
     public List<CardActionConfig> cardActionConfigs;
-    public List<BaseActionConfig.BaseAction> cardActions = new List<BaseActionConfig.BaseAction>();
+    [Tooltip("cardActionConfigs in execution order. Filled when the card is created")]
+    public List<BaseActionConfig> cardActions = new List<BaseActionConfig>();
     
     
     public void Init()
@@ -64,11 +61,13 @@ public class CardData : MonoBehaviour, IComparable
         cardActionConfigs = cardParam.cardActionConfigs;
         
         description = $"<color=#0097FE>+{rank}</color> chips";
+        cardActions.Clear();
         foreach (var config in cardActionConfigs)
         {
-            // Instantiate Actions
-            cardActions.Add(config.Create());
+            if (config != null) cardActions.Add(config);
         }
+        // lower execution order runs first; sorted once here instead of on every score
+        cardActions.Sort((a, b) => a.executionOrder.CompareTo(b.executionOrder));
     }
     
     

@@ -1,16 +1,13 @@
-using System;
-using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class HandTypeVisualizer : MonoBehaviour
+/// <summary>
+/// Shows the current hand type, its chips x mults, and the final score of a played hand.
+/// Display only: nothing in the game flow waits on this component.
+/// </summary>
+public class HandTypeVisualizer : Singleton<HandTypeVisualizer>
 {
-    public static HandTypeVisualizer Instance;
-    
-    private HandAnalyzer _handAnalyzer;
     private ScoreCalculator _scoreCalculator;
-    private RoundManager _roundManager;
 
     [SerializeField] private TextMeshProUGUI handTypeName;
     [SerializeField] private TextMeshProUGUI handTypeLvl;
@@ -21,25 +18,33 @@ public class HandTypeVisualizer : MonoBehaviour
     [SerializeField] private GameObject handTypeLvlObj;
     [SerializeField] private GameObject handScoreObj;
 
-    [HideInInspector] public UnityEvent<double> UpdateRoundScoreEvent = new UnityEvent<double>();
-    private void Awake()
-    {
-        if (Instance == null) Instance = this;
-    }
-
     private void Start()
     {
-        _roundManager = RoundManager.Instance;
         _scoreCalculator = ScoreCalculator.Instance;
-        if (_scoreCalculator)
+        if (!_scoreCalculator)
         {
-            _scoreCalculator.UpdateHandTypeVisualEvent.AddListener(UpdateHandTypePanelVisuals);
-            _scoreCalculator.UpdateChipsVisualEvent.AddListener(UpdateChipsPanelVisuals);
-            _scoreCalculator.UpdateMultsVisualEvent.AddListener(UpdateMultsPanelVisuals);
-            _scoreCalculator.UpdateScoreVisualEvent.AddListener(UpdateHandScorePanelVisualWrapper);
+            Debug.LogError("HandTypeVisualizer: no ScoreCalculator in the scene", this);
+            return;
         }
 
+        _scoreCalculator.HandTypeChanged += UpdateHandTypePanelVisuals;
+        _scoreCalculator.ChipsChanged += UpdateChipsPanelVisuals;
+        _scoreCalculator.MultsChanged += UpdateMultsPanelVisuals;
+        _scoreCalculator.HandScoreShown += ShowHandScore;
+        _scoreCalculator.HandScoreHidden += HideHandScore;
+    }
 
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        if (_scoreCalculator)
+        {
+            _scoreCalculator.HandTypeChanged -= UpdateHandTypePanelVisuals;
+            _scoreCalculator.ChipsChanged -= UpdateChipsPanelVisuals;
+            _scoreCalculator.MultsChanged -= UpdateMultsPanelVisuals;
+            _scoreCalculator.HandScoreShown -= ShowHandScore;
+            _scoreCalculator.HandScoreHidden -= HideHandScore;
+        }
     }
 
     private void UpdateHandTypePanelVisuals(HandTypeConfig.HandType handType)
@@ -48,7 +53,6 @@ public class HandTypeVisualizer : MonoBehaviour
         handTypeLvl.text = handType.type == Enums.BasePokerHandType.None ? "" : "lvl. " + handType.lvl;
         handTypeBaseChips.text = handType.baseChips.FormatFloat();
         handTypeBaseMults.text = handType.baseMults.FormatFloat();
-
     }
 
     private void UpdateChipsPanelVisuals(double chips)
@@ -61,30 +65,21 @@ public class HandTypeVisualizer : MonoBehaviour
         handTypeBaseMults.text = mults.FormatDouble();
     }
 
-    private void UpdateHandScorePanelVisualWrapper(double score)
+    /// <summary>
+    /// Swap the hand type panel for the calculated score of the played hand
+    /// </summary>
+    private void ShowHandScore(double score)
     {
-        if (score == 0) return;
-        if (!_roundManager || _roundManager.curState != RoundManager.State.Score) return;
-        StartCoroutine(UpdateScorePanelVisuals(score));
+        if (handTypeObj) handTypeObj.SetActive(false);
+        if (handTypeLvlObj) handTypeLvlObj.SetActive(false);
+        if (handScoreObj) handScoreObj.SetActive(true);
+        if (handScore) handScore.text = score.FormatDouble();
     }
 
-    /// <summary>
-    /// Updates the calculated score during score state
-    /// Invokes UpdateRoundScoreEvent when done
-    /// </summary>
-    /// <param name="score"></param>
-    /// <returns></returns>
-    private IEnumerator UpdateScorePanelVisuals(double score)
+    private void HideHandScore()
     {
-        if (handTypeObj == null || handTypeLvlObj == null) yield break;
-        handTypeLvlObj.SetActive(false);
-        handTypeObj.SetActive(false);
-        handScoreObj.SetActive(true);
-        handScore.text = score.FormatDouble();
-        yield return new WaitForSecondsRealtime(1f);
-        handScoreObj.SetActive(false);
-        UpdateRoundScoreEvent?.Invoke(score);
-        handTypeObj.SetActive(true);
-        handTypeLvlObj.SetActive(true);
+        if (handScoreObj) handScoreObj.SetActive(false);
+        if (handTypeObj) handTypeObj.SetActive(true);
+        if (handTypeLvlObj) handTypeLvlObj.SetActive(true);
     }
 }

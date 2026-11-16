@@ -1,14 +1,17 @@
-using System;
-using System.Linq;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 
+/// <summary>
+/// The visible part of a card. Follows its parent <see cref="Card"/> (the invisible, interactable
+/// object inside a panel slot) and plays every hover / select / score animation.
+/// The parent card calls the On... methods directly.
+/// </summary>
 public class CardVisuals : MonoBehaviour
 {
     #region CardVisuals Variables
-    
-    
+
+
     [Header("Card")]
     public Card parentCard = null;
     [SerializeField] private int indexInHand;
@@ -17,13 +20,10 @@ public class CardVisuals : MonoBehaviour
     [SerializeField] private Vector3 movementDelta;
     [SerializeField] private Vector3 rotationDelta;
 
-    [Header("References")] 
-    private RunManager _runManager;
-
     [Header("Shader Material")]
     [SerializeField] private ShaderCode cardBaseShader;
     [SerializeField] private ShaderCode cardRnsShader;
-    
+
     [Tooltip("Separate parent obj from actual card")]
     [SerializeField] private Transform tiltParent;
     [SerializeField] private Transform shakeParent;
@@ -33,24 +33,25 @@ public class CardVisuals : MonoBehaviour
     public Transform cardShadow;
     private Canvas _shadowCanvas;
     private Vector2 _shadowDistance;
+    private Camera _camera;
     [SerializeField] private float shadowOffset = 20f;
     public Vector3 originalScale;
 
     [Header("CardInfo Visuals")] public CardInfoVisual cardInfoVisual = null;
 
-    [Header("Animation")] 
+    [Header("Animation")]
     [SerializeField] private bool allowTilt = true;
-    
+
     [Header("Movement and Rotation Settings")]
     [SerializeField] private float followSpeed = 50f;
     [SerializeField] private float rotationAmount = 20f;
     [SerializeField] private float rotationSpeed = 50f;
 
-    [Header("Tilt Settings")] 
+    [Header("Tilt Settings")]
     [SerializeField] private float autoTiltAmount = 15f;
     [SerializeField] private float manualTiltAmount = 30f;
     [SerializeField] private float tiltSpeed = 40f;
-    
+
     [Header("Scale Parameters")]
     [SerializeField] private bool scaleAnimations = true;
     [SerializeField] private float scaleOnHover = 1.1f;
@@ -63,28 +64,22 @@ public class CardVisuals : MonoBehaviour
     [Header("Select Parameters")]
     [SerializeField] private float selectPunchAmount = 20f;
 
-    [Header("Hover Parameters")] 
+    [Header("Hover Parameters")]
     [SerializeField] private float hoverPunchAngle = 5f;
     [SerializeField] private float hoverTransition = 0.15f;
 
-    [Header("Swap Parameters")] 
+    [Header("Swap Parameters")]
     public bool swapAnimations = true;
     [SerializeField] private float swapRotationAngle = 20f;
     [SerializeField] private float swapTransition = 0.2f;
     [SerializeField] private int swapVibrato = 5;
-    
+
     [Header("Curve")]
     [SerializeField] private CurveParameters curve;
     [HideInInspector] public float curveYOffset;
     [HideInInspector] public float curveRotationOffset;
 
     #endregion
-
-    private void Start()
-    {
-        _shadowDistance = cardShadow.localPosition;
-        _runManager = RunManager.Instance;
-    }
 
     private void Update()
     {
@@ -95,35 +90,33 @@ public class CardVisuals : MonoBehaviour
         CardTilt();
     }
 
+    private void OnDestroy()
+    {
+        // tweens must not outlive the objects they animate
+        DOTween.Kill(this);
+        transform.DOKill();
+        if (shakeParent) shakeParent.DOKill();
+    }
+
     public void Init(Card target)
     {
-        
         canvas = GetComponent<Canvas>();
         _shadowCanvas = cardShadow.GetComponent<Canvas>();
+        _shadowDistance = cardShadow.localPosition;
+        _camera = Camera.main;
         parentCard = target;
         indexInHand = parentCard.GetParentIndex();
         originalScale = GetComponent<RectTransform>().localScale;
-        //SetCardImage(target.);
         originalColor = cardImage.color;
         cardInfoVisual = GetComponentInChildren<CardInfoVisual>();
-        
-        if (cardInfoVisual == null) return;
+
+        if (cardInfoVisual == null)
+        {
+            Debug.LogError($"{name}: CardVisual prefab has no CardInfoVisual child", this);
+            return;
+        }
         cardInfoVisual.Init(parentCard.cardData.id, parentCard.cardData.description);
-        
-        //Event Listening
-        Card.pointerEnterEvent.AddListener(PointerEnter);
-        Card.pointerExitEvent.AddListener(PointerExit);
-        Card.beginDragEvent.AddListener(BeginDrag);
-        Card.endDragEvent.AddListener(EndDrag);
-        Card.pointerDownEvent.AddListener(PointerDown);
-        Card.pointerUpEvent.AddListener(PointerUp);
-        Card.selectEvent.AddListener(Select);
-        Card.scoreEvent.AddListener(Score);
-        Card.cardStatusUpdateEvent.AddListener(StatusUpdate);
-        
-        
-        
-        // Set true
+
         isInitialized = true;
     }
 
@@ -166,7 +159,7 @@ public class CardVisuals : MonoBehaviour
         float sine = Mathf.Sin(Time.time + indexInHand) * (parentCard.isHovering ? 0.2f : 1f);
         float cosine = Mathf.Cos(Time.time + indexInHand) * (parentCard.isHovering ? 0.2f : 1f);
 
-        Vector3 offset = this.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 offset = this.transform.position - _camera.ScreenToWorldPoint(Input.mousePosition);
         float tiltX = parentCard.isHovering ? (offset.y * -1) * manualTiltAmount : 0;
         float tiltY = parentCard.isHovering ? (offset.x) * manualTiltAmount : 0;
         float tiltZ = (parentCard.isDragging )
@@ -180,83 +173,81 @@ public class CardVisuals : MonoBehaviour
 
         tiltParent.eulerAngles = new Vector3(lerpX, lerpY, lerpZ);
     }
-    
+
     #endregion
 
-    #region Parent Card Event Handlers
+    #region Parent Card Callbacks
 
-    private void PointerEnter(Card card, Panel panel)
+    public void OnPointerEnter()
     {
-        if (card != parentCard || panel != parentCard.curPanel) return;
+        if (!isInitialized) return;
 
-        if (card.status == CardState.CardStatus.InHand)
+        if (parentCard.status == CardState.CardStatus.InHand)
         {
             cardInfoVisual.ShowInfo();
         }
         if (scaleAnimations)
         {
-            this.transform.DOScale(scaleOnHover * originalScale, scaleTransition).SetEase(scaleEase);
+            ScaleTo(scaleOnHover);
         }
-        
-        DOTween.Kill(2, true);      // prevents repeatedly triggering punch rotation
-        shakeParent.DOPunchRotation(Vector3.forward * hoverPunchAngle, hoverTransition, 20, 1).SetId(2);
+
+        PunchRotation(hoverPunchAngle);
     }
 
-    private void PointerExit(Card card, Panel panel)
+    public void OnPointerExit()
     {
-        if (card != parentCard || panel != parentCard.curPanel) return;
-        
+        if (!isInitialized) return;
+
         cardInfoVisual.HideInfo();
         if (scaleAnimations && !parentCard.wasDragged)
         {
-            this.transform.DOScale(originalScale, scaleTransition).SetEase(scaleEase);
+            ScaleTo(1f);
         }
     }
 
-    private void BeginDrag(Card card, Panel panel)
+    public void OnBeginDrag()
     {
-        if (card != parentCard || panel != parentCard.curPanel) return;
+        if (!isInitialized) return;
         if (scaleAnimations)
         {
-            this.transform.DOScale(scaleOnSelect * originalScale, scaleTransition).SetEase(scaleEase);
+            ScaleTo(scaleOnSelect);
         }
-        
+
         canvas.overrideSorting = true;
-
     }
 
-    private void EndDrag(Card card, Panel panel)
+    public void OnEndDrag()
     {
-        if (card != parentCard || panel != parentCard.curPanel) return;
+        if (!isInitialized) return;
         canvas.overrideSorting = false;
-        this.transform.DOScale(originalScale, scaleTransition).SetEase(scaleEase);
+        ScaleTo(1f);
     }
 
-    private void PointerDown(Card card, Panel panel)
+    public void OnPointerDown()
     {
-        if (card != parentCard || panel != parentCard.curPanel) return;
-  
+        if (!isInitialized) return;
+
         if (scaleAnimations)
         {
-            this.transform.DOScale(scaleOnSelect * originalScale, scaleTransition).SetEase(scaleEase);
+            ScaleTo(scaleOnSelect);
         }
-        
+
         // show card on top
         canvas.overrideSorting = true;
-        
+
         // sink down shadow
         cardShadow.localPosition += new Vector3(-1 * (1.5f / 2f * shadowOffset), -1 * shadowOffset);
         _shadowCanvas.overrideSorting = false;
     }
 
-    private void PointerUp(Card card, bool shortPress, Panel panel)
+    public void OnPointerUp(bool shortPress)
     {
-        if (card != parentCard || panel != parentCard.curPanel) return;
+        if (!isInitialized) return;
         if (scaleAnimations)
         {
-            this.transform.DOScale(shortPress ? scaleOnSelect * originalScale : scaleOnHover * originalScale, scaleTransition).SetEase(scaleEase);
+            ScaleTo(shortPress ? scaleOnSelect : scaleOnHover);
         }
-        
+
 
         canvas.overrideSorting = false;
         // reset shadow
@@ -264,102 +255,110 @@ public class CardVisuals : MonoBehaviour
         _shadowCanvas.overrideSorting = true;
     }
 
-    private void Select(Card card, bool isSelected, Panel panel)
+    /// <summary>
+    /// The parent card popped up (selected / highlighted for scoring) or back down
+    /// </summary>
+    public void OnSelect(bool isSelected)
     {
-        
-        if (card != parentCard || panel != parentCard.curPanel) return;
-        
-        var c = DOTween.Kill(2, true);      // prevents repeatedly triggering punch rotation
+        if (!isInitialized) return;
+
+        DOTween.Kill(this, true);      // prevents repeatedly triggering punch rotation
         float dir = isSelected ? 1 : 0;     // Pop up or down
         cardInfoVisual.HideInfo();
         shakeParent.DOPunchPosition(shakeParent.up * selectPunchAmount * dir, scaleTransition, 10, 1).OnComplete((() =>
         {
             // only show when pointer is still hovering
-            if (panel == HandPanel.Instance && parentCard.isHovering)
+            if (parentCard.curPanel == HandPanel.Instance && parentCard.isHovering)
             {
                 cardInfoVisual.ShowInfo();
             }
         }));
         if (isSelected)
         {
-            shakeParent.DOPunchRotation(Vector3.forward * (hoverPunchAngle / 2), hoverTransition, 20, 1).SetId(2);
+            shakeParent.DOPunchRotation(Vector3.forward * (hoverPunchAngle / 2), hoverTransition, 20, 1).SetId(this);
         }
 
         if (scaleAnimations)
         {
-            this.transform.DOScale(scaleOnHover * originalScale, scaleTransition).SetEase(scaleEase);
+            ScaleTo(scaleOnHover);
         }
-       
     }
 
-
-    private void Score(Card card)
+    /// <summary>
+    /// One of the parent card's scoring actions just triggered
+    /// </summary>
+    public void OnScore()
     {
-        if (card != parentCard) return;
-        DOTween.Kill(2, true);
+        if (!isInitialized) return;
 
-        shakeParent.DOPunchRotation(Vector3.forward * (hoverPunchAngle / 2), hoverTransition, 20, 1).SetId(2);
+        PunchRotation(hoverPunchAngle / 2);
         if (scaleAnimations)
         {
             shakeParent.DOPunchScale(Vector3.one * scaleOnPunch, 0.1f, scalePunchAmount, 1);
         }
     }
 
-    private void StatusUpdate(Card card, CardState.CardStatus status)
+    /// <summary>
+    /// The parent card moved to another pile: show the matching face
+    /// </summary>
+    public void OnStatusChanged(CardState.CardStatus status)
     {
-        if (card != parentCard) return;
-        card.status = status;
+        if (!isInitialized) return;
+
+        var deckSprite = RunManager.Instance.Deck.deckSprite;
+        SetCardBaseImage(parentCard.cardData.baseSprite);
         switch (status)
         {
             case CardState.CardStatus.InCreation:
                 allowTilt = false;
-                SetCardBaseImage(parentCard.cardData.baseSprite);
-                SetCardImage(RunManager.Instance.Deck.deckSprite);
+                SetCardImage(deckSprite);
                 HideEdition();
                 cardImage.enabled = false;
-                Card.reparentPanelEvent?.Invoke(parentCard, DeckPanel.Instance);
                 break;
             case CardState.CardStatus.InDeck:
                 cardImage.enabled = true;
                 allowTilt = false;
-                SetCardBaseImage(parentCard.cardData.baseSprite);
-                SetCardImage(RunManager.Instance.Deck.deckSprite);
+                SetCardImage(deckSprite);
                 HideEdition();
-                Card.reparentPanelEvent?.Invoke(parentCard, DrawPanel.Instance);
                 break;
             case CardState.CardStatus.InHand:
-                cardImage.enabled = true;
-                allowTilt = true;
-                SetCardBaseImage(parentCard.cardData.baseSprite);
-                SetCardImage(parentCard.cardData.rnsSprite);
-                ShowEdition();
-                Card.reparentPanelEvent?.Invoke(parentCard, HandPanel.Instance);
-                break;
-            case CardState.CardStatus.InUsed:
-                allowTilt = true;
-                SetCardBaseImage(parentCard.cardData.baseSprite);
-                SetCardImage(RunManager.Instance.Deck.deckSprite);
-                HideEdition();
-                Card.reparentPanelEvent?.Invoke(parentCard, UsedPanel.Instance);
-                break;
             case CardState.CardStatus.InPlayed:
                 cardImage.enabled = true;
                 allowTilt = true;
-                SetCardBaseImage(parentCard.cardData.baseSprite);
                 SetCardImage(parentCard.cardData.rnsSprite);
                 ShowEdition();
-                Card.reparentPanelEvent?.Invoke(parentCard, PlayedCardPanel.Instance);
                 break;
-            default:
+            case CardState.CardStatus.InUsed:
+                allowTilt = true;
+                SetCardImage(deckSprite);
+                HideEdition();
                 break;
         }
     }
     #endregion
 
+    /// <summary>
+    /// Tween to a multiple of the original scale, replacing any scale tween still running
+    /// </summary>
+    private void ScaleTo(float multiplier)
+    {
+        transform.DOKill();
+        transform.DOScale(multiplier * originalScale, scaleTransition).SetEase(scaleEase);
+    }
+
+    /// <summary>
+    /// Punch rotation that restarts instead of stacking. Tweens are tagged with this card, not a global id.
+    /// </summary>
+    private void PunchRotation(float angle)
+    {
+        DOTween.Kill(this, true);
+        shakeParent.DOPunchRotation(Vector3.forward * angle, hoverTransition, 20, 1).SetId(this);
+    }
+
     private void ShowEdition()
     {
         if (cardBaseShader == null || parentCard == null) return;
-        
+
         cardBaseShader.SetEdition((int)parentCard.cardData.edition);
         cardRnsShader.SetEdition((int)parentCard.cardData.edition);
     }
@@ -383,10 +382,10 @@ public class CardVisuals : MonoBehaviour
     {
         if (swapAnimations)
         {
-            DOTween.Kill(2, true);
+            DOTween.Kill(this, true);
             shakeParent.DOPunchRotation(Vector3.forward * (dir * swapRotationAngle), swapTransition, swapVibrato, 1)
                 .SetId(3);
-            
+
         }
     }
 

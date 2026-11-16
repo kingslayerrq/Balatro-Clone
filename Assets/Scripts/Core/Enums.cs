@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class Enums
+public static class Enums
 {
     public enum CardSuit
     {
@@ -37,6 +35,7 @@ public class Enums
         Basic
     }
 
+    // Order matters: a higher value is a higher tier hand
     public enum BasePokerHandType
     {
         None = 0,
