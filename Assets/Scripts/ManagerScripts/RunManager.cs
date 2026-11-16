@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -36,7 +35,7 @@ public class RunManager : MonoBehaviour
     public int HandSize
     {
         get => _handSize;
-        set => _handSize = Mathf.Max(0, _handSize);
+        set => _handSize = Mathf.Max(0, value);
     }
     public int Hands
     {
@@ -68,8 +67,8 @@ public class RunManager : MonoBehaviour
     public GameObject CardPrefab;
 
     [SerializeField] private List<BossBlindConfig> bossList = new List<BossBlindConfig>();
-    [Tooltip("Checklist for Boss, bool - whether this boss has been encountered this run")]
-    private Dictionary<BossBlindConfig, bool> _bossDictionary = new Dictionary<BossBlindConfig, bool>();
+    // Bosses not yet encountered this cycle; refilled (reshuffled) once every boss has been used
+    private readonly Queue<BossBlindConfig> _bossQueue = new Queue<BossBlindConfig>();
     public List<AnteManager.Ante> Antes = new List<AnteManager.Ante>();
     [Tooltip("Deck generated from starting deck config, can be modified throughout this run")]
     private List<Card> _cardsDeck = new List<Card>();
@@ -154,22 +153,14 @@ public class RunManager : MonoBehaviour
     private void CreateAnte()
     {
         if (!_anteManager) return;
-        if (_bossDictionary.Count < 1) return;
+        if (bossList == null || bossList.Count < 1) return;
 
         _curAnteLvl += 1;
 
-        var bossItem = _bossDictionary.FirstOrDefault(item => item.Value == false);
-        // Refresh all bosses
-        if (bossItem.Key == null)
-        {
-            foreach (var item in _bossDictionary.Keys)
-            {
-                _bossDictionary[item] = false;
-            }
-            bossItem = _bossDictionary.FirstOrDefault(item => item.Value == false);
-        }
+        // Every boss has been encountered -> start a new shuffled cycle
+        if (_bossQueue.Count == 0) RandomizeBossList();
 
-        var ante = _anteManager.Create(_curAnteLvl, bossItem.Key);
+        var ante = _anteManager.Create(_curAnteLvl, _bossQueue.Dequeue());
         
         Antes.Add(ante);
         CurAnte = ante;
@@ -177,18 +168,16 @@ public class RunManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Shuffle boss and add to dictionary
+    /// Shuffle bosses into the queue
     /// </summary>
     private void RandomizeBossList()
     {
-        if (bossList is { Count: > 1 })
-        {
-            bossList = bossList.OrderBy(x => Random.value).ToList();
-        }
+        _bossQueue.Clear();
+        if (bossList == null) return;
 
-        foreach (var boss in bossList)
+        foreach (var boss in bossList.OrderBy(x => Random.value))
         {
-            _bossDictionary.Add(boss, false);
+            _bossQueue.Enqueue(boss);
         }
     }
     private void LoadDeck()

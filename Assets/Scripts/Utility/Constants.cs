@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class Constants
@@ -31,9 +30,9 @@ public class Constants
         {11, 7200000},
         {12, 300000000},
         {13, 47000000000},
-        {14, 2.9 * math.exp(13)},
-        {15, 7.7 * math.exp(16)},
-        {16, 8.6 * math.exp(20)}
+        {14, 2.9e13},
+        {15, 7.7e16},
+        {16, 8.6e20}
     };
 
     public static readonly string[] CARD_EDITIONS = new string[]
